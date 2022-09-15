@@ -137,8 +137,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
+					<testSource>8</testSource>
+					<testTarget>8</testTarget>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>

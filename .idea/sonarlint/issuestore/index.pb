@@ -27,8 +27,6 @@ t
 Dsrc/main/java/com/serwisspolecznosciowy/Application/Application.java,6\3\63163d1b5d647465476ef748789f3f4d11d506ac
 |
 Lsrc/main/java/com/serwisspolecznosciowy/Application/service/PostService.java,7\1\71595056f783e3c6559c581c2e68ef82013be38d
-
-Osrc/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java,e\a\ea771165c879043b7ba89cd32c4c7368adf3bc84
 :
 
 readMe.txt,8\f\8f6197d674945309f80a767cbd2a59f098e30fc6
