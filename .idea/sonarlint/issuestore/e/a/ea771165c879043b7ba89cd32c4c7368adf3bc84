@@ -1,0 +1,14 @@
+
+u
+java:S1192y"SDefine a constant instead of duplicating this literal "' in our database!" 7 times.(ˆß„œşÿÿÿÿ8‘Üæ†´0
+…
+java:S1488n"cImmediately return this expression instead of assigning it to the temporary variable "commentList".(ªÜ¿¹ûÿÿÿÿ8“Üæ†´0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(áá™íûÿÿÿÿ8™Üæ†´0
+U
+java:S2589¤"7Remove this expression which always evaluates to "true"(ºß•§8âÜæ†´0
+V
+java:S2589˜"8Remove this expression which always evaluates to "false"(ÂØ”î8ÆíÔ‡´0
+T
+java:S2589-"7Remove this expression which always evaluates to "true"(ÈğÒö8àÜæ†´0
+H
+java:S1168q"+Return an empty collection instead of null.(¥¹ï8‹îÔ‡´0
