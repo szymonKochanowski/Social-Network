@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.serwisspolecznosciowy.Application.service.UserServiceTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.662 s - in com.serwisspolecznosciowy.Application.service.UserServiceTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.585 s - in com.serwisspolecznosciowy.Application.service.UserServiceTest
