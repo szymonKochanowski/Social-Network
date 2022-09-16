@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Add to git hub.">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/80ae06110f79addd7ec2738c0f978cce57a85c6c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_comments.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_comments.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_hibernate_sequence.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_hibernate_sequence.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_posts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_posts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_users.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

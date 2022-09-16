@@ -1,6 +1,4 @@
 
-ƒ
-Ssrc/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java,8\0\80ae06110f79addd7ec2738c0f978cce57a85c6c
 8
 mvnw.cmd,1\f\1f1763f358c257ea3515417352b82b0165647ad1
 ‚

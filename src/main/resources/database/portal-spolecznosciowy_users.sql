@@ -18,7 +18,7 @@
 --
 -- Table structure for table `users`
 --
-use heroku_37485f76f35451f;
+use heroku_895662a9a78685b;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

@@ -1,6 +1,6 @@
 Project created to lear how to code REST API and clean code.
 
-All documentation and possibility to call methods are available in swagger open api: http://localhost:8080/swagger-ui/index.html
+All documentation and possibility to call methods are available in swagger open api: https://app-social-network-java.herokuapp.com/swagger-ui/index.html
 
 Project name: Social Network.
 
