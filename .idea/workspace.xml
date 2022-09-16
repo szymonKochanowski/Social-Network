@@ -129,7 +129,7 @@
       <recent name="com.serwisspolecznosciowy.Application.mappers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in demo">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -220,8 +220,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in demo" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.All in demo" />
         <item itemvalue="JUnit.UserServiceTest.deleteUserById" />
         <item itemvalue="JUnit.UserServiceTest (1)" />
         <item itemvalue="JUnit.UserServiceTest.getLoginUser" />
