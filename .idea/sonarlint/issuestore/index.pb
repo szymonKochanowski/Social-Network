@@ -23,8 +23,6 @@ Usrc/main/java/com/serwisspolecznosciowy/Application/repository/CommentRepositor
 Ysrc/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java,6\2\62262c21e535a0d4f10292e1f0f5059985147279
 ƒ
 Ssrc/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java,0\0\00f01fb9f2dcad6bb66188b888844e6a24a6eec6
-t
-Dsrc/main/java/com/serwisspolecznosciowy/Application/Application.java,6\3\63163d1b5d647465476ef748789f3f4d11d506ac
 |
 Lsrc/main/java/com/serwisspolecznosciowy/Application/service/PostService.java,7\1\71595056f783e3c6559c581c2e68ef82013be38d
 €
