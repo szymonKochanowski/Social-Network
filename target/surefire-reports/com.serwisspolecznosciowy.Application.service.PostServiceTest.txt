@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.serwisspolecznosciowy.Application.service.PostServiceTest
 -------------------------------------------------------------------------------
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in com.serwisspolecznosciowy.Application.service.PostServiceTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in com.serwisspolecznosciowy.Application.service.PostServiceTest
