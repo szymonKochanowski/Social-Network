@@ -37,5 +37,3 @@ X
 Lsrc/main/java/com/serwisspolecznosciowy/Application/service/UserService.java,8\c\8ca3470c8245cd44ba5920de527e76b7c24b38fd
 
 Osrc/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java,e\a\ea771165c879043b7ba89cd32c4c7368adf3bc84
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
