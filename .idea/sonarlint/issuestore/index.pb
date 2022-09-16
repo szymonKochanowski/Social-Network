@@ -27,9 +27,6 @@ t
 Dsrc/main/java/com/serwisspolecznosciowy/Application/Application.java,6\3\63163d1b5d647465476ef748789f3f4d11d506ac
 |
 Lsrc/main/java/com/serwisspolecznosciowy/Application/service/PostService.java,7\1\71595056f783e3c6559c581c2e68ef82013be38d
-:
-
-readMe.txt,8\f\8f6197d674945309f80a767cbd2a59f098e30fc6
 €
 Psrc/test/java/com/serwisspolecznosciowy/Application/service/UserServiceTest.java,c\1\c198230e38f6e7ba7463f1b433fb6e032a8c76c8
 U
