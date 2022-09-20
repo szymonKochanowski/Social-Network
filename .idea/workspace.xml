@@ -5,14 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Add to git hub.">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/80ae06110f79addd7ec2738c0f978cce57a85c6c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/817bf7e88fb8dacf03c4d75c8a38cb2808d47824" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_comments.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_comments.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_hibernate_sequence.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_hibernate_sequence.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_posts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_posts.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.CommentControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.CommentControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.PostControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.PostControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.UserControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.UserControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.CommentServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.CommentServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.PostServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.PostServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.UserServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.UserServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.CommentControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.CommentControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.PostControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.PostControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.UserControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.UserControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.CommentServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.CommentServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.PostServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.PostServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.UserServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.UserServiceTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactor_tests" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -107,7 +122,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/szymonKochanowski.github.io&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/SocialNetwork&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -136,6 +151,12 @@
       <recent name="com.serwisspolecznosciowy.Application.mappers" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn spring-boot:build-image" />
+      <command value="mvn clean, compile, package" />
+    </option>
+  </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
@@ -160,21 +181,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SocialNetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserServiceTest.deleteUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="social_network" />
       <extension name="coverage">
@@ -191,22 +197,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.getLoginUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SocialNetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="getLoginUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -218,20 +208,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="social_service:1.0" />
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Application" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.All in demo" />
       <item itemvalue="JUnit.UserServiceTest.deleteUserById" />
-      <item itemvalue="JUnit.UserServiceTest (1)" />
-      <item itemvalue="JUnit.UserServiceTest.getLoginUser" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.All in demo" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="JUnit.UserServiceTest.deleteUserById" />
-        <item itemvalue="JUnit.UserServiceTest (1)" />
-        <item itemvalue="JUnit.UserServiceTest.getLoginUser" />
       </list>
     </recent_temporary>
   </component>

@@ -7,12 +7,6 @@ Rsrc/main/java/com/serwisspolecznosciowy/Application/repository/UserRepository.j
 Ksrc/main/java/com/serwisspolecznosciowy/Application/config/CacheConfig.java,6\6\660bb6eb18fc8925fbdc7c330bb8f589d002b59e
 ‚
 Rsrc/main/java/com/serwisspolecznosciowy/Application/controller/PostController.java,a\c\ac76ad526321fcf6a0a4d63ee4320e5d4e8a4821
-w
-Gsrc/main/java/com/serwisspolecznosciowy/Application/entity/Comment.java,b\9\b9b6b463dbd6af6a583995eb88b5b918710b9c02
-t
-Dsrc/main/java/com/serwisspolecznosciowy/Application/entity/Post.java,8\d\8d91b391280c6bfb2d3fed0a4d5dee3711a00ab9
-…
-Usrc/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java,8\1\817bf7e88fb8dacf03c4d75c8a38cb2808d47824
 ‚
 Rsrc/main/java/com/serwisspolecznosciowy/Application/controller/UserController.java,6\3\63e3f8bc445ec87fdb0506e823a2610e79862aff
 …
@@ -33,3 +27,13 @@ X
 Lsrc/main/java/com/serwisspolecznosciowy/Application/service/UserService.java,8\c\8ca3470c8245cd44ba5920de527e76b7c24b38fd
 
 Osrc/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java,e\a\ea771165c879043b7ba89cd32c4c7368adf3bc84
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+A
+system.properties,a\5\a5db35984da8ffa0e255c16a2e31ae7b26e7d222
+t
+Dsrc/main/java/com/serwisspolecznosciowy/Application/entity/User.java,0\4\049ad84cbd6172319b9c3deab1b0f7b887919a1e
+t
+Dsrc/main/java/com/serwisspolecznosciowy/Application/entity/Post.java,8\d\8d91b391280c6bfb2d3fed0a4d5dee3711a00ab9
+w
+Gsrc/main/java/com/serwisspolecznosciowy/Application/entity/Comment.java,b\9\b9b6b463dbd6af6a583995eb88b5b918710b9c02
