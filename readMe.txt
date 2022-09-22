@@ -7,13 +7,15 @@ Project name: Social Network.
 Used programing language: JAVA version 11.
 CSV: GitHub
 Used frameworks and libraries:
-- Spring: Web, JPA, Security (Basic Authentication), Cache, Validation, Test;
-- EhCache;
-- Swagger openAPI 3.0;
-- MySQL, Hibernate;
-- JUnit 5, Mockito;
-- Mapstruck;
-- Lombok.
+- Spring: Web, JPA, Security (Basic Authentication), Cache, Validation, Test,
+- EhCache,
+- Swagger openAPI 3.0,
+- MySQL, Hibernate,
+- JUnit 5, Mockito,
+- Mapstruck,
+- Lombok,
+- Heroku,
+- Docker.
 
 Generally application allows:
 - for not login users: create a new user and login to app;
