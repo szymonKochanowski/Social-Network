@@ -1,26 +1,27 @@
-version: '3.8'
 services:
 
-  social_network:
-    container_name: social_network
+  app:
+    container_name: 'social-network-app'
     build: .
-    environment:
-      - SERVER_PORT=8080
-      - SPRING_DATASOURCE_URL=jdbc:mysql://social_network_mysql_db:3306/portal-spodolecznosciowy?createDatabaseIfNotExist=true
-      - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    networks:
+      - social-network
     ports:
       - "8080:8080"
     depends_on:
-        - db
+      - database
 
-  db:
-    image: mysql:8.0.27
-    container_name: social_network_mysql_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: social
-      MYSQL_DATABASE: portal-spodolecznosciowy
-      MYSQL_USER: social
-      MYSQL_PASSWORD: social
+  database:
+    container_name: 'social_network_mysql_db'
+    image: mysql:8.0.28
     ports:
       - "3307:3306"
+    networks:
+      -  social-network
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ANAkonda92
+      MYSQL_DATABASE: portal-spolecznosciowy
+      MYSQL_PASSWORD: ANAkonda92
+
+networks:
+  social-network:
