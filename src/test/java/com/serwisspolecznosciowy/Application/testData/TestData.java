@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -21,8 +22,8 @@ public class TestData {
         post.setUpdated(null);
         post.setUser(preparedUser());
         post.setCommentList(null);//set as null to avoid StackOverflowError
-        post.setNumberOfLikes(0);
-        post.setNumberOfDislikes(0);
+        post.setLikeList(Collections.emptyList());
+        post.setDislikeList(Collections.emptyList());
         return post;
     }
 
@@ -33,8 +34,8 @@ public class TestData {
         postDtoWithAuthor.setBody(post.getBody());
         postDtoWithAuthor.setCreated(post.getCreated());
         postDtoWithAuthor.setUpdated(post.getUpdated());
-        postDtoWithAuthor.setNumberOfLikes(post.getNumberOfLikes());
-        postDtoWithAuthor.setNumberOfDislikes(post.getNumberOfDislikes());
+        postDtoWithAuthor.setLikeList(post.getLikeList());
+        postDtoWithAuthor.setDislikeList(post.getDislikeList());
         postDtoWithAuthor.setUsername(user.getUsername());
         postDtoWithAuthor.setProfilePicture(null);
         return postDtoWithAuthor;
@@ -139,8 +140,8 @@ public class TestData {
         comment.setUpdated(null);
         comment.setPostId(preparedPost().getId());
         comment.setUser(preparedUser());
-        comment.setNumberOfLikes(0);
-        comment.setNumberOfDislikes(0);
+        comment.setLikeList(null);
+        comment.setDislikeList(null);
         return comment;
     }
 
@@ -164,8 +165,8 @@ public class TestData {
         commentDtoWithAuthor.setBody(comment.getBody());
         commentDtoWithAuthor.setCreated(comment.getCreated());
         commentDtoWithAuthor.setUpdated(comment.getUpdated());
-        commentDtoWithAuthor.setNumberOfLikes(comment.getNumberOfLikes());
-        commentDtoWithAuthor.setNumberOfDislikes(comment.getNumberOfDislikes());
+        commentDtoWithAuthor.setLikeList(comment.getLikeList());
+        commentDtoWithAuthor.setDislikeList(comment.getDislikeList());
         commentDtoWithAuthor.setUser(preparedUserDto());
         return commentDtoWithAuthor;
     }

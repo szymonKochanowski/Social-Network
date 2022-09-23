@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.entity.Post;
@@ -415,16 +417,16 @@ class PostControllerTest {
         //Given
         Integer postId = testData.preparedPost().getId();
         PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(14);
+        expectedPostDtoWithAuthor.setLikeList(List.of(new Like(1, 1, 1, null)));
         when(postService.addOneLikeToPost(postId)).thenReturn(expectedPostDtoWithAuthor);
         //When
-        MvcResult mvcResult = mockMvc.perform(post("/post/addLike/dto/{postId}", postId))
+        MvcResult mvcResult = mockMvc.perform(post("/post/like/dto/{postId}", postId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
         PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfLikes(), actualPostDtoWithAuthor.getNumberOfLikes());
+        assertEquals(expectedPostDtoWithAuthor.getLikeList(), actualPostDtoWithAuthor.getLikeList());
         assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
         assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
     }
@@ -435,7 +437,7 @@ class PostControllerTest {
         Integer incorrectPostId = 999999999;
         when(postService.addOneLikeToPost(incorrectPostId)).thenThrow(PostNotFoundException.class);
         //When
-        mockMvc.perform(post("/post/addLike/dto/{postId}", incorrectPostId))
+        mockMvc.perform(post("/post/like/dto/{postId}", incorrectPostId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();
@@ -446,16 +448,16 @@ class PostControllerTest {
         //Given
         Integer postId = testData.preparedPost().getId();
         PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfDislikes(14);
+        expectedPostDtoWithAuthor.setDislikeList(List.of(new Dislike(1, 1, 1, null)));
         when(postService.addOneDisLikeToPost(postId)).thenReturn(expectedPostDtoWithAuthor);
         //When
-        MvcResult mvcResult = mockMvc.perform(post("/post/addDislike/dto/{postId}", postId))
+        MvcResult mvcResult = mockMvc.perform(post("/post/dislike/dto/{postId}", postId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
         PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfDislikes(), actualPostDtoWithAuthor.getNumberOfDislikes());
+        assertEquals(expectedPostDtoWithAuthor.getDislikeList(), actualPostDtoWithAuthor.getDislikeList());
         assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
         assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
     }
@@ -466,7 +468,7 @@ class PostControllerTest {
         Integer incorrectPostId = 9999;
         when(postService.addOneDisLikeToPost(incorrectPostId)).thenThrow(PostNotFoundException.class);
         //When
-        mockMvc.perform(post("/post/addDislike/dto/{postId}", incorrectPostId))
+        mockMvc.perform(post("/post/dislike/dto/{postId}", incorrectPostId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();

@@ -1,6 +1,8 @@
 package com.serwisspolecznosciowy.Application.mappers;
 
 import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import com.serwisspolecznosciowy.Application.entity.Post;
 import com.serwisspolecznosciowy.Application.entity.User;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-22T09:35:01+0200",
+    date = "2022-09-23T15:11:09+0200",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.12 (Eclipse Foundation)"
 )
 @Component
@@ -26,8 +28,14 @@ public class PostMapperImpl implements PostMapper {
 
         if ( post != null ) {
             postDtoWithAuthor.setBody( post.getBody() );
-            postDtoWithAuthor.setNumberOfLikes( post.getNumberOfLikes() );
-            postDtoWithAuthor.setNumberOfDislikes( post.getNumberOfDislikes() );
+            List<Like> list = post.getLikeList();
+            if ( list != null ) {
+                postDtoWithAuthor.setLikeList( new ArrayList<Like>( list ) );
+            }
+            List<Dislike> list1 = post.getDislikeList();
+            if ( list1 != null ) {
+                postDtoWithAuthor.setDislikeList( new ArrayList<Dislike>( list1 ) );
+            }
             postDtoWithAuthor.setNumberOfComments( post.getNumberOfComments() );
         }
         postDtoWithAuthor.setUsername( getUsername(user) );
@@ -62,8 +70,14 @@ public class PostMapperImpl implements PostMapper {
         postDtoWithAuthor.setBody( post.getBody() );
         postDtoWithAuthor.setCreated( post.getCreated() );
         postDtoWithAuthor.setUpdated( post.getUpdated() );
-        postDtoWithAuthor.setNumberOfLikes( post.getNumberOfLikes() );
-        postDtoWithAuthor.setNumberOfDislikes( post.getNumberOfDislikes() );
+        List<Like> list = post.getLikeList();
+        if ( list != null ) {
+            postDtoWithAuthor.setLikeList( new ArrayList<Like>( list ) );
+        }
+        List<Dislike> list1 = post.getDislikeList();
+        if ( list1 != null ) {
+            postDtoWithAuthor.setDislikeList( new ArrayList<Dislike>( list1 ) );
+        }
         postDtoWithAuthor.setNumberOfComments( post.getNumberOfComments() );
 
         return postDtoWithAuthor;

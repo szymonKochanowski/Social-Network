@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portal-spolecznosciowy
@@ -18,7 +19,7 @@
 --
 -- Table structure for table `comments`
 --
-use heroku_895662a9a78685b;
+use `portal-spolecznosciowy`;
 
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

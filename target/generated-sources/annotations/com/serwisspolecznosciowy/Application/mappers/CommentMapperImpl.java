@@ -3,6 +3,8 @@ package com.serwisspolecznosciowy.Application.mappers;
 import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
 import com.serwisspolecznosciowy.Application.dto.UserDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
+import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import com.serwisspolecznosciowy.Application.entity.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-22T09:35:01+0200",
+    date = "2022-09-23T13:39:16+0200",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.12 (Eclipse Foundation)"
 )
 @Component
@@ -28,8 +30,14 @@ public class CommentMapperImpl implements CommentMapper {
         commentDtoWithAuthor.setBody( comment.getBody() );
         commentDtoWithAuthor.setCreated( comment.getCreated() );
         commentDtoWithAuthor.setUpdated( comment.getUpdated() );
-        commentDtoWithAuthor.setNumberOfLikes( comment.getNumberOfLikes() );
-        commentDtoWithAuthor.setNumberOfDislikes( comment.getNumberOfDislikes() );
+        List<Like> list = comment.getLikeList();
+        if ( list != null ) {
+            commentDtoWithAuthor.setLikeList( new ArrayList<Like>( list ) );
+        }
+        List<Dislike> list1 = comment.getDislikeList();
+        if ( list1 != null ) {
+            commentDtoWithAuthor.setDislikeList( new ArrayList<Dislike>( list1 ) );
+        }
         commentDtoWithAuthor.setUser( userToUserDto( comment.getUser() ) );
 
         return commentDtoWithAuthor;

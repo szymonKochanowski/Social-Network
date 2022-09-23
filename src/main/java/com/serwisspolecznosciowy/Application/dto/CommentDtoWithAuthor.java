@@ -1,13 +1,14 @@
 package com.serwisspolecznosciowy.Application.dto;
 
+import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,12 +23,10 @@ public class CommentDtoWithAuthor {
 
     private LocalDateTime updated;
 
-    private Integer numberOfLikes;
+    private List<Like> likeList;
 
-    private Integer numberOfDislikes;
+    private List<Dislike> dislikeList;
 
-    @NotNull
-    @ManyToOne(cascade = CascadeType.DETACH)
     private UserDto user;
 
 }

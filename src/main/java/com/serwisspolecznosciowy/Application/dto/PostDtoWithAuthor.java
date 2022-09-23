@@ -1,5 +1,7 @@
 package com.serwisspolecznosciowy.Application.dto;
 
+import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +10,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,9 +25,9 @@ public class PostDtoWithAuthor {
 
     private LocalDateTime updated;
 
-    private Integer numberOfLikes;
+    private List<Like> likeList;
 
-    private Integer numberOfDislikes;
+    private List<Dislike> dislikeList;
 
     @NotNull(message = "Username can not be null!")
     @Size(min = 3, max = 45)

@@ -2,9 +2,7 @@ package com.serwisspolecznosciowy.Application.service;
 
 import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
 import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
@@ -219,7 +217,7 @@ public class CommentServiceTest {
         //Then
         assertEquals(expectedCommentsList.get(0).getBody(), actualCommentsList.get(0).getBody());
         assertEquals(expectedCommentsList.get(0).getCreated(), actualCommentsList.get(0).getCreated());
-        assertEquals(expectedCommentsList.get(0).getNumberOfDislikes(), actualCommentsList.get(0).getNumberOfDislikes());
+        assertEquals(expectedCommentsList.get(0).getDislikeList(), actualCommentsList.get(0).getDislikeList());
         assertEquals(expectedCommentsList.get(0).getUser(), actualCommentsList.get(0).getUser());
     }
 
@@ -246,7 +244,7 @@ public class CommentServiceTest {
         assertEquals(expectedCommentsList.get(0).getBody().contains(body), actualCommentsList.get(0).getBody().contains(body));
         assertEquals(expectedCommentsList.get(0).getBody(), actualCommentsList.get(0).getBody());
         assertEquals(expectedCommentsList.get(0).getCreated(), actualCommentsList.get(0).getCreated());
-        assertEquals(expectedCommentsList.get(0).getNumberOfDislikes(), actualCommentsList.get(0).getNumberOfDislikes());
+        assertEquals(expectedCommentsList.get(0).getDislikeList(), actualCommentsList.get(0).getDislikeList());
         assertEquals(expectedCommentsList.get(0).getUser(), actualCommentsList.get(0).getUser());
     }
 
@@ -276,7 +274,7 @@ public class CommentServiceTest {
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getBody().contains(body), actualCommentDtoWithAuthorList.get(0).getBody().contains(body));
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getBody(), actualCommentDtoWithAuthorList.get(0).getBody());
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getCreated(), actualCommentDtoWithAuthorList.get(0).getCreated());
-        assertEquals(expectedCommentDtoWithAuthorList.get(0).getNumberOfDislikes(), actualCommentDtoWithAuthorList.get(0).getNumberOfDislikes());
+        assertEquals(expectedCommentDtoWithAuthorList.get(0).getDislikeList(), actualCommentDtoWithAuthorList.get(0).getDislikeList());
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getUser(), actualCommentDtoWithAuthorList.get(0).getUser());
     }
 
@@ -295,17 +293,17 @@ public class CommentServiceTest {
     public void addOneLikeToComment() throws CommentNotFoundException {
         //Given
         Comment comment = testData.preparedComment();
-        comment.setNumberOfLikes(22);
+        comment.setLikeList(List.of(new Like(1, 1, null, 1 )));
         Integer commentId = comment.getId();
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
         when(commentRepository.save(comment)).thenReturn(comment);
         CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setNumberOfLikes(comment.getNumberOfLikes() + 1);
+        expectedCommentDtoWithAuthor.setLikeList(comment.getLikeList());
         when(commentMapper.commentToCommentDtoWithAuthor(comment)).thenReturn(expectedCommentDtoWithAuthor);
         //When
         CommentDtoWithAuthor actualCommentDtoWithAuthor = commentService.addOneLikeToComment(commentId);
         //Then
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfLikes(), actualCommentDtoWithAuthor.getNumberOfLikes());
+        assertEquals(expectedCommentDtoWithAuthor.getLikeList(), actualCommentDtoWithAuthor.getLikeList());
         assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
         assertEquals(expectedCommentDtoWithAuthor.getUser(), actualCommentDtoWithAuthor.getUser());
     }
@@ -325,18 +323,18 @@ public class CommentServiceTest {
     public void addOneDisLikeToComment() throws CommentNotFoundException {
         //Given
         Comment comment = testData.preparedComment();
-        comment.setNumberOfDislikes(10);
+        comment.setDislikeList(List.of(new Dislike(1, 1, null, 1)));
         Integer commentId = comment.getId();
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
         when(commentRepository.save(comment)).thenReturn(comment);
         CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setNumberOfDislikes(comment.getNumberOfDislikes() + 1);
+        expectedCommentDtoWithAuthor.setDislikeList(comment.getDislikeList());
         when(commentMapper.commentToCommentDtoWithAuthor(comment)).thenReturn(expectedCommentDtoWithAuthor);
         //When
         CommentDtoWithAuthor actualCommentDtoWithAuthor = commentService.addOneDisLikeToComment(commentId);
         //Then
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfDislikes(), actualCommentDtoWithAuthor.getNumberOfDislikes());
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfLikes(), actualCommentDtoWithAuthor.getNumberOfLikes());
+        assertEquals(expectedCommentDtoWithAuthor.getDislikeList(), actualCommentDtoWithAuthor.getDislikeList());
+        assertEquals(expectedCommentDtoWithAuthor.getLikeList(), actualCommentDtoWithAuthor.getLikeList());
         assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
         assertEquals(expectedCommentDtoWithAuthor.getUser(), actualCommentDtoWithAuthor.getUser());
     }
@@ -370,8 +368,8 @@ public class CommentServiceTest {
         //When
         CommentDtoWithAuthor actualCommentDtoWithAuthor = commentService.editComment(commentBodyDto, user, commentId);
         //Then
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfDislikes(), actualCommentDtoWithAuthor.getNumberOfDislikes());
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfLikes(), actualCommentDtoWithAuthor.getNumberOfLikes());
+        assertEquals(expectedCommentDtoWithAuthor.getDislikeList(), actualCommentDtoWithAuthor.getDislikeList());
+        assertEquals(expectedCommentDtoWithAuthor.getLikeList(), actualCommentDtoWithAuthor.getLikeList());
         assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
         assertEquals(expectedCommentDtoWithAuthor.getUser(), actualCommentDtoWithAuthor.getUser());
     }
@@ -408,7 +406,7 @@ public class CommentServiceTest {
         //Then
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getBody(), actualCommentsDtoListByPostId.get(0).getBody());
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getCreated(), actualCommentsDtoListByPostId.get(0).getCreated());
-        assertEquals(expectedCommentDtoWithAuthorList.get(0).getNumberOfDislikes(), actualCommentsDtoListByPostId.get(0).getNumberOfDislikes());
+        assertEquals(expectedCommentDtoWithAuthorList.get(0).getDislikeList(), actualCommentsDtoListByPostId.get(0).getDislikeList());
         assertEquals(expectedCommentDtoWithAuthorList.get(0).getUser(), actualCommentsDtoListByPostId.get(0).getUser());
     }
 

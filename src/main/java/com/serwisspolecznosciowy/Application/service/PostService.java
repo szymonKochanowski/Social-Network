@@ -2,14 +2,15 @@ package com.serwisspolecznosciowy.Application.service;
 
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.entity.*;
+import com.serwisspolecznosciowy.Application.exception.DuplicateUsernameException;
 import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
 import com.serwisspolecznosciowy.Application.mappers.PostMapper;
 import com.serwisspolecznosciowy.Application.repository.CommentRepository;
+import com.serwisspolecznosciowy.Application.repository.DislikeRepository;
+import com.serwisspolecznosciowy.Application.repository.LikeRepository;
 import com.serwisspolecznosciowy.Application.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,16 +30,22 @@ import java.util.Optional;
 public class PostService {
 
     @Autowired
-    PostRepository postRepository;
+    private PostRepository postRepository;
 
     @Autowired
-    CommentRepository commentRepository;
+    private CommentRepository commentRepository;
 
     @Autowired
-    PostMapper postMapper;
+    private PostMapper postMapper;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Autowired
+    private LikeRepository likeRepository;
+
+    @Autowired
+    private DislikeRepository dislikeRepository;
 
 
     public PostDtoWithAuthor addNewPost(PostBodyDto postBodyDto) throws PostEmptyBodyException {
@@ -49,8 +57,8 @@ public class PostService {
         }
         post.setCreated(LocalDateTime.now());
         post.setUser(loginUser);
-        post.setNumberOfLikes(0);
-        post.setNumberOfDislikes(0);
+        post.setLikeList(Collections.emptyList());
+        post.setDislikeList(Collections.emptyList());
         post.setNumberOfComments(0);
         postRepository.save(post);
         return postMapper.postToPostDtoWithAuthor(post, loginUser);
@@ -143,8 +151,7 @@ public class PostService {
     public List<Post> findAllPostsByUserId(Integer userId) {
         Optional<List<Post>> optionalPostList = postRepository.findAllByUserId(userId);
         if (optionalPostList.isPresent()) {
-            List<Post> postList = optionalPostList.get();
-            return postList;
+            return optionalPostList.get();
         }
         return null;
     }
@@ -170,7 +177,16 @@ public class PostService {
         Optional<Post> optionalPost = postRepository.findById(postId);
         if (optionalPost.isPresent()) {
             Post post = optionalPost.get();
-            post.setNumberOfLikes(post.getNumberOfLikes() + 1);
+            if (post.getLikeList().stream().anyMatch(userInLikeList -> userInLikeList.getUserId().equals(user.getId()))) {
+                log.error("Error in method addOneLikeToPost! User can add only once like to specified post!");
+                throw new DuplicateUsernameException("User can add only once like to specified post!");
+            }
+            List<Like> likeList = post.getLikeList();
+            Like like = new Like();
+            like.setPostLikeId(post.getId());
+            like.setUserId(user.getId());
+            likeRepository.save(like);
+            likeList.add(like);
             return postMapper.postToPostDtoWithAuthor(postRepository.save(post), user);
         } else {
             log.error("Error in method: addOneLikeToPost! Post with id: '" + postId + "' not found in our database!");
@@ -183,7 +199,16 @@ public class PostService {
         Optional<Post> optionalPost = postRepository.findById(postId);
         if (optionalPost.isPresent()) {
             Post post = optionalPost.get();
-            post.setNumberOfDislikes((post.getNumberOfDislikes() == null || post.getNumberOfDislikes() < 0) ? 0 : post.getNumberOfDislikes() + 1);
+            if (post.getDislikeList().stream().anyMatch(userInDislikeList -> userInDislikeList.getUserId().equals(user.getId()))) {
+                log.error("Error in method addOneDisLikeToPost! User can add only once dislike to specified post!");
+                throw new DuplicateUsernameException("User can add only once dislike to specified post!");
+            }
+            List<Dislike> dislikeList = post.getDislikeList();
+            Dislike dislike = new Dislike();
+            dislike.setPostDislikeId(post.getId());
+            dislike.setUserId(user.getId());
+            dislikeRepository.save(dislike);
+            dislikeList.add(dislike);
             return postMapper.postToPostDtoWithAuthor(postRepository.save(post), user);
         } else {
             log.error("Error in method: addOneDisLikeToPost! Post with id: '" + postId + "' not found in our database!");
@@ -195,4 +220,17 @@ public class PostService {
         Post postById = findPostById(postId);
         postById.setNumberOfComments(postById.getNumberOfComments() - 1);
     }
+
+    public Integer getNumberOfLikesByPostId(Integer postId) throws PostNotFoundException {
+        findPostById(postId);
+        List<Like> postLikeList = likeRepository.findByPostLikeId(postId);
+        return postLikeList.size();
+    }
+
+    public Integer getNumberOfDislikesByPostId(Integer postId) throws PostNotFoundException {
+        findPostById(postId);
+        List<Dislike> postDislikeList = dislikeRepository.findByPostDislikeId(postId);
+        return postDislikeList.size();
+    }
+
 }

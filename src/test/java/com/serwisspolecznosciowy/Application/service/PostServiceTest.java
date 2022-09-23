@@ -2,9 +2,7 @@ package com.serwisspolecznosciowy.Application.service;
 
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
@@ -321,18 +319,18 @@ class PostServiceTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfLikes(14);
+        post.setLikeList(List.of(new Like(1, 1, 1, null)));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
         when(postRepository.save(post)).thenReturn(post);
         PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(post.getNumberOfLikes() + 1);
+        expectedPostDtoWithAuthor.setLikeList(post.getLikeList());
         when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
         //When
         PostDtoWithAuthor actualPostDtoWithAuthor = postService.addOneLikeToPost(postId);
         //Then
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfLikes(), actualPostDtoWithAuthor.getNumberOfLikes());
+        assertEquals(expectedPostDtoWithAuthor.getLikeList(), actualPostDtoWithAuthor.getLikeList());
         assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
         assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
     }
@@ -342,7 +340,7 @@ class PostServiceTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfLikes(14);
+        post.setLikeList(List.of(new Like(1, 1, 1, null)));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.ofNullable(null));
@@ -357,18 +355,18 @@ class PostServiceTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfDislikes(14);
+        post.setDislikeList(List.of(new Dislike(1, 1, 1, null)));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
         when(postRepository.save(post)).thenReturn(post);
         PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(post.getNumberOfDislikes() + 1);
+        expectedPostDtoWithAuthor.setDislikeList(post.getDislikeList());
         when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
         //When
         PostDtoWithAuthor actualPostDtoWithAuthor = postService.addOneDisLikeToPost(postId);
         //Then
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfDislikes(), actualPostDtoWithAuthor.getNumberOfDislikes());
+        assertEquals(expectedPostDtoWithAuthor.getDislikeList(), actualPostDtoWithAuthor.getDislikeList());
         assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
         assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
     }
@@ -378,7 +376,7 @@ class PostServiceTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfDislikes(14);
+        post.setDislikeList(List.of(new Dislike(1, 1, 1, null)));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.ofNullable(null));

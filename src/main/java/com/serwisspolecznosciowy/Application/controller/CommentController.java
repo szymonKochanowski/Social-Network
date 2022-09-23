@@ -135,7 +135,7 @@ public class CommentController {
         }
     }
 
-    @PostMapping("/addLike/dto/{commentId}")
+    @PostMapping("/like/dto/{commentId}")
     @Operation(summary = "Add one like to comment by id", description = "Method allows user to add couple likes by push the button couple times.")
     public ResponseEntity<CommentDtoWithAuthor> addOneLikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
         log.info("Start to add like to comment with id: " + commentId);
@@ -147,7 +147,7 @@ public class CommentController {
         }
     }
 
-    @PostMapping("/addDislike/dto/{commentId}")
+    @PostMapping("/dislike/dto/{commentId}")
     @Operation(summary = "Add one dislike to comment by id", description = "Method allows user to add couple likes by push the button couple times.")
     public ResponseEntity<CommentDtoWithAuthor> addOneDislikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
         log.info("Start to add dislike to comment with id: " + commentId);

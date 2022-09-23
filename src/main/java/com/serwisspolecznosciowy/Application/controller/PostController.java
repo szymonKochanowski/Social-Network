@@ -4,10 +4,7 @@ import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
 import com.serwisspolecznosciowy.Application.entity.Post;
 import com.serwisspolecznosciowy.Application.entity.User;
-import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
-import com.serwisspolecznosciowy.Application.exception.UserNotFoundException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -137,23 +134,49 @@ public class PostController {
         }
     }
 
-    @PostMapping("/addLike/dto/{postId}")
-    @Operation(summary = "Add one like to post by id", description = "Method allows user to add couple likes by push the button couple times.")
+    @PostMapping("/like/dto/{postId}")
+    @Operation(summary = "Add one like to post by id", description = "Method allows user to add only one like to specified post.")
     public ResponseEntity<PostDtoWithAuthor> addOneLikeToPostByPostId(@PathVariable Integer postId) {
         log.info("Start to add like to post with id: " + postId);
         try {
             return ResponseEntity.ok(postService.addOneLikeToPost(postId));
         } catch (PostNotFoundException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (DuplicateUsernameException ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
-    @PostMapping("/addDislike/dto/{postId}")
-    @Operation(summary = "Add one dislike to post by id", description = "Method allows user to add couple dislikes by push the button couple times.")
+    @PostMapping("/dislike/dto/{postId}")
+    @Operation(summary = "Add one dislike to post by id", description = "Method allows user to add only one dislikes to specified post.")
     public ResponseEntity<PostDtoWithAuthor> addOneDislikeToPostByPostId(@PathVariable Integer postId) {
         log.info("Start to add dislike to post with id: " + postId);
         try {
             return ResponseEntity.ok(postService.addOneDisLikeToPost(postId));
+        } catch (PostNotFoundException e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (DuplicateUsernameException ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+
+    @GetMapping("/likes/dto/{postId}")
+    @Operation(summary = "Get number of likes by post id", description = "Method allows user to see how many people like specified post.")
+    public ResponseEntity<Integer> getNumberOfLikesByPostId(@PathVariable Integer postId) {
+        log.info("Start to get number of likes for post with id: " + postId);
+        try {
+            return ResponseEntity.ok(postService.getNumberOfLikesByPostId(postId));
+        } catch (PostNotFoundException e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/dislikes/dto/{postId}")
+    @Operation(summary = "Get number of dislikes by post id", description = "Method allows user to see how many people dislike specified post.")
+    public ResponseEntity<Integer> getNumberOfDislikesByPostId(@PathVariable Integer postId) {
+        log.info("Start to get number of dislikes for post with id: " + postId);
+        try {
+            return ResponseEntity.ok(postService.getNumberOfDislikesByPostId(postId));
         } catch (PostNotFoundException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
