@@ -1,7 +1,7 @@
 package com.serwisspolecznosciowy.Application.controller;
 
 import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
-import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.dto.CommentDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
 import com.serwisspolecznosciowy.Application.entity.User;
 import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
@@ -39,7 +39,7 @@ public class CommentController {
     @PostMapping("/add/{postId}")
     @Operation(summary = "Add new comment by post id", description = "User needs to provide only comment body in request body and post id in patch. " +
             "Method required to provide also post id, but in frontend it will be done automatically.")
-    public ResponseEntity<CommentDtoWithAuthor> addNewCommentByPostId(@PathVariable Integer postId, @RequestBody CommentBodyDto commentBodyDto)  {
+    public ResponseEntity<CommentDto> addNewCommentByPostId(@PathVariable Integer postId, @RequestBody CommentBodyDto commentBodyDto)  {
         log.info("Start to add new comment.");
         try {
             return new ResponseEntity(commentService.addNewComment(postId, commentBodyDto), HttpStatus.CREATED);
@@ -65,7 +65,7 @@ public class CommentController {
             "Page way of sort is set as DESC (from the newest to the older) based on date of created. " +
             "This method also using cache with is refreshed after 30 seconds.",
             parameters = { @Parameter(name = "size", example = "10"), @Parameter(name = "page", example = "0"), @Parameter(name = "sort", example = "DESC")})
-    public ResponseEntity<List<CommentDtoWithAuthor>> getAllCommentsDtoWithAuthorsDto(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
+    public ResponseEntity<List<CommentDto>> getAllCommentsDtoWithAuthorsDto(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
         Integer pageNumber = page != null && page > 0 ? page : 0;
         Integer pageSize = size != null && size > 0 ? size : 10;
         Sort.Direction wayOfSort = sort != null ? sort : Sort.Direction.DESC;
@@ -85,7 +85,7 @@ public class CommentController {
 
     @GetMapping("/dto/{id}")
     @Operation(summary = "Get comment with author by comment id")
-    public ResponseEntity<CommentDtoWithAuthor> getCommentDtoWithAuthorDtoByCommentId(@PathVariable Integer id) {
+    public ResponseEntity<CommentDto> getCommentDtoWithAuthorDtoByCommentId(@PathVariable Integer id) {
         log.info("Start to get comment with id: " + id);
         try {
             return ResponseEntity.ok(commentService.getCommentDtoById(id));
@@ -126,7 +126,7 @@ public class CommentController {
     @Operation(summary = "Get comments list by keyword in comment body", description = "Keyword is not sensitive - you can provide small or " +
             "capital characters and polish marks. Maybe rather that error in case when we not found body we should return empty list and information about that - to discuss." +
             "But probably in real app I will not allows user to do that due to too many records.")
-    public ResponseEntity<List<CommentDtoWithAuthor>> getCommentsDtoListByKeywordInCommentBody(@RequestParam String body) {
+    public ResponseEntity<List<CommentDto>> getCommentsDtoListByKeywordInCommentBody(@RequestParam String body) {
         log.info("Start to get comment with body: " + body);
         try {
             return ResponseEntity.ok(commentService.getCommentsDtoByBody(body));
@@ -137,7 +137,7 @@ public class CommentController {
 
     @PostMapping("/like/dto/{commentId}")
     @Operation(summary = "Add one like to comment by id", description = "Method allows user to add couple likes by push the button couple times.")
-    public ResponseEntity<CommentDtoWithAuthor> addOneLikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
+    public ResponseEntity<CommentDto> addOneLikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
         log.info("Start to add like to comment with id: " + commentId);
         try {
             return ResponseEntity.ok(commentService.addOneLikeToComment(commentId));
@@ -149,7 +149,7 @@ public class CommentController {
 
     @PostMapping("/dislike/dto/{commentId}")
     @Operation(summary = "Add one dislike to comment by id", description = "Method allows user to add couple likes by push the button couple times.")
-    public ResponseEntity<CommentDtoWithAuthor> addOneDislikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
+    public ResponseEntity<CommentDto> addOneDislikeToCommentById(@PathVariable Integer commentId) throws CommentNotFoundException {
         log.info("Start to add dislike to comment with id: " + commentId);
         try {
             return ResponseEntity.ok(commentService.addOneDisLikeToComment(commentId));
@@ -162,7 +162,7 @@ public class CommentController {
     @PatchMapping("/edit/dto/{commentId}")
     @Operation(summary = "Edit comment by id", description = "Only login author of comment can edit specific comment. " +
             "Method required to provide only comment id in path, but in frontend id will be took automatically.")
-    public ResponseEntity<CommentDtoWithAuthor> editCommentByCommentId(@PathVariable Integer commentId, @RequestBody CommentBodyDto commentBodyDto) {
+    public ResponseEntity<CommentDto> editCommentByCommentId(@PathVariable Integer commentId, @RequestBody CommentBodyDto commentBodyDto) {
         log.info("Start to edit editPostDto");
         try {
             User loginUser = userService.getLoginUser();
@@ -179,7 +179,7 @@ public class CommentController {
     @Operation(summary = "Get comment by post id", description = "This method was created only for test " +
             "purpose. In normal app probably I will not allows that for users because they don't know post id and " +
             "can't find them.")
-    public ResponseEntity<List<CommentDtoWithAuthor>> getCommentDtoListByPostId(@PathVariable Integer postId) {
+    public ResponseEntity<List<CommentDto>> getCommentDtoListByPostId(@PathVariable Integer postId) {
         log.info("Start to get all comments by post with id: ", postId);
         try {
             return ResponseEntity.ok(commentService.getCommentsDtoListByPostId(postId));

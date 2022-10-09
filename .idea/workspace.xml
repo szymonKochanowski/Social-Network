@@ -4,42 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Added Dockerfile and docker-compose file. Access to db is permitted.">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/00f01fb9f2dcad6bb66188b888844e6a24a6eec6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049ad84cbd6172319b9c3deab1b0f7b887919a1e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/2/62262c21e535a0d4f10292e1f0f5059985147279" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/1/71595056f783e3c6559c581c2e68ef82013be38d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/817bf7e88fb8dacf03c4d75c8a38cb2808d47824" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8d91b391280c6bfb2d3fed0a4d5dee3711a00ab9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/f/8f6197d674945309f80a767cbd2a59f098e30fc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5db35984da8ffa0e255c16a2e31ae7b26e7d222" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac76ad526321fcf6a0a4d63ee4320e5d4e8a4821" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b9b6b463dbd6af6a583995eb88b5b918710b9c02" beforeDir="false" />
+    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Added entity class like and dislike.">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/d/5d0b8b3b042c721610684936d7de800108d9f7f6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea771165c879043b7ba89cd32c4c7368adf3bc84" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDtoWithAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDtoWithAuthor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/PostDtoWithAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/PostDtoWithAuthor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDtoWithAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/PostDtoWithAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/PostDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Dislike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Dislike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/entity/Like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_comments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_hibernate_sequence.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_posts.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/portal-spolecznosciowy_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/2022-09-22-13-28-00-addNewTablesLikeAndDislikeAndDropOldColumns.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/2022-09-22-13-28-00-addNewTablesLikeAndDislikeAndDropOldColumns.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/dto/CommentDtoWithAuthor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/dto/PostDtoWithAuthor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Dislike.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Dislike.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Like.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Like.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/PostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/2022-09-22-13-28-00-addNewTablesLikeAndDislikeAndDropOldColumns.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/2022-09-22-13-28-00-addNewTablesLikeAndDislikeAndDropOldColumns.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/portal-spolecznosciowy_comments.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/portal-spolecznosciowy_hibernate_sequence.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/portal-spolecznosciowy_posts.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/portal-spolecznosciowy_users.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/social_network-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +77,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -176,8 +204,6 @@
   </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.Application" />
       <module name="social_network" />
       <extension name="coverage">
@@ -194,6 +220,37 @@
       <module name="social_network" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.PostServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceTest.editPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.PostServiceTest" />
+      <option name="METHOD_NAME" value="editPost" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -225,38 +282,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="social_network:v1.0" />
-          <option name="containerName" value="" />
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.Application" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.PostServiceTest.findPostDtoById" />
+      <item itemvalue="JUnit.PostServiceTest" />
+      <item itemvalue="JUnit.PostServiceTest.editPost" />
       <item itemvalue="JUnit.All in demo" />
+      <item itemvalue="JUnit.PostServiceTest.findPostDtoById" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.All in demo" />
         <item itemvalue="JUnit.PostServiceTest.findPostDtoById" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="JUnit.PostServiceTest" />
+        <item itemvalue="JUnit.PostServiceTest.editPost" />
       </list>
     </recent_temporary>
   </component>
@@ -469,9 +508,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java</url>
-          <line>168</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java</url>
+          <line>376</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java</url>
+          <line>200</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

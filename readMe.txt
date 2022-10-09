@@ -38,4 +38,6 @@ The main purpose was created a basic version of facebook app. Login users can se
 and author profile picture. Post also contains information about numbers of likes, dislikes and comments for specific
 post. After click for button user should be able to see comments and add a new one.
 
-- zmienic jeszcze klasy post dto oraz wprowadzic wszystkie zmiany dla comments.
+//todo
+- dla postow like dziala - dodac jeszcze dla dislike i to samo dla comments
+- poprawic testy

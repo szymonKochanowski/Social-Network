@@ -24,4 +24,5 @@ public class Dislike {
 
     private Integer commentDislikeId;
 
+    private String username;
 }

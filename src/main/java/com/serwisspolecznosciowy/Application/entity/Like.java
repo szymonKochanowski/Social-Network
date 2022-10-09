@@ -24,4 +24,6 @@ public class Like {
 
     private Integer commentLikeId;
 
+    private String username;
+
 }

@@ -1,6 +1,6 @@
 package com.serwisspolecznosciowy.Application.mappers;
 
-import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.dto.CommentDto;
 import com.serwisspolecznosciowy.Application.dto.UserDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
 import com.serwisspolecznosciowy.Application.entity.Dislike;
@@ -13,45 +13,45 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-23T13:39:16+0200",
+    date = "2022-10-09T13:01:06+0200",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.12 (Eclipse Foundation)"
 )
 @Component
 public class CommentMapperImpl implements CommentMapper {
 
     @Override
-    public CommentDtoWithAuthor commentToCommentDtoWithAuthor(Comment comment) {
+    public CommentDto commentToCommentDto(Comment comment) {
         if ( comment == null ) {
             return null;
         }
 
-        CommentDtoWithAuthor commentDtoWithAuthor = new CommentDtoWithAuthor();
+        CommentDto commentDto = new CommentDto();
 
-        commentDtoWithAuthor.setBody( comment.getBody() );
-        commentDtoWithAuthor.setCreated( comment.getCreated() );
-        commentDtoWithAuthor.setUpdated( comment.getUpdated() );
+        commentDto.setBody( comment.getBody() );
+        commentDto.setCreated( comment.getCreated() );
+        commentDto.setUpdated( comment.getUpdated() );
         List<Like> list = comment.getLikeList();
         if ( list != null ) {
-            commentDtoWithAuthor.setLikeList( new ArrayList<Like>( list ) );
+            commentDto.setLikeList( new ArrayList<Like>( list ) );
         }
         List<Dislike> list1 = comment.getDislikeList();
         if ( list1 != null ) {
-            commentDtoWithAuthor.setDislikeList( new ArrayList<Dislike>( list1 ) );
+            commentDto.setDislikeList( new ArrayList<Dislike>( list1 ) );
         }
-        commentDtoWithAuthor.setUser( userToUserDto( comment.getUser() ) );
+        commentDto.setUser( userToUserDto( comment.getUser() ) );
 
-        return commentDtoWithAuthor;
+        return commentDto;
     }
 
     @Override
-    public List<CommentDtoWithAuthor> commentListToCommentDtoList(List<Comment> commentList) {
+    public List<CommentDto> commentListToCommentDtoList(List<Comment> commentList) {
         if ( commentList == null ) {
             return null;
         }
 
-        List<CommentDtoWithAuthor> list = new ArrayList<CommentDtoWithAuthor>( commentList.size() );
+        List<CommentDto> list = new ArrayList<CommentDto>( commentList.size() );
         for ( Comment comment : commentList ) {
-            list.add( commentToCommentDtoWithAuthor( comment ) );
+            list.add( commentToCommentDto( comment ) );
         }
 
         return list;

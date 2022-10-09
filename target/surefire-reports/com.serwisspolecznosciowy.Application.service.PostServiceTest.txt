@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.serwisspolecznosciowy.Application.service.PostServiceTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.299 s <<< FAILURE! - in com.serwisspolecznosciowy.Application.service.PostServiceTest
+addOneLikeToPost  Time elapsed: 0.019 s  <<< ERROR!
+java.lang.UnsupportedOperationException
+	at com.serwisspolecznosciowy.Application.service.PostServiceTest.addOneLikeToPost(PostServiceTest.java:376)
+
+findPostDtoById  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.serwisspolecznosciowy.Application.service.PostServiceTest.findPostDtoById(PostServiceTest.java:240)
+
+addOneDisLikeToPost  Time elapsed: 0.019 s  <<< ERROR!
+java.lang.UnsupportedOperationException
+	at com.serwisspolecznosciowy.Application.service.PostServiceTest.addOneDisLikeToPost(PostServiceTest.java:417)
+

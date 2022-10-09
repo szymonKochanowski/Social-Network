@@ -1,7 +1,7 @@
 package com.serwisspolecznosciowy.Application.service;
 
 import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
-import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.dto.CommentDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
 import com.serwisspolecznosciowy.Application.entity.Post;
 import com.serwisspolecznosciowy.Application.entity.User;
@@ -38,25 +38,24 @@ public class CommentService {
     @Autowired
     PostService postService;
 
-    public CommentDtoWithAuthor addNewComment(Integer postId, CommentBodyDto commentBodyDto) throws PostNotFoundException {
+    public CommentDto addNewComment(Integer postId, CommentBodyDto commentBodyDto) throws PostNotFoundException {
         User loginUser = userService.getLoginUser();
         Comment comment = new Comment();
         String commentBody = commentBodyDto.getBody();
-        if (isCommentBodyIsNotBlank(commentBody)) {
-            comment.setBody(commentBody);
-        }
+        isCommentBodyIsNotBlank(commentBody);
+        comment.setBody(commentBody);
         comment.setCreated(LocalDateTime.now());
         comment.setPostId(postId);
         comment.setUser(loginUser);
-        comment.setNumberOfLikes(0);
-        comment.setNumberOfDislikes(0);
+        comment.setLikeList(null);
+        comment.setDislikeList(null);
         commentRepository.save(comment);
 
         Post postById = postService.findPostById(postId);
         postById.setNumberOfComments(postById.getNumberOfComments() + 1);
 
         log.info("New comment with body: '" + commentBody + "' added to database.");
-        return commentMapper.commentToCommentDtoWithAuthor(comment);
+        return commentMapper.commentToCommentDto(comment);
     }
 
     private boolean isCommentBodyIsNotBlank(String commentBody) {
@@ -74,7 +73,7 @@ public class CommentService {
     }
 
     @Cacheable(cacheNames = "AllCommentsDto")
-    public List<CommentDtoWithAuthor> getAllCommentsDto(Integer pageNumber, Integer pageSize, Sort.Direction wayOfSort) {
+    public List<CommentDto> getAllCommentsDto(Integer pageNumber, Integer pageSize, Sort.Direction wayOfSort) {
         return commentMapper.commentListToCommentDtoList(commentRepository.findAllComments(PageRequest.of(pageNumber, pageSize, Sort.by(wayOfSort, "created"))));
     }
 
@@ -88,9 +87,9 @@ public class CommentService {
         }
     }
 
-    public CommentDtoWithAuthor getCommentDtoById(Integer id) throws CommentNotFoundException {
+    public CommentDto getCommentDtoById(Integer id) throws CommentNotFoundException {
         Comment comment = commentRepository.findById(id).orElseThrow(() -> new CommentNotFoundException("Comment with id: '" + id + "' not found in our database!"));
-        return commentMapper.commentToCommentDtoWithAuthor(comment);
+        return commentMapper.commentToCommentDto(comment);
     }
 
     public void deleteCommentById(Integer commentId) throws CommentNotFoundException, UserForbiddenAccessException {
@@ -123,7 +122,7 @@ public class CommentService {
         }
     }
 
-    public List<CommentDtoWithAuthor> getCommentsDtoByBody(String body) throws CommentNotFoundException {
+    public List<CommentDto> getCommentsDtoByBody(String body) throws CommentNotFoundException {
         Optional<List<Comment>> commentList = Optional.ofNullable(commentRepository.findAllByBodyContaining(body));
         if (commentList.isPresent()) {
             return commentMapper.commentListToCommentDtoList(commentList.get());
@@ -133,51 +132,51 @@ public class CommentService {
         }
     }
 
-    public CommentDtoWithAuthor addOneLikeToComment(Integer commentId) throws CommentNotFoundException {
+    public CommentDto addOneLikeToComment(Integer commentId) throws CommentNotFoundException {
         Optional<Comment> comment = commentRepository.findById(commentId);
         if (comment.isPresent()) {
             Comment commentFromDb = comment.get();
-            commentFromDb.setNumberOfLikes(commentFromDb.getNumberOfLikes() + 1);
-            return commentMapper.commentToCommentDtoWithAuthor(commentRepository.save(commentFromDb));
+            commentFromDb.setLikeList(commentFromDb.getLikeList());
+            return commentMapper.commentToCommentDto(commentRepository.save(commentFromDb));
         } else {
             log.error("Error in method: addOneLikeToComment. Not found comment with id: '" + commentId  + "'!");
             throw new CommentNotFoundException("Unable to add like to comment because not found comment with  id: '" + commentId  + "' in our database!");
         }
     }
 
-    public CommentDtoWithAuthor addOneDisLikeToComment(Integer commentId) throws CommentNotFoundException {
+    public CommentDto addOneDisLikeToComment(Integer commentId) throws CommentNotFoundException {
         Optional<Comment> comment = commentRepository.findById(commentId);
         if (comment.isPresent()) {
             Comment commentFromDb = comment.get();
-            commentFromDb.setNumberOfDislikes((commentFromDb.getNumberOfDislikes() == null || commentFromDb.getNumberOfDislikes() < 0) ? 0 : (commentFromDb.getNumberOfDislikes() + 1));
-            return commentMapper.commentToCommentDtoWithAuthor(commentRepository.save(commentFromDb));
+            commentFromDb.setDislikeList(commentFromDb.getDislikeList());
+            return commentMapper.commentToCommentDto(commentRepository.save(commentFromDb));
         } else {
             log.error("Error in method: addOneDisLikeToComment. Not found comment with id: '" + commentId  + "' in our database!");
             throw new CommentNotFoundException("Unable to add dislike to comment because not found comment with  id: '" + commentId  + "' in our database!");
         }
     }
 
-    public CommentDtoWithAuthor editComment(CommentBodyDto commentBodyDto, User loginUser, Integer commentId) throws CommentNotFoundException, UserForbiddenAccessException {
+    public CommentDto editComment(CommentBodyDto commentBodyDto, User loginUser, Integer commentId) throws CommentNotFoundException, UserForbiddenAccessException {
         Comment commentToEdit = getCommentById(commentId);
         String body = commentBodyDto.getBody();
         if (isCommentWasCreatedByLoginUserOrUserHaveRoleAdmin(loginUser, commentToEdit)) {
-            if (isCommentBodyIsNotBlank(body)) {
-                commentToEdit.setBody(body);
-                commentToEdit.setUpdated(LocalDateTime.now());
-                commentRepository.save(commentToEdit);
-            }
+            isCommentBodyIsNotBlank(body);
+            commentToEdit.setBody(body);
+            commentToEdit.setUpdated(LocalDateTime.now());
+            commentRepository.save(commentToEdit);
+
         } else {
             log.error("Error in method editComment. Username: {} have not permission to edit specified comment with id: {}", loginUser.getUsername(), commentId);
             throw new UserForbiddenAccessException("Username: '" + loginUser.getUsername() + "' have not permission to edit comment with id: '" + commentId + " !");
         }
-        return commentMapper.commentToCommentDtoWithAuthor(commentToEdit);
+        return commentMapper.commentToCommentDto(commentToEdit);
     }
 
     private boolean isCommentWasCreatedByLoginUserOrUserHaveRoleAdmin(User loginUser, Comment commentToEdit) {
         return loginUser.getUsername().equals(commentToEdit.getUser().getUsername()) || loginUser.getRole().equals("ROLE_ADMIN");
     }
 
-    public List<CommentDtoWithAuthor> getCommentsDtoListByPostId(Integer postId) throws PostNotFoundException {
+    public List<CommentDto> getCommentsDtoListByPostId(Integer postId) throws PostNotFoundException {
         List<Comment> allCommentsByPostId = commentRepository.findAllCommentsByPostId(postId);
         if (allCommentsByPostId != null) {
             return commentMapper.commentListToCommentDtoList(allCommentsByPostId);
