@@ -4,52 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored logic for like and dislike  to post.">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/055d1578dac1af9ab550f318c10a36d1b1db181d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored logic for like and dislike  for comment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/dto/CommentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/mappers/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/dto/CommentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/dto/CommentDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.CommentControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.CommentControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.PostControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.PostControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.UserControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.controller.UserControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.CommentServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.CommentServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.PostServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.PostServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.UserServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.serwisspolecznosciowy.Application.service.UserServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.CommentControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.CommentControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.PostControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.PostControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.UserControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.controller.UserControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.CommentServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.CommentServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.PostServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.PostServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.UserServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.serwisspolecznosciowy.Application.service.UserServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,16 +102,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/thymeleaf&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "last_opened_file_path": "C:/Users/Szymon/IdeaProjects/thymeleaf",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.serwisspolecznosciowy.Application.exception" />
@@ -451,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665314596959</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactored logic for like and dislike  for comment.">
+      <created>1665332632903</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665332632903</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -492,7 +455,8 @@
     <MESSAGE value="Refactored getLoginUser method." />
     <MESSAGE value="Fix." />
     <MESSAGE value="Refactored logic for like and dislike  to post." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored logic for like and dislike  to post." />
+    <MESSAGE value="Refactored logic for like and dislike  for comment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored logic for like and dislike  for comment." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
