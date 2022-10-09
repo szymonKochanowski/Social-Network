@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -32,9 +33,11 @@ public class Comment {
     @ManyToOne(cascade = CascadeType.DETACH)
     private User user;
 
-    @NonNull
-    private Integer numberOfLikes;
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "commentLikeId", updatable = false, insertable = false)
+    private List<Like> likeList;
 
-    @NonNull
-    private Integer numberOfDislikes;
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "commentDislikeId", updatable = false, insertable = false)
+    private List<Dislike> dislikeList;
 }

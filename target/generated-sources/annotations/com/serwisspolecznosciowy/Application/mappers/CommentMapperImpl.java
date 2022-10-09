@@ -1,6 +1,8 @@
 package com.serwisspolecznosciowy.Application.mappers;
 
-import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.dto.CommentDto;
+import com.serwisspolecznosciowy.Application.dto.DislikeDto;
+import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.UserDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
 import com.serwisspolecznosciowy.Application.entity.User;
@@ -11,39 +13,41 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-22T09:35:01+0200",
+    date = "2022-10-09T17:05:00+0200",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.12 (Eclipse Foundation)"
 )
 @Component
 public class CommentMapperImpl implements CommentMapper {
 
     @Override
-    public CommentDtoWithAuthor commentToCommentDtoWithAuthor(Comment comment) {
-        if ( comment == null ) {
+    public CommentDto commentToCommentDto(Comment comment, User user, List<LikeDto> likeDtoList, List<DislikeDto> dislikeDtoList) {
+        if ( comment == null && user == null && likeDtoList == null && dislikeDtoList == null ) {
             return null;
         }
 
-        CommentDtoWithAuthor commentDtoWithAuthor = new CommentDtoWithAuthor();
+        CommentDto commentDto = new CommentDto();
 
-        commentDtoWithAuthor.setBody( comment.getBody() );
-        commentDtoWithAuthor.setCreated( comment.getCreated() );
-        commentDtoWithAuthor.setUpdated( comment.getUpdated() );
-        commentDtoWithAuthor.setNumberOfLikes( comment.getNumberOfLikes() );
-        commentDtoWithAuthor.setNumberOfDislikes( comment.getNumberOfDislikes() );
-        commentDtoWithAuthor.setUser( userToUserDto( comment.getUser() ) );
+        if ( comment != null ) {
+            commentDto.setBody( comment.getBody() );
+            commentDto.setUser( userToUserDto( comment.getUser() ) );
+        }
+        commentDto.setCreated( getCommentCreated(comment) );
+        commentDto.setUpdated( getCommentUpdated(comment) );
+        commentDto.setLikeDtoList( getLikeDtoList(likeDtoList) );
+        commentDto.setDislikeDtoList( getDislikeDtoList(dislikeDtoList) );
 
-        return commentDtoWithAuthor;
+        return commentDto;
     }
 
     @Override
-    public List<CommentDtoWithAuthor> commentListToCommentDtoList(List<Comment> commentList) {
+    public List<CommentDto> commentListToCommentDtoList(List<Comment> commentList) {
         if ( commentList == null ) {
             return null;
         }
 
-        List<CommentDtoWithAuthor> list = new ArrayList<CommentDtoWithAuthor>( commentList.size() );
+        List<CommentDto> list = new ArrayList<CommentDto>( commentList.size() );
         for ( Comment comment : commentList ) {
-            list.add( commentToCommentDtoWithAuthor( comment ) );
+            list.add( commentToCommentDto1( comment ) );
         }
 
         return list;
@@ -62,5 +66,20 @@ public class CommentMapperImpl implements CommentMapper {
         userDto.setUpdated( user.getUpdated() );
 
         return userDto;
+    }
+
+    protected CommentDto commentToCommentDto1(Comment comment) {
+        if ( comment == null ) {
+            return null;
+        }
+
+        CommentDto commentDto = new CommentDto();
+
+        commentDto.setBody( comment.getBody() );
+        commentDto.setCreated( comment.getCreated() );
+        commentDto.setUpdated( comment.getUpdated() );
+        commentDto.setUser( userToUserDto( comment.getUser() ) );
+
+        return commentDto;
     }
 }

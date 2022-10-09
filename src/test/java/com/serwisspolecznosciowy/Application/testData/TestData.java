@@ -1,13 +1,12 @@
 package com.serwisspolecznosciowy.Application.testData;
 
 import com.serwisspolecznosciowy.Application.dto.*;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.entity.*;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -21,23 +20,23 @@ public class TestData {
         post.setUpdated(null);
         post.setUser(preparedUser());
         post.setCommentList(null);//set as null to avoid StackOverflowError
-        post.setNumberOfLikes(0);
-        post.setNumberOfDislikes(0);
+        post.setLikeList(Collections.emptyList());
+        post.setDislikeList(Collections.emptyList());
         return post;
     }
 
-    public PostDtoWithAuthor preparedPostDtoWithAuthor() {
+    public PostDto preparedPostDto() {
         Post post = preparedPost();
         User user = preparedUser();
-        PostDtoWithAuthor postDtoWithAuthor = new PostDtoWithAuthor();
-        postDtoWithAuthor.setBody(post.getBody());
-        postDtoWithAuthor.setCreated(post.getCreated());
-        postDtoWithAuthor.setUpdated(post.getUpdated());
-        postDtoWithAuthor.setNumberOfLikes(post.getNumberOfLikes());
-        postDtoWithAuthor.setNumberOfDislikes(post.getNumberOfDislikes());
-        postDtoWithAuthor.setUsername(user.getUsername());
-        postDtoWithAuthor.setProfilePicture(null);
-        return postDtoWithAuthor;
+        PostDto postDto = new PostDto();
+        postDto.setBody(post.getBody());
+        postDto.setCreated(post.getCreated());
+        postDto.setUpdated(post.getUpdated());
+        postDto.setLikeDtoList(Collections.emptyList());
+        postDto.setDislikeDtoList(Collections.emptyList());
+        postDto.setUsername(user.getUsername());
+        postDto.setProfilePicture(null);
+        return postDto;
     }
 
     public PostBodyDto preparedPostBodyDto() {
@@ -53,11 +52,11 @@ public class TestData {
         return postList;
     }
 
-    public List<PostDtoWithAuthor> preparedPostDtoWithAuthorList() {
-        PostDtoWithAuthor postDtoWithAuthor = preparedPostDtoWithAuthor();
-        List<PostDtoWithAuthor> postDtoWithAuthorList = new ArrayList<>();
-        postDtoWithAuthorList.add(postDtoWithAuthor);
-        return postDtoWithAuthorList;
+    public List<PostDto> preparedPostDtoWithAuthorList() {
+        PostDto postDto = preparedPostDto();
+        List<PostDto> postDtoList = new ArrayList<>();
+        postDtoList.add(postDto);
+        return postDtoList;
     }
 
     public User preparedUser() {
@@ -139,8 +138,8 @@ public class TestData {
         comment.setUpdated(null);
         comment.setPostId(preparedPost().getId());
         comment.setUser(preparedUser());
-        comment.setNumberOfLikes(0);
-        comment.setNumberOfDislikes(0);
+        comment.setLikeList(Collections.emptyList());
+        comment.setDislikeList(Collections.emptyList());
         return comment;
     }
 
@@ -158,28 +157,81 @@ public class TestData {
         return  commentBodyDto;
     }
 
-    public CommentDtoWithAuthor preparedCommentDtoWithAuthor() {
+    public CommentDto preparedCommentDto() {
         Comment comment = preparedComment();
-        CommentDtoWithAuthor commentDtoWithAuthor = new CommentDtoWithAuthor();
-        commentDtoWithAuthor.setBody(comment.getBody());
-        commentDtoWithAuthor.setCreated(comment.getCreated());
-        commentDtoWithAuthor.setUpdated(comment.getUpdated());
-        commentDtoWithAuthor.setNumberOfLikes(comment.getNumberOfLikes());
-        commentDtoWithAuthor.setNumberOfDislikes(comment.getNumberOfDislikes());
-        commentDtoWithAuthor.setUser(preparedUserDto());
-        return commentDtoWithAuthor;
+        CommentDto commentDto = new CommentDto();
+        commentDto.setBody(comment.getBody());
+        commentDto.setCreated(comment.getCreated());
+        commentDto.setUpdated(comment.getUpdated());
+        commentDto.setLikeDtoList(Collections.emptyList());
+        commentDto.setDislikeDtoList(Collections.emptyList());
+        commentDto.setUser(preparedUserDto());
+        return commentDto;
     }
 
-    public List<CommentDtoWithAuthor> preparedCommentDtoWithAuthorList() {
-        List<CommentDtoWithAuthor> commentDtoWithAuthorList = new ArrayList<>();
-        commentDtoWithAuthorList.add(preparedCommentDtoWithAuthor());
-        return commentDtoWithAuthorList;
+    public List<CommentDto> preparedCommentDtoList() {
+        List<CommentDto> commentDtoList = new ArrayList<>();
+        commentDtoList.add(preparedCommentDto());
+        return commentDtoList;
     }
 
     public PostBodyDto preparedEditPostDto() {
         PostBodyDto postBodyDto = new PostBodyDto();
-        postBodyDto.setBody("test post body");
+        postBodyDto.setBody(preparedPost().getBody());
         return postBodyDto;
+    }
+
+    public Like preparedLike(){
+        Like like = new Like();
+        like.setId(1);
+        like.setUserId(preparedAdmin().getId());
+        like.setPostLikeId(preparedPost().getId());
+        like.setCommentLikeId(null);
+        like.setUsername(preparedAdmin().getUsername());
+        return like;
+    }
+
+    public List<Like> preparedLikeList() {
+        List<Like> likeList = new ArrayList<>();
+        likeList.add(preparedLike());
+        return likeList;
+    }
+
+    public Dislike preparedDislike() {
+        Dislike dislike = new Dislike();
+        dislike.setId(1);
+        dislike.setPostDislikeId(preparedPost().getId());
+        dislike.setCommentDislikeId(null);
+        dislike.setUserId(preparedAdmin().getId());
+        return dislike;
+    }
+
+    public List<Dislike> preparedDislikeList() {
+        List<Dislike> dislikeList = new ArrayList<>();
+        dislikeList.add(preparedDislike());
+        return dislikeList;
+    }
+
+    public LikeDto preparedLikeDto() {
+        LikeDto likeDto = new LikeDto(preparedAdmin().getUsername());
+        return likeDto;
+    }
+
+    public List<LikeDto> preparedLikeDtoList() {
+        List<LikeDto> likeDtoList = new ArrayList<>();
+        likeDtoList.add(preparedLikeDto());
+        return likeDtoList;
+    }
+
+    public DislikeDto preparedDislikeDto() {
+        DislikeDto dislikeDto = new DislikeDto(preparedAdmin().getUsername());
+        return dislikeDto;
+    }
+
+    public List<DislikeDto> preparedDislikeDtoList() {
+        List<DislikeDto> dislikeDtoList = new ArrayList<>();
+        dislikeDtoList.add(preparedDislikeDto());
+        return dislikeDtoList;
     }
 
 }

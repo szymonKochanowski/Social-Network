@@ -2,12 +2,8 @@ package com.serwisspolecznosciowy.Application.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
-import com.serwisspolecznosciowy.Application.dto.CommentDtoWithAuthor;
-import com.serwisspolecznosciowy.Application.dto.UserDto;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.dto.*;
+import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
@@ -67,9 +63,9 @@ class CommentControllerTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        CommentDtoWithAuthor expectCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectCommentDto = testData.preparedCommentDto();
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
-        when(commentService.addNewComment(postId, commentBodyDto)).thenReturn(expectCommentDtoWithAuthor);
+        when(commentService.addNewComment(postId, commentBodyDto)).thenReturn(expectCommentDto);
         //When
         MvcResult mvcResult = mockMvc.perform(post("/comment/add/{postId}", postId)
                         .content(objectMapper.writeValueAsString(commentBodyDto))
@@ -78,9 +74,9 @@ class CommentControllerTest {
                 .andExpect(status().is(201))
                 .andReturn();
         //Then
-        CommentDtoWithAuthor actualCommentDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
-        assertEquals(expectCommentDtoWithAuthor.getUser().getUsername(), actualCommentDtoWithAuthor.getUser().getUsername());
+        CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectCommentDto.getBody(), actualCommentDto.getBody());
+        assertEquals(expectCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
     }
 
     @Test
@@ -135,11 +131,11 @@ class CommentControllerTest {
     @Test
     void getAllCommentsDtoWithAuthorsDto() throws Exception {
         //Given
-        List<CommentDtoWithAuthor> expectedCommentDtoWithAuthorList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
         Integer pageNumber = 0;
         Integer pageSize = 10;
         Sort.Direction wayOfSort = Sort.Direction.ASC;
-        when(commentService.getAllCommentsDto(pageNumber, pageSize, wayOfSort)).thenReturn(expectedCommentDtoWithAuthorList);
+        when(commentService.getAllCommentsDto(pageNumber, pageSize, wayOfSort)).thenReturn(expectedCommentDtoList);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/comment/all/dto")
                         .param("page", String.valueOf(pageNumber))
@@ -150,7 +146,7 @@ class CommentControllerTest {
                 .andReturn();
         //Then
         Comment[] actualComments = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Comment[].class);
-        assertEquals(expectedCommentDtoWithAuthorList.get(0).getBody(), actualComments[0].getBody());
+        assertEquals(expectedCommentDtoList.get(0).getBody(), actualComments[0].getBody());
     }
 
     @Test
@@ -185,24 +181,24 @@ class CommentControllerTest {
     void getCommentDtoWithAuthorDtoByCommentId() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        when(commentService.getCommentDtoById(commentId)).thenReturn(expectedCommentDtoWithAuthor);
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        when(commentService.getCommentDtoById(commentId)).thenReturn(expectedCommentDto);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/comment/dto/{id}", commentId))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
         //Then
-        CommentDtoWithAuthor actualCommentDtoWithAuthor1 = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor1.getBody());
-        assertEquals(expectedCommentDtoWithAuthor.getUser().getUsername(), actualCommentDtoWithAuthor1.getUser().getUsername());
+        CommentDto actualCommentDto1 = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectedCommentDto.getBody(), actualCommentDto1.getBody());
+        assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto1.getUser().getUsername());
     }
 
     @Test
     void getCommentDtoWithAuthorDtoByCommentIdWithCommentNotFoundExceptionException() throws CommentNotFoundException, Exception {
         //Given
         Integer incorrectCommentId = 99999;
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         when(commentService.getCommentDtoById(incorrectCommentId)).thenThrow(CommentNotFoundException.class);
         //When
         //Then
@@ -306,8 +302,8 @@ class CommentControllerTest {
     void getCommentsDtoListByKeywordInCommentBody() throws CommentNotFoundException, Exception {
         //Given
         String body = testData.preparedComment().getBody();
-        List<CommentDtoWithAuthor> expectedCommentDtoWithAuthorList = testData.preparedCommentDtoWithAuthorList();
-        when(commentService.getCommentsDtoByBody(body)).thenReturn(expectedCommentDtoWithAuthorList);
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
+        when(commentService.getCommentsDtoByBody(body)).thenReturn(expectedCommentDtoList);
         //When
         //Then
         MvcResult mvcResult = mockMvc.perform(get("/comment/body/dto")
@@ -317,8 +313,8 @@ class CommentControllerTest {
                 .andReturn();
         List<Comment> actualCommentList = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<Comment>>() {
         });
-        assertEquals(expectedCommentDtoWithAuthorList.get(0).getUser().getUsername(), actualCommentList.get(0).getUser().getUsername());
-        assertEquals(expectedCommentDtoWithAuthorList.get(0).getBody(), actualCommentList.get(0).getBody());
+        assertEquals(expectedCommentDtoList.get(0).getUser().getUsername(), actualCommentList.get(0).getUser().getUsername());
+        assertEquals(expectedCommentDtoList.get(0).getBody(), actualCommentList.get(0).getBody());
     }
 
     @Test
@@ -339,19 +335,20 @@ class CommentControllerTest {
     void addOneLikeToCommentById() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setNumberOfLikes(1);
-        when(commentService.addOneLikeToComment(commentId)).thenReturn(expectedCommentDtoWithAuthor);
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        expectedCommentDto.setLikeDtoList(likeDtoList);
+        when(commentService.addOneLikeToComment(commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
-        MvcResult mvcResult = mockMvc.perform(post("/comment/addLike/dto/{commentId}", commentId))
+        MvcResult mvcResult = mockMvc.perform(post("/comment/like/dto/{commentId}", commentId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
-        CommentDtoWithAuthor actualCommentDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectedCommentDtoWithAuthor.getUser().getUsername(), actualCommentDtoWithAuthor.getUser().getUsername());
-        assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfLikes(), actualCommentDtoWithAuthor.getNumberOfLikes());
+        CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
+        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
+        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
     }
 
     @Test
@@ -361,7 +358,7 @@ class CommentControllerTest {
         when(commentService.addOneLikeToComment(incorrectCommentId)).thenThrow(CommentNotFoundException.class);
         //When
         //Then
-        MvcResult mvcResult = mockMvc.perform(post("/comment/addLike/dto/{commentId}", incorrectCommentId))
+        MvcResult mvcResult = mockMvc.perform(post("/comment/like/dto/{commentId}", incorrectCommentId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();
@@ -371,19 +368,20 @@ class CommentControllerTest {
     void addOneDislikeToCommentById() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setNumberOfDislikes(1);
-        when(commentService.addOneDisLikeToComment(commentId)).thenReturn(expectedCommentDtoWithAuthor);
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        expectedCommentDto.setDislikeDtoList(dislikeDtoList);
+        when(commentService.addOneDisLikeToComment(commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
-        MvcResult mvcResult = mockMvc.perform(post("/comment/addDislike/dto/{commentId}", commentId))
+        MvcResult mvcResult = mockMvc.perform(post("/comment/dislike/dto/{commentId}", commentId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
-        CommentDtoWithAuthor actualCommentDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectedCommentDtoWithAuthor.getUser().getUsername(), actualCommentDtoWithAuthor.getUser().getUsername());
-        assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
-        assertEquals(expectedCommentDtoWithAuthor.getNumberOfDislikes(), actualCommentDtoWithAuthor.getNumberOfDislikes());
+        CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
+        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
+        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
     }
 
     @Test
@@ -393,7 +391,7 @@ class CommentControllerTest {
         when(commentService.addOneDisLikeToComment(incorrectCommentId)).thenThrow(CommentNotFoundException.class);
         //When
         //Then
-        MvcResult mvcResult = mockMvc.perform(post("/comment/addDislike/dto/{commentId}", incorrectCommentId))
+        MvcResult mvcResult = mockMvc.perform(post("/comment/dislike/dto/{commentId}", incorrectCommentId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();
@@ -405,11 +403,11 @@ class CommentControllerTest {
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
         String body = commentBodyDto.getBody();
         Integer commentId = testData.preparedComment().getId();
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setBody(body);
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        expectedCommentDto.setBody(body);
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
-        when(commentService.editComment(commentBodyDto, user, commentId)).thenReturn(expectedCommentDtoWithAuthor);
+        when(commentService.editComment(commentBodyDto, user, commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
         MvcResult mvcResult = mockMvc.perform(patch("/comment/edit/dto/{commendId}", commentId)
@@ -418,8 +416,8 @@ class CommentControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
-        CommentDtoWithAuthor actualCommentDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
+        CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
     }
 
     @WithMockUser(username = "test123A!", password = "test123A!", roles = {"USER"})
@@ -435,12 +433,12 @@ class CommentControllerTest {
         String body = commentBodyDto.getBody();
         Integer commentId = testData.preparedComment().getId();
 
-        CommentDtoWithAuthor expectedCommentDtoWithAuthor = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDtoWithAuthor.setBody(body);
-        expectedCommentDtoWithAuthor.setUser(userDto);
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        expectedCommentDto.setBody(body);
+        expectedCommentDto.setUser(userDto);
 
         when(userService.getLoginUser()).thenReturn(user);
-        when(commentService.editComment(commentBodyDto, user, commentId)).thenReturn(expectedCommentDtoWithAuthor);
+        when(commentService.editComment(commentBodyDto, user, commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
         MvcResult mvcResult = mockMvc.perform(patch("/comment/edit/dto/{commendId}", commentId)
@@ -449,9 +447,9 @@ class CommentControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
-        CommentDtoWithAuthor actualCommentDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDtoWithAuthor.class);
-        assertEquals(expectedCommentDtoWithAuthor.getBody(), actualCommentDtoWithAuthor.getBody());
-        assertEquals(expectedCommentDtoWithAuthor.getUser().getUsername(), actualCommentDtoWithAuthor.getUser().getUsername());
+        CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
+        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
+        assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
     }
 
     @Test
@@ -497,7 +495,7 @@ class CommentControllerTest {
     void getCommentDtoListByPostId() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
-        List<CommentDtoWithAuthor> expectedCommentDtoWithAuthorsList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoWithAuthorsList = testData.preparedCommentDtoList();
         when(commentService.getCommentsDtoListByPostId(postId)).thenReturn(expectedCommentDtoWithAuthorsList);
         //When
         //Then
@@ -505,7 +503,7 @@ class CommentControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
-        List<CommentDtoWithAuthor> actualCommentDtoWithAuthorsList = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<CommentDtoWithAuthor>>() {
+        List<CommentDto> actualCommentDtoWithAuthorsList = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<CommentDto>>() {
         });
         assertEquals(expectedCommentDtoWithAuthorsList.get(0).getBody(), actualCommentDtoWithAuthorsList.get(0).getBody());
         assertEquals(expectedCommentDtoWithAuthorsList.get(0).getUser().getUsername(), actualCommentDtoWithAuthorsList.get(0).getUser().getUsername());

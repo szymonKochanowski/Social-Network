@@ -1,16 +1,20 @@
 package com.serwisspolecznosciowy.Application.service;
 
+import com.serwisspolecznosciowy.Application.dto.DislikeDto;
+import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
-import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
-import com.serwisspolecznosciowy.Application.entity.Comment;
-import com.serwisspolecznosciowy.Application.entity.Post;
-import com.serwisspolecznosciowy.Application.entity.User;
+import com.serwisspolecznosciowy.Application.dto.PostDto;
+import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
 import com.serwisspolecznosciowy.Application.exception.UserNotFoundException;
+import com.serwisspolecznosciowy.Application.mappers.DislikeMapper;
+import com.serwisspolecznosciowy.Application.mappers.LikeMapper;
 import com.serwisspolecznosciowy.Application.mappers.PostMapper;
 import com.serwisspolecznosciowy.Application.repository.CommentRepository;
+import com.serwisspolecznosciowy.Application.repository.DislikeRepository;
+import com.serwisspolecznosciowy.Application.repository.LikeRepository;
 import com.serwisspolecznosciowy.Application.repository.PostRepository;
 import com.serwisspolecznosciowy.Application.testData.TestData;
 import org.junit.jupiter.api.Test;
@@ -49,23 +53,35 @@ class PostServiceTest {
     @Mock
     private PostMapper postMapper;
 
+    @Mock
+    private LikeRepository likeRepository;
+
     @Autowired
     public TestData testData;
+
+    @Mock
+    private DislikeRepository dislikeRepository;
+
+    @Mock
+    private LikeMapper likeMapper;
+
+    @Mock
+    private DislikeMapper dislikeMapper;
 
     @Test
     void addNewPost() throws PostEmptyBodyException, UserNotFoundException {
         //given
         User user = testData.preparedUser();
         Post post = testData.preparedPost();
-        PostDtoWithAuthor expectedPost = testData.preparedPostDtoWithAuthor();
+        PostDto expectedPost = testData.preparedPostDto();
         PostBodyDto postBodyDto = testData.preparedPostBodyDto();
 
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.save(any(Post.class))).thenReturn(post);
-        when(postMapper.postToPostDtoWithAuthor(any(Post.class), any(User.class))).thenReturn(expectedPost);
+        when(postMapper.postToPostDto(any(Post.class), any(User.class), any(), any())).thenReturn(expectedPost);
 
         //when
-        PostDtoWithAuthor actualPost = postService.addNewPost(postBodyDto);
+        PostDto actualPost = postService.addNewPost(postBodyDto);
 
         //then
         assertEquals(expectedPost.getBody(), actualPost.getBody());
@@ -86,7 +102,7 @@ class PostServiceTest {
     }
 
     @Test
-    void getAllPostsWithComments() {
+    void getAllPosts() {
         //given
         Integer pageNumber = 0;
         Integer pageSize = 10;
@@ -104,26 +120,29 @@ class PostServiceTest {
     }
 
     @Test
-    void getAllPostsDtoWithUsersDto() {
+    void getAllPostsDto() {
         //given
         Integer pageNumber = 0;
         Integer pageSize = 10;
         Sort.Direction wayOfSort = Sort.Direction.ASC;
 
         List<Post> postList = testData.preparedPostsList();
-        PostDtoWithAuthor postDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        List<PostDtoWithAuthor> expectedPostDtoWithAuthorList = testData.preparedPostDtoWithAuthorList();
+        PostDto postDto = testData.preparedPostDto();
+        List<PostDto> expectedPostDtoList = testData.preparedPostDtoWithAuthorList();
+        List<Like> likeList = testData.preparedPost().getLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
 
         when(postRepository.findAllPostsWithComments(PageRequest.of(pageNumber, pageSize, Sort.by(wayOfSort, "created")))).thenReturn(postList);
-        when(postMapper.postToPostDtoWithAuthor(any(Post.class), any(User.class))).thenReturn(postDtoWithAuthor);
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(postMapper.postToPostDto(any(Post.class), any(User.class), any(), any())).thenReturn(postDto);
 
         //when
-        List<PostDtoWithAuthor> actualPostDtoWithAuthorList = postService.getAllPostsDtoWithUsersDto(pageNumber, pageSize, wayOfSort);
+        List<PostDto> actualPostDtoList = postService.getAllPostsDto(pageNumber, pageSize, wayOfSort);
 
         //then
-        assertEquals(expectedPostDtoWithAuthorList.size(), actualPostDtoWithAuthorList.size());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getBody(), actualPostDtoWithAuthorList.get(0).getBody());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getUsername(), actualPostDtoWithAuthorList.get(0).getUsername());
+        assertEquals(expectedPostDtoList.size(), actualPostDtoList.size());
+        assertEquals(expectedPostDtoList.get(0).getBody(), actualPostDtoList.get(0).getBody());
+        assertEquals(expectedPostDtoList.get(0).getUsername(), actualPostDtoList.get(0).getUsername());
     }
 
     @Test
@@ -134,19 +153,27 @@ class PostServiceTest {
         Integer postId = post.getId();
 
         PostBodyDto postBodyDto = testData.preparedEditPostDto();
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
+        postBodyDto.setBody(post.getBody());
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setBody(postBodyDto.getBody());
         User user = testData.preparedUser();
+        List<Like> likeList = Collections.emptyList();
+        List<LikeDto> likeDtoList = Collections.emptyList();
+        List<Dislike> dislikeList = Collections.emptyList();
+        List<DislikeDto> dislikeDtoList = Collections.emptyList();
 
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
         when(postRepository.save(post)).thenReturn(post);
-        when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+        when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
 
         //when
-        PostDtoWithAuthor actualPostDtoWithAuthor = postService.editPost(postBodyDto, user, postId);
+        PostDto actualPostDto = postService.editPost(postBodyDto, user, postId);
 
         //then
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
@@ -170,7 +197,7 @@ class PostServiceTest {
     }
 
     @Test
-    public void findPostById() throws PostNotFoundException {
+    void findPostById() throws PostNotFoundException {
         //Given
         Post expectedPost = testData.preparedPost();
         Integer postId = expectedPost.getId();
@@ -182,7 +209,7 @@ class PostServiceTest {
     }
 
     @Test
-    public void findPostByIdWithPostNotFoundException() throws PostNotFoundException {
+    void findPostByIdWithPostNotFoundException() throws PostNotFoundException {
         //Given
         Integer incorrectPostId = 99999999;
         when(postRepository.findById(incorrectPostId)).thenReturn(Optional.ofNullable(null));
@@ -193,24 +220,31 @@ class PostServiceTest {
     }
 
     @Test
-    public void findPostDtoById() throws PostNotFoundException {
+    void findPostDtoById() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
         User user = testData.preparedUser();
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
+        PostDto expectedPostDto = testData.preparedPostDto();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
-        when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
+        when(likeMapper.likeListToLikeDtoList(post.getLikeList())).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(post.getDislikeList())).thenReturn(dislikeDtoList);
+        when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
+
         //When
-        PostDtoWithAuthor actualPostDtoWithAuthor = postService.findPostDtoById(postId);
+        PostDto actualPostDto = postService.findPostDtoById(postId);
+
         //Then
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getCreated(), actualPostDtoWithAuthor.getCreated());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getCreated(), actualPostDto.getCreated());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
-    public void findPostDtoByIdWithPostNotFoundException() throws PostNotFoundException {
+    void findPostDtoByIdWithPostNotFoundException() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         Integer incorrectPostId = 99999999;
@@ -259,7 +293,7 @@ class PostServiceTest {
     }
 
     @Test
-    public void findAllPostsByUserId() {
+    void findAllPostsByUserId() {
         //Given
         Integer userId = testData.preparedUser().getId();
         List<Post> expectedPostsList = testData.preparedPostsList();
@@ -273,7 +307,7 @@ class PostServiceTest {
     }
 
     @Test
-    public void findAllPostsByUserIdReturnNull() {
+    void findAllPostsByUserIdReturnNull() {
         //Given
         Integer userId = testData.preparedUser().getId();
         when(postRepository.findAllByUserId(userId)).thenReturn(Optional.ofNullable(null));
@@ -284,65 +318,76 @@ class PostServiceTest {
     }
 
     @Test
-    public void getPostDtoListByBody() throws PostNotFoundException {
+    void getPostDtoListByBody() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
-        List<PostDtoWithAuthor> expectedPostDtoWithAuthorList = testData.preparedPostDtoWithAuthorList();
+        List<PostDto> expectedPostDtoList = testData.preparedPostDtoWithAuthorList();
         List<Post> postList = testData.preparedPostsList();
-        PostDtoWithAuthor postDtoWithAuthor = testData.preparedPostDtoWithAuthor();
+        PostDto postDto = testData.preparedPostDto();
         User user = testData.preparedUser();
         String keywordInBody = "post";
 
         when(postRepository.findAllByBodyContaining(anyString())).thenReturn(postList);
-        when(postMapper.postToPostDtoWithAuthor(any(Post.class), any(User.class))).thenReturn(postDtoWithAuthor);
+        when(postMapper.postToPostDto(any(Post.class), any(User.class), any(), any())).thenReturn(postDto);
 
         //When
-        List<PostDtoWithAuthor> actualPostDtoWithAuthorList = postService.getPostDtoListByBody(keywordInBody);
+        List<PostDto> actualPostDtoList = postService.getPostDtoListByBody(keywordInBody);
 
         //Then
-        assertEquals(expectedPostDtoWithAuthorList.size(), actualPostDtoWithAuthorList.size());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getBody(), actualPostDtoWithAuthorList.get(0).getBody());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getUsername(), actualPostDtoWithAuthorList.get(0).getUsername());
+        assertEquals(expectedPostDtoList.size(), actualPostDtoList.size());
+        assertEquals(expectedPostDtoList.get(0).getBody(), actualPostDtoList.get(0).getBody());
+        assertEquals(expectedPostDtoList.get(0).getUsername(), actualPostDtoList.get(0).getUsername());
     }
 
     @Test
-    public void getPostDtoListByBodyWithPostNotFoundException() throws PostNotFoundException {
+    void getPostDtoListByBodyWithPostNotFoundException() throws PostNotFoundException {
         //Given
         String keywordInBody = "post";
         when(postRepository.findAllByBodyContaining(anyString())).thenReturn(Collections.emptyList());
         //When
         //Then
-       assertThrows(PostNotFoundException.class, () -> postService.getPostDtoListByBody(keywordInBody),
-               "Not found any post with keyword: '" + keywordInBody + "' in our database!");
+        assertThrows(PostNotFoundException.class, () -> postService.getPostDtoListByBody(keywordInBody),
+                "Not found any post with keyword: '" + keywordInBody + "' in our database!");
     }
 
     @Test
-    public void addOneLikeToPost() throws PostNotFoundException {
+    void addOneLikeToPost() throws PostNotFoundException {
         //Given
-        Post post = testData.preparedPost();
-        Integer postId = post.getId();
-        post.setNumberOfLikes(14);
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
+
+        Post post = testData.preparedPost();
+        Integer postId = post.getId();
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+
+        Like like = testData.preparedLike();
+        List<Like> likeList = testData.preparedLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        when(likeRepository.save(like)).thenReturn(like);
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+
         when(postRepository.save(post)).thenReturn(post);
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(post.getNumberOfLikes() + 1);
-        when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
+
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setLikeDtoList(likeDtoList);
+        when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
+
         //When
-        PostDtoWithAuthor actualPostDtoWithAuthor = postService.addOneLikeToPost(postId);
+        PostDto actualPostDto = postService.addOneLikeToPost(postId);
+
         //Then
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfLikes(), actualPostDtoWithAuthor.getNumberOfLikes());
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        assertEquals(expectedPostDto.getLikeDtoList(), actualPostDto.getLikeDtoList());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
-    public void addOneLikeToPostWithPostNotFoundException() throws PostNotFoundException {
+    void addOneLikeToPostWithPostNotFoundException() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfLikes(14);
+        post.setLikeList(List.of(new Like(1, 1, 1, null, "test")));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.ofNullable(null));
@@ -353,32 +398,36 @@ class PostServiceTest {
     }
 
     @Test
-    public void addOneDisLikeToPost() throws PostNotFoundException {
+    void addOneDisLikeToPost() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfDislikes(14);
         User user = testData.preparedUser();
+        Dislike dislike = testData.preparedDislike();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(dislikeRepository.save(dislike)).thenReturn(dislike);
         when(postRepository.save(post)).thenReturn(post);
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(post.getNumberOfDislikes() + 1);
-        when(postMapper.postToPostDtoWithAuthor(post, user)).thenReturn(expectedPostDtoWithAuthor);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        expectedPostDto.setDislikeDtoList(dislikeDtoList);
+        when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
         //When
-        PostDtoWithAuthor actualPostDtoWithAuthor = postService.addOneDisLikeToPost(postId);
+        PostDto actualPostDto = postService.addOneDisLikeToPost(postId);
         //Then
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfDislikes(), actualPostDtoWithAuthor.getNumberOfDislikes());
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        assertEquals(expectedPostDto.getDislikeDtoList(), actualPostDto.getDislikeDtoList());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
-    public void addOneDisLikeToPostWithPostNotFoundException() throws PostNotFoundException {
+    void addOneDisLikeToPostWithPostNotFoundException() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        post.setNumberOfDislikes(14);
+        post.setDislikeList(List.of(new Dislike(1, 1, 1, null, "test")));
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
         when(postRepository.findById(postId)).thenReturn(Optional.ofNullable(null));
@@ -389,7 +438,7 @@ class PostServiceTest {
     }
 
     @Test
-    public void subtractOneCommentForNumberOfCommentForPostByPostId() throws PostNotFoundException {
+    void subtractOneCommentForNumberOfCommentForPostByPostId() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
         post.setNumberOfComments(3);
@@ -400,7 +449,7 @@ class PostServiceTest {
         postService.subtractOneCommentForNumberOfCommentForPostByPostId(postId);
         //Then
         assertEquals(post.getNumberOfComments(), 2);
-        verify( postRepository, times(1)).findById(postId);
+        verify(postRepository, times(1)).findById(postId);
     }
 
 }

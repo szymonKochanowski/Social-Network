@@ -36,9 +36,13 @@ public class Post {
     @JoinColumn(name = "postId", updatable = false, insertable = false)
     private List<Comment> commentList;
 
-    private Integer numberOfLikes;
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "postLikeId", updatable = false, insertable = false)
+    private List<Like> likeList;
 
-    private Integer numberOfDislikes;
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "postDislikeId", updatable = false, insertable = false)
+    private List<Dislike> dislikeList;
 
     private Integer numberOfComments;
 

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.serwisspolecznosciowy.Application.service.PostServiceTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.272 s <<< FAILURE! - in com.serwisspolecznosciowy.Application.service.PostServiceTest
+addOneLikeToPost  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.UnsupportedOperationException
+	at com.serwisspolecznosciowy.Application.service.PostServiceTest.addOneLikeToPost(PostServiceTest.java:377)
+
+addOneDisLikeToPost  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.UnsupportedOperationException
+	at com.serwisspolecznosciowy.Application.service.PostServiceTest.addOneDisLikeToPost(PostServiceTest.java:418)
+

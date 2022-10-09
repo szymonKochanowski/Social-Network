@@ -2,8 +2,11 @@ package com.serwisspolecznosciowy.Application.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.serwisspolecznosciowy.Application.dto.DislikeDto;
+import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
-import com.serwisspolecznosciowy.Application.dto.PostDtoWithAuthor;
+import com.serwisspolecznosciowy.Application.dto.PostDto;
+import com.serwisspolecznosciowy.Application.entity.Dislike;
 import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.entity.Post;
@@ -53,9 +56,9 @@ class PostControllerTest {
     @Test
     void addNewPost() throws Exception {
         //Given
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
+        PostDto expectedPostDto = testData.preparedPostDto();
         PostBodyDto postBodyDto = testData.preparedPostBodyDto();
-        when(postService.addNewPost(postBodyDto)).thenReturn(expectedPostDtoWithAuthor);
+        when(postService.addNewPost(postBodyDto)).thenReturn(expectedPostDto);
         //When
         MvcResult mvcResult = mockMvc.perform(post("/post/add/dto")
                         .content(objectMapper.writeValueAsString(postBodyDto))
@@ -63,9 +66,9 @@ class PostControllerTest {
                 .andExpect(status().is(201))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
@@ -112,8 +115,8 @@ class PostControllerTest {
         Integer pageNumber = 0;
         Integer pageSize = 10;
         Sort.Direction wayOfSort = Sort.Direction.ASC;
-        List<PostDtoWithAuthor> expectedPostDtoWithAuthorstList = testData.preparedPostDtoWithAuthorList();
-        when(postService.getAllPostsDtoWithUsersDto(pageNumber, pageSize, wayOfSort)).thenReturn(expectedPostDtoWithAuthorstList);
+        List<PostDto> expectedPostDtoWithAuthorstList = testData.preparedPostDtoWithAuthorList();
+        when(postService.getAllPostsDto(pageNumber, pageSize, wayOfSort)).thenReturn(expectedPostDtoWithAuthorstList);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/post/all/dto")
                         .param("page", String.valueOf(pageNumber))
@@ -123,10 +126,10 @@ class PostControllerTest {
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        List<PostDtoWithAuthor> actualPostDtoWithAuthorList = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<PostDtoWithAuthor>>() {
+        List<PostDto> actualPostDtoList = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<PostDto>>() {
         });
-        assertEquals(expectedPostDtoWithAuthorstList.get(0).getBody(), actualPostDtoWithAuthorList.get(0).getBody());
-        assertEquals(expectedPostDtoWithAuthorstList.get(0).getUsername(), actualPostDtoWithAuthorList.get(0).getUsername());
+        assertEquals(expectedPostDtoWithAuthorstList.get(0).getBody(), actualPostDtoList.get(0).getBody());
+        assertEquals(expectedPostDtoWithAuthorstList.get(0).getUsername(), actualPostDtoList.get(0).getUsername());
     }
 
     @Test
@@ -135,14 +138,14 @@ class PostControllerTest {
         PostBodyDto postBodyDto = testData.preparedEditPostDto();
         String body = postBodyDto.getBody();
 
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setBody(body);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setBody(body);
 
         User admin = testData.preparedAdmin();
         Integer postId = testData.preparedPost().getId();
 
         when(userService.getLoginUser()).thenReturn(admin);
-        when(postService.editPost(postBodyDto, admin, postId)).thenReturn(expectedPostDtoWithAuthor);
+        when(postService.editPost(postBodyDto, admin, postId)).thenReturn(expectedPostDto);
         //When
         MvcResult mvcResult = mockMvc.perform(put("/post/edit/dto/{postId}", postId)
                         .content(objectMapper.writeValueAsString(body))
@@ -151,8 +154,8 @@ class PostControllerTest {
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
     }
 
     @WithMockUser(username = "test12!A", password = "test12!A")
@@ -164,14 +167,14 @@ class PostControllerTest {
 
         User user = testData.preparedUser();
 
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setBody(body);
-        expectedPostDtoWithAuthor.setUsername(user.getUsername());
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setBody(body);
+        expectedPostDto.setUsername(user.getUsername());
 
         Integer postId = testData.preparedPost().getId();
 
         when(userService.getLoginUser()).thenReturn(user);
-        when(postService.editPost(postBodyDto, user, postId)).thenReturn(expectedPostDtoWithAuthor);
+        when(postService.editPost(postBodyDto, user, postId)).thenReturn(expectedPostDto);
         //When
         MvcResult mvcResult = mockMvc.perform(put("/post/edit/dto/{postId}", postId)
                         .content(objectMapper.writeValueAsString(body))
@@ -180,9 +183,9 @@ class PostControllerTest {
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
     }
 
     @Test
@@ -214,8 +217,8 @@ class PostControllerTest {
 
         User user = testData.preparedUser();
 
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setBody(body);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setBody(body);
 
         Integer postId = testData.preparedPost().getId();
 
@@ -351,17 +354,17 @@ class PostControllerTest {
     void getPostDtoById() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        when(postService.findPostDtoById(postId)).thenReturn(expectedPostDtoWithAuthor);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        when(postService.findPostDtoById(postId)).thenReturn(expectedPostDto);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/post/dto/{id}", postId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
     }
 
     @Test
@@ -379,28 +382,28 @@ class PostControllerTest {
     @Test
     void getPostDtoListByKeywordInPostBody() throws PostNotFoundException, Exception {
         //Given
-        PostDtoWithAuthor postDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        postDtoWithAuthor.setBody("test post body - java in great!");
-        List<PostDtoWithAuthor> expectedPostDtoWithAuthorList = testData.preparedPostDtoWithAuthorList();
+        PostDto postDto = testData.preparedPostDto();
+        postDto.setBody("test post body - java in great!");
+        List<PostDto> expectedPostDtoList = testData.preparedPostDtoWithAuthorList();
         String keyword = "java";
-        when(postService.getPostDtoListByBody(keyword)).thenReturn(expectedPostDtoWithAuthorList);
+        when(postService.getPostDtoListByBody(keyword)).thenReturn(expectedPostDtoList);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/post/body/dto")
                         .param("keywordInBody", keyword))
                 .andExpect(status().isOk())
                 .andReturn();
         //Then
-        List<PostDtoWithAuthor> actualPostDtoWithAuthorList1 = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<PostDtoWithAuthor>>() {
+        List<PostDto> actualPostDtoList1 = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<PostDto>>() {
         });
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getBody(), actualPostDtoWithAuthorList1.get(0).getBody());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getUsername(), actualPostDtoWithAuthorList1.get(0).getUsername());
-        assertEquals(expectedPostDtoWithAuthorList.get(0).getProfilePicture(), actualPostDtoWithAuthorList1.get(0).getProfilePicture());
+        assertEquals(expectedPostDtoList.get(0).getBody(), actualPostDtoList1.get(0).getBody());
+        assertEquals(expectedPostDtoList.get(0).getUsername(), actualPostDtoList1.get(0).getUsername());
+        assertEquals(expectedPostDtoList.get(0).getProfilePicture(), actualPostDtoList1.get(0).getProfilePicture());
     }
 
     @Test
     void getPostDtoListByKeywordInPostBodyWithPostNotFoundException() throws PostNotFoundException, Exception {
         //Given
-        List<PostDtoWithAuthor> expectedPostDtoWithAuthorList = testData.preparedPostDtoWithAuthorList();
+        List<PostDto> expectedPostDtoList = testData.preparedPostDtoWithAuthorList();
         String keyword = "java";
         when(postService.getPostDtoListByBody(keyword)).thenThrow(PostNotFoundException.class);
         //When
@@ -414,19 +417,19 @@ class PostControllerTest {
     void addOneLikeToPostByPostId() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfLikes(14);
-        when(postService.addOneLikeToPost(postId)).thenReturn(expectedPostDtoWithAuthor);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        expectedPostDto.setLikeDtoList(List.of(new LikeDto("test")));
+        when(postService.addOneLikeToPost(postId)).thenReturn(expectedPostDto);
         //When
-        MvcResult mvcResult = mockMvc.perform(post("/post/addLike/dto/{postId}", postId))
+        MvcResult mvcResult = mockMvc.perform(post("/post/like/dto/{postId}", postId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfLikes(), actualPostDtoWithAuthor.getNumberOfLikes());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getLikeDtoList(), actualPostDto.getLikeDtoList());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
     }
 
     @Test
@@ -435,7 +438,7 @@ class PostControllerTest {
         Integer incorrectPostId = 999999999;
         when(postService.addOneLikeToPost(incorrectPostId)).thenThrow(PostNotFoundException.class);
         //When
-        mockMvc.perform(post("/post/addLike/dto/{postId}", incorrectPostId))
+        mockMvc.perform(post("/post/like/dto/{postId}", incorrectPostId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();
@@ -445,19 +448,20 @@ class PostControllerTest {
     void addOneDislikeToPostByPostId() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
-        PostDtoWithAuthor expectedPostDtoWithAuthor = testData.preparedPostDtoWithAuthor();
-        expectedPostDtoWithAuthor.setNumberOfDislikes(14);
-        when(postService.addOneDisLikeToPost(postId)).thenReturn(expectedPostDtoWithAuthor);
+        PostDto expectedPostDto = testData.preparedPostDto();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        expectedPostDto.setDislikeDtoList(dislikeDtoList);
+        when(postService.addOneDisLikeToPost(postId)).thenReturn(expectedPostDto);
         //When
-        MvcResult mvcResult = mockMvc.perform(post("/post/addDislike/dto/{postId}", postId))
+        MvcResult mvcResult = mockMvc.perform(post("/post/dislike/dto/{postId}", postId))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andReturn();
         //Then
-        PostDtoWithAuthor actualPostDtoWithAuthor = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDtoWithAuthor.class);
-        assertEquals(expectedPostDtoWithAuthor.getNumberOfDislikes(), actualPostDtoWithAuthor.getNumberOfDislikes());
-        assertEquals(expectedPostDtoWithAuthor.getUsername(), actualPostDtoWithAuthor.getUsername());
-        assertEquals(expectedPostDtoWithAuthor.getBody(), actualPostDtoWithAuthor.getBody());
+        PostDto actualPostDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), PostDto.class);
+        assertEquals(expectedPostDto.getDislikeDtoList(), actualPostDto.getDislikeDtoList());
+        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
+        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
     }
 
     @Test
@@ -466,7 +470,7 @@ class PostControllerTest {
         Integer incorrectPostId = 9999;
         when(postService.addOneDisLikeToPost(incorrectPostId)).thenThrow(PostNotFoundException.class);
         //When
-        mockMvc.perform(post("/post/addDislike/dto/{postId}", incorrectPostId))
+        mockMvc.perform(post("/post/dislike/dto/{postId}", incorrectPostId))
                 .andDo(print())
                 .andExpect(status().is(404))
                 .andReturn();

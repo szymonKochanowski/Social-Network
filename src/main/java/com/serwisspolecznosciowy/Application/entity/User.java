@@ -39,6 +39,7 @@ public class User {
     @NonNull
     private Boolean enabled;
 
+    @Column(name = "profile_picture")
     private String profilePicture;
 
 }
