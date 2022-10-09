@@ -39,5 +39,4 @@ and author profile picture. Post also contains information about numbers of like
 post. After click for button user should be able to see comments and add a new one.
 
 //todo
-- dla postow like dziala - dodac jeszcze dla dislike i to samo dla comments
-- poprawic testy
+- poprawic testy - pokrycie obecne jest na 76% tylko!

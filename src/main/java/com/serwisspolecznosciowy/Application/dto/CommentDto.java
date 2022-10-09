@@ -23,9 +23,9 @@ public class CommentDto {
 
     private LocalDateTime updated;
 
-    private List<Like> likeList;
+    private List<LikeDto> likeDtoList;
 
-    private List<Dislike> dislikeList;
+    private List<DislikeDto> dislikeDtoList;
 
     private UserDto user;
 

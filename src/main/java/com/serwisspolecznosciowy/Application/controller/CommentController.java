@@ -4,10 +4,7 @@ import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
 import com.serwisspolecznosciowy.Application.dto.CommentDto;
 import com.serwisspolecznosciowy.Application.entity.Comment;
 import com.serwisspolecznosciowy.Application.entity.User;
-import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.service.CommentService;
 import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
@@ -52,7 +49,7 @@ public class CommentController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Comment>> getAllCommentsWithAuthors(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
+    public ResponseEntity<List<Comment>> getAllComments(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
         Integer pageNumber =  page != null && page > 0 ? page : 0;
         Integer pageSize = size != null && size > 0 ? size : 10;
         Sort.Direction wayOfSort = sort != null ? sort : Sort.Direction.DESC;
@@ -61,11 +58,11 @@ public class CommentController {
     }
 
     @GetMapping("/all/dto")
-    @Operation(summary = "Get all comments with authors", description = "Default comment page is set as 0 and page size is set for 10.\nIf you want see more comments than 10 set size for bigger or change page.\n" +
+    @Operation(summary = "Get all comments", description = "Default comment page is set as 0 and page size is set for 10.\nIf you want see more comments than 10 set size for bigger or change page.\n" +
             "Page way of sort is set as DESC (from the newest to the older) based on date of created. " +
             "This method also using cache with is refreshed after 30 seconds.",
             parameters = { @Parameter(name = "size", example = "10"), @Parameter(name = "page", example = "0"), @Parameter(name = "sort", example = "DESC")})
-    public ResponseEntity<List<CommentDto>> getAllCommentsDtoWithAuthorsDto(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
+    public ResponseEntity<List<CommentDto>> getAllCommentsDto(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size, Sort.Direction sort) {
         Integer pageNumber = page != null && page > 0 ? page : 0;
         Integer pageSize = size != null && size > 0 ? size : 10;
         Sort.Direction wayOfSort = sort != null ? sort : Sort.Direction.DESC;
@@ -74,7 +71,7 @@ public class CommentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Comment> getCommentWithAuthorByCommentId(@PathVariable Integer id) {
+    public ResponseEntity<Comment> getCommentByCommentId(@PathVariable Integer id) {
         log.info("Start to get comment with id: " + id);
         try {
             return ResponseEntity.ok(commentService.getCommentById(id));
@@ -84,8 +81,8 @@ public class CommentController {
     }
 
     @GetMapping("/dto/{id}")
-    @Operation(summary = "Get comment with author by comment id")
-    public ResponseEntity<CommentDto> getCommentDtoWithAuthorDtoByCommentId(@PathVariable Integer id) {
+    @Operation(summary = "Get comment by comment id")
+    public ResponseEntity<CommentDto> getCommentDtoByCommentId(@PathVariable Integer id) {
         log.info("Start to get comment with id: " + id);
         try {
             return ResponseEntity.ok(commentService.getCommentDtoById(id));
@@ -97,7 +94,7 @@ public class CommentController {
     @DeleteMapping("/delete/{commentId}/{postId}")
     @Operation(summary = "Delete comment by comment id and post id", description = "Only user with admin right or login author of comment can delete specific comment. " +
             "Method required to provide only comment id in path, but in frontend id will be took automatically.")
-    public ResponseEntity<Void> deleteCommentByIdAndPostId(@PathVariable Integer commentId, @PathVariable Integer postId) {
+    public ResponseEntity<Void> deleteCommentByCommentIdAndPostId(@PathVariable Integer commentId, @PathVariable Integer postId) {
         log.info("Start to delete comment with id: " + commentId);
         try {
             postService.subtractOneCommentForNumberOfCommentForPostByPostId(postId);
@@ -144,6 +141,8 @@ public class CommentController {
         } catch (CommentNotFoundException e) {
             log.error("Error in POST method: addOneLikeToComment");
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (DuplicateUsernameException ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
@@ -156,6 +155,8 @@ public class CommentController {
         } catch (CommentNotFoundException e) {
             log.error("Error in POST method: addOneLikeToComment");
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (DuplicateUsernameException ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
 

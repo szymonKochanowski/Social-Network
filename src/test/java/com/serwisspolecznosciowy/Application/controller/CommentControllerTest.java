@@ -2,9 +2,7 @@ package com.serwisspolecznosciowy.Application.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
-import com.serwisspolecznosciowy.Application.dto.CommentDto;
-import com.serwisspolecznosciowy.Application.dto.UserDto;
+import com.serwisspolecznosciowy.Application.dto.*;
 import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
@@ -65,7 +63,7 @@ class CommentControllerTest {
         //Given
         Post post = testData.preparedPost();
         Integer postId = post.getId();
-        CommentDto expectCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectCommentDto = testData.preparedCommentDto();
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
         when(commentService.addNewComment(postId, commentBodyDto)).thenReturn(expectCommentDto);
         //When
@@ -133,7 +131,7 @@ class CommentControllerTest {
     @Test
     void getAllCommentsDtoWithAuthorsDto() throws Exception {
         //Given
-        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
         Integer pageNumber = 0;
         Integer pageSize = 10;
         Sort.Direction wayOfSort = Sort.Direction.ASC;
@@ -183,7 +181,7 @@ class CommentControllerTest {
     void getCommentDtoWithAuthorDtoByCommentId() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         when(commentService.getCommentDtoById(commentId)).thenReturn(expectedCommentDto);
         //When
         MvcResult mvcResult = mockMvc.perform(get("/comment/dto/{id}", commentId))
@@ -200,7 +198,7 @@ class CommentControllerTest {
     void getCommentDtoWithAuthorDtoByCommentIdWithCommentNotFoundExceptionException() throws CommentNotFoundException, Exception {
         //Given
         Integer incorrectCommentId = 99999;
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         when(commentService.getCommentDtoById(incorrectCommentId)).thenThrow(CommentNotFoundException.class);
         //When
         //Then
@@ -304,7 +302,7 @@ class CommentControllerTest {
     void getCommentsDtoListByKeywordInCommentBody() throws CommentNotFoundException, Exception {
         //Given
         String body = testData.preparedComment().getBody();
-        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
         when(commentService.getCommentsDtoByBody(body)).thenReturn(expectedCommentDtoList);
         //When
         //Then
@@ -337,8 +335,9 @@ class CommentControllerTest {
     void addOneLikeToCommentById() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDto.setLikeList(List.of(new Like(1, 1, 1, null, "test")));
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        expectedCommentDto.setLikeDtoList(likeDtoList);
         when(commentService.addOneLikeToComment(commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
@@ -349,7 +348,7 @@ class CommentControllerTest {
         CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
         assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
         assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
-        assertEquals(expectedCommentDto.getLikeList(), actualCommentDto.getLikeList());
+        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
     }
 
     @Test
@@ -369,8 +368,9 @@ class CommentControllerTest {
     void addOneDislikeToCommentById() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDto.setDislikeList(List.of(new Dislike(1, 1, 1, null, "test")));
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        expectedCommentDto.setDislikeDtoList(dislikeDtoList);
         when(commentService.addOneDisLikeToComment(commentId)).thenReturn(expectedCommentDto);
         //When
         //Then
@@ -381,7 +381,7 @@ class CommentControllerTest {
         CommentDto actualCommentDto = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), CommentDto.class);
         assertEquals(expectedCommentDto.getUser().getUsername(), actualCommentDto.getUser().getUsername());
         assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
-        assertEquals(expectedCommentDto.getDislikeList(), actualCommentDto.getDislikeList());
+        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
     }
 
     @Test
@@ -403,7 +403,7 @@ class CommentControllerTest {
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
         String body = commentBodyDto.getBody();
         Integer commentId = testData.preparedComment().getId();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         expectedCommentDto.setBody(body);
         User user = testData.preparedUser();
         when(userService.getLoginUser()).thenReturn(user);
@@ -433,7 +433,7 @@ class CommentControllerTest {
         String body = commentBodyDto.getBody();
         Integer commentId = testData.preparedComment().getId();
 
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         expectedCommentDto.setBody(body);
         expectedCommentDto.setUser(userDto);
 
@@ -495,7 +495,7 @@ class CommentControllerTest {
     void getCommentDtoListByPostId() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
-        List<CommentDto> expectedCommentDtoWithAuthorsList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoWithAuthorsList = testData.preparedCommentDtoList();
         when(commentService.getCommentsDtoListByPostId(postId)).thenReturn(expectedCommentDtoWithAuthorsList);
         //When
         //Then

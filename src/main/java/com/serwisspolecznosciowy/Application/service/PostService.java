@@ -186,12 +186,8 @@ public class PostService {
         Optional<Post> optionalPost = postRepository.findById(postId);
         if (optionalPost.isPresent()) {
             Post post = optionalPost.get();
-            if (post.getLikeList().stream().anyMatch(userInLikeList -> userInLikeList.getUserId().equals(user.getId()))) {
-                log.error("Error in method addOneLikeToPost! User can add only once like to specified post!");
-                throw new DuplicateUsernameException("User can add only once like to specified post!");
-            }
-            Like like = new Like();
             checkUserNotAlreadyAddOneLikeToPost(user, post);
+            Like like = new Like();
             like.setUserId(user.getId());
             like.setPostLikeId(post.getId());
             like.setUsername(user.getUsername());
@@ -212,7 +208,7 @@ public class PostService {
 
     private void checkUserNotAlreadyAddOneLikeToPost(User user, Post post) {
         if (post.getLikeList().stream().anyMatch(currentLike -> currentLike.getUserId().equals(user.getId()))) {
-            log.error("Error in method addOneLikeToPost! User can add only once like to specified post!");
+            log.error("Error in method checkUserNotAlreadyAddOneLikeToPost! User can add only once like to specified post!");
             throw new DuplicateUsernameException("User can add only once like to specified post!");
         }
     }
@@ -222,8 +218,8 @@ public class PostService {
         Optional<Post> optionalPost = postRepository.findById(postId);
         if (optionalPost.isPresent()) {
             Post post = optionalPost.get();
-            Dislike dislike = new Dislike();
             checkIfUserNotAlreadyAddOneDislikeToPost(user, post);
+            Dislike dislike = new Dislike();
             dislike.setPostDislikeId(post.getId());
             dislike.setUserId(user.getId());
             dislike.setUsername(user.getUsername());

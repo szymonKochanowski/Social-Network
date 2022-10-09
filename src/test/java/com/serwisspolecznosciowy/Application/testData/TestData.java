@@ -138,8 +138,8 @@ public class TestData {
         comment.setUpdated(null);
         comment.setPostId(preparedPost().getId());
         comment.setUser(preparedUser());
-        comment.setLikeList(null);
-        comment.setDislikeList(null);
+        comment.setLikeList(Collections.emptyList());
+        comment.setDislikeList(Collections.emptyList());
         return comment;
     }
 
@@ -157,21 +157,21 @@ public class TestData {
         return  commentBodyDto;
     }
 
-    public CommentDto preparedCommentDtoWithAuthor() {
+    public CommentDto preparedCommentDto() {
         Comment comment = preparedComment();
         CommentDto commentDto = new CommentDto();
         commentDto.setBody(comment.getBody());
         commentDto.setCreated(comment.getCreated());
         commentDto.setUpdated(comment.getUpdated());
-        commentDto.setLikeList(comment.getLikeList());
-        commentDto.setDislikeList(comment.getDislikeList());
+        commentDto.setLikeDtoList(Collections.emptyList());
+        commentDto.setDislikeDtoList(Collections.emptyList());
         commentDto.setUser(preparedUserDto());
         return commentDto;
     }
 
-    public List<CommentDto> preparedCommentDtoWithAuthorList() {
+    public List<CommentDto> preparedCommentDtoList() {
         List<CommentDto> commentDtoList = new ArrayList<>();
-        commentDtoList.add(preparedCommentDtoWithAuthor());
+        commentDtoList.add(preparedCommentDto());
         return commentDtoList;
     }
 

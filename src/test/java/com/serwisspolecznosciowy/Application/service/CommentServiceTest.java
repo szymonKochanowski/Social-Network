@@ -2,13 +2,19 @@ package com.serwisspolecznosciowy.Application.service;
 
 import com.serwisspolecznosciowy.Application.dto.CommentBodyDto;
 import com.serwisspolecznosciowy.Application.dto.CommentDto;
+import com.serwisspolecznosciowy.Application.dto.DislikeDto;
+import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.entity.*;
 import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
 import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
 import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
 import com.serwisspolecznosciowy.Application.mappers.CommentMapper;
+import com.serwisspolecznosciowy.Application.mappers.DislikeMapper;
+import com.serwisspolecznosciowy.Application.mappers.LikeMapper;
 import com.serwisspolecznosciowy.Application.repository.CommentRepository;
+import com.serwisspolecznosciowy.Application.repository.DislikeRepository;
+import com.serwisspolecznosciowy.Application.repository.LikeRepository;
 import com.serwisspolecznosciowy.Application.testData.TestData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -43,6 +49,14 @@ public class CommentServiceTest {
     private UserService userService;
     @Mock
     private CommentMapper commentMapper;
+    @Mock
+    private LikeMapper likeMapper;
+    @Mock
+    private DislikeMapper dislikeMapper;
+    @Mock
+    private DislikeRepository dislikeRepository;
+    @Mock
+    private LikeRepository likeRepository;
 
     @Test
     void addNewComment() throws PostNotFoundException {
@@ -51,7 +65,7 @@ public class CommentServiceTest {
         when(userService.getLoginUser()).thenReturn(user);
 
         Comment comment = testData.preparedComment();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
         when(commentRepository.save(any(Comment.class))).thenReturn(comment);
 
@@ -60,7 +74,7 @@ public class CommentServiceTest {
         post.setNumberOfComments(1);
         when(postService.findPostById(anyInt())).thenReturn(post);
 
-        when(commentMapper.commentToCommentDto(any(Comment.class))).thenReturn(expectedCommentDto);
+        when(commentMapper.commentToCommentDto(any(Comment.class), any(User.class), any(), any())).thenReturn(expectedCommentDto);
         //when
         CommentDto actualCommentDto = commentService.addNewComment(postId, commentBodyDto);
         //then
@@ -105,12 +119,30 @@ public class CommentServiceTest {
         Integer pageNumber = 0;
         Integer pageSize = 10;
         Sort.Direction wayOfSort = Sort.Direction.ASC;
-        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoWithAuthorList();
-        when(commentMapper.commentListToCommentDtoList(anyList())).thenReturn(expectedCommentDtoList);
+        List<Comment> commentList = testData.preparedCommentList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
+        CommentDto commentDto = testData.preparedCommentDto();
+
+        User user = testData.preparedUser();
+
+        when(commentRepository.findAllComments(PageRequest.of(pageNumber, pageSize, Sort.by(wayOfSort, "created")))).thenReturn(commentList);
+
+        List<Like> likeList = testData.preparedLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+
+        when(commentMapper.commentToCommentDto(any(Comment.class), any(User.class), any(), any())).thenReturn(commentDto);
+
         //when
         List<CommentDto> actualCommentDtoList = commentService.getAllCommentsDto(pageNumber, pageSize, wayOfSort);
+
         //then
-        assertEquals(expectedCommentDtoList, actualCommentDtoList);
+        assertEquals(expectedCommentDtoList.size(), actualCommentDtoList.size());
+        assertEquals(expectedCommentDtoList.get(0).getBody(), actualCommentDtoList.get(0).getBody());
+        assertEquals(expectedCommentDtoList.get(0).getUser(), actualCommentDtoList.get(0).getUser());
     }
 
     @Test
@@ -147,11 +179,21 @@ public class CommentServiceTest {
         //Given
         Comment comment = testData.preparedComment();
         Integer commentId = comment.getId();
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
-        when(commentMapper.commentToCommentDto(comment)).thenReturn(expectedCommentDto);
+
+        List<Like> likeList = testData.preparedLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+
+        when(commentMapper.commentToCommentDto(any(Comment.class), any(User.class), any(), any())).thenReturn(expectedCommentDto);
+
         //When
         CommentDto actualCommentDtoById = commentService.getCommentDtoById(commentId);
+
         //Then
         assertEquals(expectedCommentDto.getBody(), actualCommentDtoById.getBody());
         assertEquals(expectedCommentDto.getCreated(), actualCommentDtoById.getCreated());
@@ -265,7 +307,7 @@ public class CommentServiceTest {
         //Given
         String body = testData.preparedComment().getBody();
         List<Comment> commentList = testData.preparedCommentList();
-        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
         when(commentRepository.findAllByBodyContaining(body)).thenReturn(commentList);
         when(commentMapper.commentListToCommentDtoList(commentList)).thenReturn(expectedCommentDtoList);
         //When
@@ -274,7 +316,7 @@ public class CommentServiceTest {
         assertEquals(expectedCommentDtoList.get(0).getBody().contains(body), actualCommentDtoList.get(0).getBody().contains(body));
         assertEquals(expectedCommentDtoList.get(0).getBody(), actualCommentDtoList.get(0).getBody());
         assertEquals(expectedCommentDtoList.get(0).getCreated(), actualCommentDtoList.get(0).getCreated());
-        assertEquals(expectedCommentDtoList.get(0).getDislikeList(), actualCommentDtoList.get(0).getDislikeList());
+        assertEquals(expectedCommentDtoList.get(0).getDislikeDtoList(), actualCommentDtoList.get(0).getDislikeDtoList());
         assertEquals(expectedCommentDtoList.get(0).getUser(), actualCommentDtoList.get(0).getUser());
     }
 
@@ -292,18 +334,36 @@ public class CommentServiceTest {
     @Test
     void addOneLikeToComment() throws CommentNotFoundException {
         //Given
+        User user = testData.preparedUser();
+        when(userService.getLoginUser()).thenReturn(user);
+
         Comment comment = testData.preparedComment();
-        comment.setLikeList(List.of(new Like(1, 1, null, 1, "test")));
         Integer commentId = comment.getId();
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+
+        Like like = testData.preparedLike();
+        when(likeRepository.save(like)).thenReturn(like);
+
+        List<Like> likeList = testData.preparedLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+
         when(commentRepository.save(comment)).thenReturn(comment);
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDto.setLikeList(comment.getLikeList());
-        when(commentMapper.commentToCommentDto(comment)).thenReturn(expectedCommentDto);
+
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        expectedCommentDto.setLikeDtoList(likeDtoList);
+
+        when(commentMapper.commentToCommentDto(comment, user, likeDtoList, dislikeDtoList)).thenReturn(expectedCommentDto);
+
         //When
         CommentDto actualCommentDto = commentService.addOneLikeToComment(commentId);
+
         //Then
-        assertEquals(expectedCommentDto.getLikeList(), actualCommentDto.getLikeList());
+        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
+        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
         assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
         assertEquals(expectedCommentDto.getUser(), actualCommentDto.getUser());
     }
@@ -322,19 +382,36 @@ public class CommentServiceTest {
     @Test
     void addOneDisLikeToComment() throws CommentNotFoundException {
         //Given
+        User user = testData.preparedUser();
+        when(userService.getLoginUser()).thenReturn(user);
+
         Comment comment = testData.preparedComment();
-        comment.setDislikeList(List.of(new Dislike(1, 1, null, 1, "test")));
         Integer commentId = comment.getId();
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+
+        Dislike dislike = testData.preparedDislike();
+        when(dislikeRepository.save(dislike)).thenReturn(dislike);
+
+        List<Like> likeList = testData.preparedLikeList();
+        List<LikeDto> likeDtoList = testData.preparedLikeDtoList();
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+
         when(commentRepository.save(comment)).thenReturn(comment);
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
-        expectedCommentDto.setDislikeList(comment.getDislikeList());
-        when(commentMapper.commentToCommentDto(comment)).thenReturn(expectedCommentDto);
+
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
+        expectedCommentDto.setDislikeDtoList(dislikeDtoList);
+
+        when(commentMapper.commentToCommentDto(comment, user, likeDtoList, dislikeDtoList)).thenReturn(expectedCommentDto);
+
         //When
         CommentDto actualCommentDto = commentService.addOneDisLikeToComment(commentId);
+
         //Then
-        assertEquals(expectedCommentDto.getDislikeList(), actualCommentDto.getDislikeList());
-        assertEquals(expectedCommentDto.getLikeList(), actualCommentDto.getLikeList());
+        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
+        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
         assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
         assertEquals(expectedCommentDto.getUser(), actualCommentDto.getUser());
     }
@@ -357,19 +434,26 @@ public class CommentServiceTest {
         comment.setBody("test edit");
         Integer commentId = comment.getId();
 
-        CommentDto expectedCommentDto = testData.preparedCommentDtoWithAuthor();
+        CommentDto expectedCommentDto = testData.preparedCommentDto();
         CommentBodyDto commentBodyDto = testData.prepareCommentBodyDto();
+
+        List<Like> likeList = Collections.emptyList();
+        List<LikeDto> likeDtoList = Collections.emptyList();
+        List<Dislike> dislikeList = Collections.emptyList();
+        List<DislikeDto> dislikeDtoList = Collections.emptyList();
 
         User user = testData.preparedUser();
 
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
         when(commentRepository.save(comment)).thenReturn(comment);
-        when(commentMapper.commentToCommentDto(comment)).thenReturn(expectedCommentDto);
+        when(likeMapper.likeListToLikeDtoList(likeList)).thenReturn(likeDtoList);
+        when(dislikeMapper.dislikeListToDislikeDtoList(dislikeList)).thenReturn(dislikeDtoList);
+        when(commentMapper.commentToCommentDto(comment, user, likeDtoList, dislikeDtoList)).thenReturn(expectedCommentDto);
         //When
         CommentDto actualCommentDto = commentService.editComment(commentBodyDto, user, commentId);
         //Then
-        assertEquals(expectedCommentDto.getDislikeList(), actualCommentDto.getDislikeList());
-        assertEquals(expectedCommentDto.getLikeList(), actualCommentDto.getLikeList());
+        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
+        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
         assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
         assertEquals(expectedCommentDto.getUser(), actualCommentDto.getUser());
     }
@@ -398,7 +482,7 @@ public class CommentServiceTest {
         //Given
         Integer postId = testData.preparedPost().getId();
         List<Comment> commentList = testData.preparedCommentList();
-        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoWithAuthorList();
+        List<CommentDto> expectedCommentDtoList = testData.preparedCommentDtoList();
         when(commentRepository.findAllCommentsByPostId(postId)).thenReturn(commentList);
         when(commentMapper.commentListToCommentDtoList(commentList)).thenReturn(expectedCommentDtoList);
         //When
@@ -406,7 +490,7 @@ public class CommentServiceTest {
         //Then
         assertEquals(expectedCommentDtoList.get(0).getBody(), actualCommentsDtoListByPostId.get(0).getBody());
         assertEquals(expectedCommentDtoList.get(0).getCreated(), actualCommentsDtoListByPostId.get(0).getCreated());
-        assertEquals(expectedCommentDtoList.get(0).getDislikeList(), actualCommentsDtoListByPostId.get(0).getDislikeList());
+        assertEquals(expectedCommentDtoList.get(0).getDislikeDtoList(), actualCommentsDtoListByPostId.get(0).getDislikeDtoList());
         assertEquals(expectedCommentDtoList.get(0).getUser(), actualCommentsDtoListByPostId.get(0).getUser());
     }
 

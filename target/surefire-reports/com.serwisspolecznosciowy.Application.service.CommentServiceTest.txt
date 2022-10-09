@@ -1,4 +1,92 @@
 -------------------------------------------------------------------------------
 Test set: com.serwisspolecznosciowy.Application.service.CommentServiceTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.248 s - in com.serwisspolecznosciowy.Application.service.CommentServiceTest
+Tests run: 24, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 3.175 s <<< FAILURE! - in com.serwisspolecznosciowy.Application.service.CommentServiceTest
+editComment  Time elapsed: 0.034 s  <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Invalid use of argument matchers!
+4 matchers expected, 3 recorded:
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.editComment(CommentServiceTest.java:371)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.editComment(CommentServiceTest.java:371)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.editComment(CommentServiceTest.java:371)
+
+This exception may occur if matchers are combined with raw values:
+    //incorrect:
+    someMethod(any(), "raw String");
+When using matchers, all arguments have to be provided by matchers.
+For example:
+    //correct:
+    someMethod(any(), eq("String by matcher"));
+
+For more info see javadoc for Matchers class.
+
+	at com.serwisspolecznosciowy.Application.service.CommentServiceTest.editComment(CommentServiceTest.java:371)
+
+addOneDisLikeToComment  Time elapsed: 0.009 s  <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Invalid use of argument matchers!
+4 matchers expected, 3 recorded:
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneDisLikeToComment(CommentServiceTest.java:336)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneDisLikeToComment(CommentServiceTest.java:336)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneDisLikeToComment(CommentServiceTest.java:336)
+
+This exception may occur if matchers are combined with raw values:
+    //incorrect:
+    someMethod(any(), "raw String");
+When using matchers, all arguments have to be provided by matchers.
+For example:
+    //correct:
+    someMethod(any(), eq("String by matcher"));
+
+For more info see javadoc for Matchers class.
+
+	at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneDisLikeToComment(CommentServiceTest.java:336)
+
+getAllCommentsDto  Time elapsed: 0.05 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[CommentDto(body=test comment body, created=2022-10-09T17:05:28.350486900, updated=null, likeDtoList=[], dislikeDtoList=[], user=UserDto(username=test12!A, profilePicture=null, created=2022-10-09T17:05:28.350486900, updated=null))]> but was: <[]>
+	at com.serwisspolecznosciowy.Application.service.CommentServiceTest.getAllCommentsDto(CommentServiceTest.java:115)
+
+getCommentDtoById  Time elapsed: 0.005 s  <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Invalid use of argument matchers!
+4 matchers expected, 3 recorded:
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.getCommentDtoById(CommentServiceTest.java:154)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.getCommentDtoById(CommentServiceTest.java:154)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.getCommentDtoById(CommentServiceTest.java:154)
+
+This exception may occur if matchers are combined with raw values:
+    //incorrect:
+    someMethod(any(), "raw String");
+When using matchers, all arguments have to be provided by matchers.
+For example:
+    //correct:
+    someMethod(any(), eq("String by matcher"));
+
+For more info see javadoc for Matchers class.
+
+	at com.serwisspolecznosciowy.Application.service.CommentServiceTest.getCommentDtoById(CommentServiceTest.java:154)
+
+addOneLikeToComment  Time elapsed: 0.003 s  <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Invalid use of argument matchers!
+4 matchers expected, 3 recorded:
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneLikeToComment(CommentServiceTest.java:305)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneLikeToComment(CommentServiceTest.java:305)
+-> at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneLikeToComment(CommentServiceTest.java:305)
+
+This exception may occur if matchers are combined with raw values:
+    //incorrect:
+    someMethod(any(), "raw String");
+When using matchers, all arguments have to be provided by matchers.
+For example:
+    //correct:
+    someMethod(any(), eq("String by matcher"));
+
+For more info see javadoc for Matchers class.
+
+	at com.serwisspolecznosciowy.Application.service.CommentServiceTest.addOneLikeToComment(CommentServiceTest.java:305)
+

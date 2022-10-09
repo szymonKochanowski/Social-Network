@@ -102,7 +102,7 @@ class PostServiceTest {
     }
 
     @Test
-    void getAllPostsWithComments() {
+    void getAllPosts() {
         //given
         Integer pageNumber = 0;
         Integer pageSize = 10;
