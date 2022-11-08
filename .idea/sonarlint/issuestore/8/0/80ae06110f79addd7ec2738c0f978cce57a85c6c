@@ -1,4 +1,0 @@
-
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğû¡„ùÿÿÿÿ
-³
-java:S4601>"Reorder the URL patterns from most to less specific, the pattern "/post/dislike/dto/{postId}" should occurs before "/post/dislike/dto/{postId}".(¡Êö‚ûÿÿÿÿ8ªĞâ¶0

@@ -4,8 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored logic for like and dislike  for comment.">
+    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored gitignore file.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a6e6543309093bd18f54e8da6aafb926de0c00f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60d8dbd1eb58513b61ae1ec7ed8d0513996b6fd0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63163d1b5d647465476ef748789f3f4d11d506ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/763823cb0e839ccf009b3ad3dc79550e923d13e1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/80ae06110f79addd7ec2738c0f978cce57a85c6c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5db35984da8ffa0e255c16a2e31ae7b26e7d222" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,16 +127,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "last_opened_file_path": "C:/Users/Szymon/IdeaProjects/thymeleaf",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/JwtToken&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.serwisspolecznosciowy.Application.exception" />
@@ -140,70 +165,80 @@
       <command value="mvn clean, compile, package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in demo">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.Application" />
+  <component name="RunManager" selected="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException">
+    <configuration name="CommentControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="social_network" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.*" />
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.CommentServiceTest" />
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.CommentControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostServiceTest.findPostDtoById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="social_network" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.PostServiceTest" />
-      <option name="METHOD_NAME" value="findPostDtoById" />
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.CommentControllerTest" />
+      <option name="METHOD_NAME" value="addOneDislikeToCommentByIdWithDuplicateUsernameException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostServiceTest.getAllPostsDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="social_network" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.PostServiceTest" />
-      <option name="METHOD_NAME" value="getAllPostsDto" />
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
+      <option name="METHOD_NAME" value="addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
+      <option name="METHOD_NAME" value="addOneLikeToPostByPostIdWithDuplicateUsernameException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -221,19 +256,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Application" />
-      <item itemvalue="JUnit.CommentServiceTest" />
-      <item itemvalue="JUnit.PostServiceTest.getAllPostsDto" />
-      <item itemvalue="JUnit.All in demo" />
-      <item itemvalue="JUnit.PostServiceTest.findPostDtoById" />
+      <item itemvalue="JUnit.CommentControllerTest" />
+      <item itemvalue="JUnit.CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" />
+      <item itemvalue="JUnit.PostControllerTest" />
+      <item itemvalue="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
+      <item itemvalue="JUnit.PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in demo" />
-        <item itemvalue="JUnit.CommentServiceTest" />
-        <item itemvalue="JUnit.PostServiceTest.getAllPostsDto" />
-        <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.PostServiceTest.findPostDtoById" />
+        <item itemvalue="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
+        <item itemvalue="JUnit.PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" />
+        <item itemvalue="JUnit.PostControllerTest" />
+        <item itemvalue="JUnit.CommentControllerTest" />
+        <item itemvalue="JUnit.CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" />
       </list>
     </recent_temporary>
   </component>
@@ -524,7 +559,7 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addNewCommentWithEmptyBody.ic" NAME="CommentServiceTest.addNewCommentWithEmptyBody Coverage Results" MODIFIED="1662042058649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest.ic" NAME="PostControllerTest Coverage Results" MODIFIED="1662017316716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest.ic" NAME="PostControllerTest Coverage Results" MODIFIED="1667934969182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldThrow401ErrorDuringUpdatePassword.ic" NAME="UserControllerTest.shouldThrow401ErrorDuringUpdatePassword Coverage Results" MODIFIED="1647087293662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -555,6 +590,9 @@
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addNewCommentByPostId.ic" NAME="CommentControllerTest.addNewCommentByPostId Coverage Results" MODIFIED="1661929358721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addOneLikeToCommentByIdWithDuplicateUsernameException.ic" NAME="CommentControllerTest.addOneLikeToCommentByIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667934725177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentsListByKeywordInCommentBodyWithCommentNotFoundException.ic" NAME="CommentControllerTest.getCommentsListByKeywordInCommentBodyWithCommentNotFoundException Coverage Results" MODIFIED="1661938911057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -632,6 +670,9 @@
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldThrowError404DuringDeleteUser.ic" NAME="UserControllerTest.shouldThrowError404DuringDeleteUser Coverage Results" MODIFIED="1647086345334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addOneDislikeToCommentByIdWithDuplicateUsernameException.ic" NAME="CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667934865806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_deletePostById.ic" NAME="PostServiceTest.deletePostById Coverage Results" MODIFIED="1662211592457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
@@ -665,6 +706,9 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldThrowPostNotFoundExceptionDuringAddNewComment.ic" NAME="CommentControllerTest.shouldThrowPostNotFoundExceptionDuringAddNewComment Coverage Results" MODIFIED="1661929720528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneDislikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935168890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_getLoginUser.ic" NAME="UserServiceTest.getLoginUser Coverage Results" MODIFIED="1662365308174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
@@ -673,6 +717,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_findUserByIdWithUserNotFoundException.ic" NAME="UserServiceTest.findUserByIdWithUserNotFoundException Coverage Results" MODIFIED="1662320368842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneLikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935104973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_addNewUserWithRoleAdmin.ic" NAME="UserServiceTest.addNewUserWithRoleAdmin Coverage Results" MODIFIED="1662377600702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
@@ -734,8 +781,8 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneDisLikeToCommentWithCommentNotFoundException.ic" NAME="CommentServiceTest.addOneDisLikeToCommentWithCommentNotFoundException Coverage Results" MODIFIED="1662113146968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$All_in_demo.ic" NAME="All in demo Coverage Results" MODIFIED="1665331843760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest.ic" NAME="CommentControllerTest Coverage Results" MODIFIED="1661943323093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$All_in_demo.ic" NAME="All in demo Coverage Results" MODIFIED="1667934329477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest.ic" NAME="CommentControllerTest Coverage Results" MODIFIED="1667934884623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$PostControllerTest_shouldThrowError401DuringEditPost.ic" NAME="PostControllerTest.shouldThrowError401DuringEditPost Coverage Results" MODIFIED="1647087890746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

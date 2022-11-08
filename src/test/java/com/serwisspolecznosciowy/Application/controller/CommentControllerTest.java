@@ -4,10 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.serwisspolecznosciowy.Application.dto.*;
 import com.serwisspolecznosciowy.Application.entity.*;
-import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.service.CommentService;
 import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
@@ -365,6 +362,19 @@ class CommentControllerTest {
     }
 
     @Test
+    void addOneLikeToCommentByIdWithDuplicateUsernameException() throws CommentNotFoundException, Exception {
+        //Given
+        Integer commentId = testData.preparedComment().getId();
+        when(commentService.addOneLikeToComment(commentId)).thenThrow(DuplicateUsernameException.class);
+        //When
+        //Then
+        MvcResult mvcResult = mockMvc.perform(post("/comment/like/dto/{commentId}", commentId))
+                .andDo(print())
+                .andExpect(status().is(409))
+                .andReturn();
+    }
+
+    @Test
     void addOneDislikeToCommentById() throws CommentNotFoundException, Exception {
         //Given
         Integer commentId = testData.preparedComment().getId();
@@ -394,6 +404,19 @@ class CommentControllerTest {
         MvcResult mvcResult = mockMvc.perform(post("/comment/dislike/dto/{commentId}", incorrectCommentId))
                 .andDo(print())
                 .andExpect(status().is(404))
+                .andReturn();
+    }
+
+    @Test
+    void addOneDislikeToCommentByIdWithDuplicateUsernameException() throws CommentNotFoundException, Exception {
+        //Given
+        Integer commentId = testData.preparedComment().getId();
+        when(commentService.addOneDisLikeToComment(commentId)).thenThrow(DuplicateUsernameException.class);
+        //When
+        //Then
+        MvcResult mvcResult = mockMvc.perform(post("/comment/dislike/dto/{commentId}", commentId))
+                .andDo(print())
+                .andExpect(status().is(409))
                 .andReturn();
     }
 

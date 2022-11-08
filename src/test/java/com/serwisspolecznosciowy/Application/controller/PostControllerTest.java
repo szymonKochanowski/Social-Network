@@ -7,12 +7,9 @@ import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDto;
 import com.serwisspolecznosciowy.Application.entity.Dislike;
-import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.entity.Post;
 import com.serwisspolecznosciowy.Application.entity.User;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
-import com.serwisspolecznosciowy.Application.exception.UserNotFoundException;
 import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
 import com.serwisspolecznosciowy.Application.testData.TestData;
@@ -445,6 +442,18 @@ class PostControllerTest {
     }
 
     @Test
+    void addOneLikeToPostByPostIdWithDuplicateUsernameException() throws PostNotFoundException, Exception {
+        //Given
+        Integer postId = testData.preparedPost().getId();
+        when(postService.addOneLikeToPost(postId)).thenThrow(DuplicateUsernameException.class);
+        //When
+        mockMvc.perform(post("/post/like/dto/{postId}", postId))
+                .andDo(print())
+                .andExpect(status().isConflict())
+                .andReturn();
+    }
+
+    @Test
     void addOneDislikeToPostByPostId() throws PostNotFoundException, Exception {
         //Given
         Integer postId = testData.preparedPost().getId();
@@ -473,6 +482,18 @@ class PostControllerTest {
         mockMvc.perform(post("/post/dislike/dto/{postId}", incorrectPostId))
                 .andDo(print())
                 .andExpect(status().is(404))
+                .andReturn();
+    }
+
+    @Test
+    void addOneDislikeToPostByPostIdWithDuplicateUsernameException() throws PostNotFoundException, Exception {
+        //Given
+        Integer postId = testData.preparedPost().getId();
+        when(postService.addOneDisLikeToPost(postId)).thenThrow(DuplicateUsernameException.class);
+        //When
+        mockMvc.perform(post("/post/dislike/dto/{postId}", postId))
+                .andDo(print())
+                .andExpect(status().is(409))
                 .andReturn();
     }
 

@@ -23,8 +23,10 @@
 hs_err_pid*
 replay_pid*
 
-#sonralint
-.idea/sonarlint.*
-
 #target
-*/target.*
+/target/
+*/target/**/
+
+
+#sonralint
+.idea/sonarlint/
