@@ -5,10 +5,7 @@ import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDto;
 import com.serwisspolecznosciowy.Application.entity.*;
-import com.serwisspolecznosciowy.Application.exception.PostEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
-import com.serwisspolecznosciowy.Application.exception.UserNotFoundException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.mappers.DislikeMapper;
 import com.serwisspolecznosciowy.Application.mappers.LikeMapper;
 import com.serwisspolecznosciowy.Application.mappers.PostMapper;
@@ -307,14 +304,14 @@ class PostServiceTest {
     }
 
     @Test
-    void findAllPostsByUserIdReturnNull() {
+    void findAllPostsByUserIdReturnEmptyList() {
         //Given
         Integer userId = testData.preparedUser().getId();
         when(postRepository.findAllByUserId(userId)).thenReturn(Optional.ofNullable(null));
         //When
         List<Post> actualPostList = postService.findAllPostsByUserId(userId);
         //Then
-        assertNull(actualPostList);
+        assertEquals(Collections.emptyList(), actualPostList);
     }
 
     @Test
@@ -374,12 +371,10 @@ class PostServiceTest {
         when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
 
         //When
-        PostDto actualPostDto = postService.addOneLikeToPost(postId);
+        postService.addOneLikeToPost(postId);
 
         //Then
-        assertEquals(expectedPostDto.getLikeDtoList(), actualPostDto.getLikeDtoList());
-        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
-        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
+        verify(postRepository, times(1)).save(post);
     }
 
     @Test
@@ -398,6 +393,25 @@ class PostServiceTest {
     }
 
     @Test
+    void addOneLikeToPostReturnDuplicateUsernameException() throws PostNotFoundException {
+        //Given
+        User user = testData.preparedUser();
+        when(userService.getLoginUser()).thenReturn(user);
+
+        Post post = testData.preparedPost();
+        Integer postId = post.getId();
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+
+        List<Like> likeList = testData.preparedLikeList();
+        post.setLikeList(likeList);
+
+        //When
+        //Then
+        assertThrows(DuplicateUsernameException.class, () -> postService.addOneLikeToPost(postId),
+                "User can add only once like to specified post!");
+    }
+
+    @Test
     void addOneDisLikeToPost() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
@@ -410,16 +424,18 @@ class PostServiceTest {
         when(postRepository.findById(postId)).thenReturn(Optional.of(post));
         when(dislikeRepository.save(dislike)).thenReturn(dislike);
         when(postRepository.save(post)).thenReturn(post);
+
         PostDto expectedPostDto = testData.preparedPostDto();
         List<DislikeDto> dislikeDtoList = testData.preparedDislikeDtoList();
         expectedPostDto.setDislikeDtoList(dislikeDtoList);
+
         when(postMapper.postToPostDto(post, user, likeDtoList, dislikeDtoList)).thenReturn(expectedPostDto);
+
         //When
-        PostDto actualPostDto = postService.addOneDisLikeToPost(postId);
+        postService.addOneDisLikeToPost(postId);
+
         //Then
-        assertEquals(expectedPostDto.getDislikeDtoList(), actualPostDto.getDislikeDtoList());
-        assertEquals(expectedPostDto.getBody(), actualPostDto.getBody());
-        assertEquals(expectedPostDto.getUsername(), actualPostDto.getUsername());
+        verify(postRepository, times(1)).save(post);
     }
 
     @Test
@@ -438,6 +454,24 @@ class PostServiceTest {
     }
 
     @Test
+    void addOneDisLikeToPostReturnDuplicateUsernameException() throws PostNotFoundException {
+        //Given
+        Post post = testData.preparedPost();
+        Integer postId = post.getId();
+        User user = testData.preparedUser();
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        post.setDislikeList(dislikeList);
+
+        when(userService.getLoginUser()).thenReturn(user);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+
+        //When
+        //Then
+        assertThrows(DuplicateUsernameException.class, () -> postService.addOneDisLikeToPost(postId),
+                "User can add only once dislike to specified post!");
+    }
+
+    @Test
     void subtractOneCommentForNumberOfCommentForPostByPostId() throws PostNotFoundException {
         //Given
         Post post = testData.preparedPost();
@@ -450,6 +484,40 @@ class PostServiceTest {
         //Then
         assertEquals(post.getNumberOfComments(), 2);
         verify(postRepository, times(1)).findById(postId);
+    }
+
+    @Test
+    void getNumberOfLikesByPostId() throws PostNotFoundException {
+        //Given
+        Post post = testData.preparedPost();
+        int postId = post.getId();
+        List<Like> expectedLikeList = testData.preparedLikeList();
+        post.setLikeList(expectedLikeList);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(likeRepository.findByPostLikeId(postId)).thenReturn(expectedLikeList);
+
+        //When
+        Integer actualNumberOfLikes = postService.getNumberOfLikesByPostId(postId);
+
+        //Then
+        assertEquals(expectedLikeList.size(), actualNumberOfLikes);
+    }
+
+    @Test
+    void getNumberOfDislikesByPostId() throws PostNotFoundException {
+        //Given
+        Post post = testData.preparedPost();
+        int postId = post.getId();
+        List<Dislike> expectedDislikeList = testData.preparedDislikeList();
+        post.setDislikeList(expectedDislikeList);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(dislikeRepository.findByPostDislikeId(postId)).thenReturn(expectedDislikeList);
+
+        //When
+        Integer actualNumberOfDislikes = postService.getNumberOfDislikesByPostId(postId);
+
+        //Then
+        assertEquals(expectedDislikeList.size(), actualNumberOfDislikes);
     }
 
 }

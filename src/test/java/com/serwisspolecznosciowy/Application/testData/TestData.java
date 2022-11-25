@@ -184,10 +184,10 @@ public class TestData {
     public Like preparedLike(){
         Like like = new Like();
         like.setId(1);
-        like.setUserId(preparedAdmin().getId());
+        like.setUserId(preparedUser().getId());
         like.setPostLikeId(preparedPost().getId());
-        like.setCommentLikeId(null);
-        like.setUsername(preparedAdmin().getUsername());
+        like.setCommentLikeId(1);
+        like.setUsername(preparedUser().getUsername());
         return like;
     }
 
@@ -201,8 +201,9 @@ public class TestData {
         Dislike dislike = new Dislike();
         dislike.setId(1);
         dislike.setPostDislikeId(preparedPost().getId());
-        dislike.setCommentDislikeId(null);
-        dislike.setUserId(preparedAdmin().getId());
+        dislike.setCommentDislikeId(1);
+        dislike.setUserId(preparedUser().getId());
+        dislike.setUsername(preparedUser().getUsername());
         return dislike;
     }
 
@@ -213,7 +214,7 @@ public class TestData {
     }
 
     public LikeDto preparedLikeDto() {
-        LikeDto likeDto = new LikeDto(preparedAdmin().getUsername());
+        LikeDto likeDto = new LikeDto(preparedUser().getUsername());
         return likeDto;
     }
 
@@ -224,7 +225,7 @@ public class TestData {
     }
 
     public DislikeDto preparedDislikeDto() {
-        DislikeDto dislikeDto = new DislikeDto(preparedAdmin().getUsername());
+        DislikeDto dislikeDto = new DislikeDto(preparedUser().getUsername());
         return dislikeDto;
     }
 

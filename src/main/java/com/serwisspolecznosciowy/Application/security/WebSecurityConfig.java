@@ -46,9 +46,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-ui.html"
                 ).permitAll()
                 .antMatchers(
-                        "/user/password/{userId}",
+                        "/user/password/dto/{userId}",
                         "/user/delete/{}",
-                        "/user/picture/{userId}",
+                        "/user/picture/dto/{userId}",
                         "/user/all/username/dto",
                         "/post/all/dto",
                         "/post/edit/dto/{postId}",

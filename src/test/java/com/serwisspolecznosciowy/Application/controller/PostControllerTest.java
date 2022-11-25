@@ -7,6 +7,7 @@ import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.dto.PostBodyDto;
 import com.serwisspolecznosciowy.Application.dto.PostDto;
 import com.serwisspolecznosciowy.Application.entity.Dislike;
+import com.serwisspolecznosciowy.Application.entity.Like;
 import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.entity.Post;
 import com.serwisspolecznosciowy.Application.entity.User;
@@ -494,6 +495,69 @@ class PostControllerTest {
         mockMvc.perform(post("/post/dislike/dto/{postId}", postId))
                 .andDo(print())
                 .andExpect(status().is(409))
+                .andReturn();
+    }
+
+    @Test
+    void getNumberOfLikesByPostId() throws PostNotFoundException, Exception {
+        //Given
+        Post post = testData.preparedPost();
+        List<Like> listLike = testData.preparedLikeList();
+        post.setLikeList(listLike);
+        Integer postId = post.getId();
+        Integer expectedNumberOfLikes = post.getLikeList().size();
+        when(postService.getNumberOfLikesByPostId(postId)).thenReturn(expectedNumberOfLikes);
+        //When
+        MvcResult mvcResult = mockMvc.perform(get("/post/likes/dto/{postId}", postId))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+        //Then
+        Integer actualNumberOfLikes = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Integer.class);
+        assertEquals(expectedNumberOfLikes, actualNumberOfLikes);
+    }
+
+    @Test
+    void getNumberOfLikesByPostIdWithPostNotFoundException() throws PostNotFoundException, Exception {
+        //Given
+        Integer incorrectPostId = 999999999;
+        when(postService.getNumberOfLikesByPostId(incorrectPostId)).thenThrow(PostNotFoundException.class);
+        //When
+        mockMvc.perform(get("/post/likes/dto/{postId}", incorrectPostId))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andReturn();
+    }
+
+    @Test
+    void getNumberOfDislikesByPostId() throws PostNotFoundException, Exception {
+        //Given
+        Post post = testData.preparedPost();
+        List<Dislike> dilistLike = testData.preparedDislikeList();
+        post.setDislikeList(dilistLike);
+        Integer postId = post.getId();
+        Integer expectedNumberOfDisikes = post.getDislikeList().size();
+        when(postService.getNumberOfDislikesByPostId(postId)).thenReturn(expectedNumberOfDisikes);
+        //When
+        MvcResult mvcResult = mockMvc.perform(get("/post/dislikes/dto/{postId}", postId))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+        //Then
+        Integer actualNumberOfDisikes = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Integer.class);
+        assertEquals(expectedNumberOfDisikes, actualNumberOfDisikes);
+    }
+
+    @Test
+    void getNumberOfDislikesByPostIdReturnPostNotFoundException() throws PostNotFoundException, Exception {
+        //Given
+        Post post = testData.preparedPost();
+        Integer incorrectPostId = post.getId();
+        when(postService.getNumberOfDislikesByPostId(incorrectPostId)).thenThrow(PostNotFoundException.class);
+        //When
+        mockMvc.perform(get("/post/dislikes/dto/{postId}", incorrectPostId))
+                .andDo(print())
+                .andExpect(status().isNotFound())
                 .andReturn();
     }
 

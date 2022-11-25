@@ -24,10 +24,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -162,7 +159,7 @@ public class PostService {
         if (optionalPostList.isPresent()) {
             return optionalPostList.get();
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public List<PostDto> getPostDtoListByBody(String keywordInBody) throws PostNotFoundException {
@@ -193,11 +190,13 @@ public class PostService {
             like.setUsername(user.getUsername());
             likeRepository.save(like);
 
-            List<Like> likeList = post.getLikeList();
+            List<Like> likeList = new LinkedList<>();
+            likeList.addAll(post.getLikeList());
             likeList.add(like);
             List<LikeDto> likeDtoList = likeMapper.likeListToLikeDtoList(likeList);
 
-            List<Dislike> dislikeList = post.getDislikeList();
+            List<Dislike> dislikeList = new LinkedList<>();
+            dislikeList.addAll(post.getDislikeList());
             List<DislikeDto> dislikeDtoList = dislikeMapper.dislikeListToDislikeDtoList(dislikeList);
             return postMapper.postToPostDto(postRepository.save(post), user, likeDtoList, dislikeDtoList);
         } else {
@@ -225,10 +224,12 @@ public class PostService {
             dislike.setUsername(user.getUsername());
             dislikeRepository.save(dislike);
 
-            List<Like> likeList = post.getLikeList();
+            List<Like> likeList = new LinkedList<>();
+            likeList.addAll(post.getLikeList());
             List<LikeDto> likeDtoList = likeMapper.likeListToLikeDtoList(likeList);
 
-            List<Dislike> dislikeList = post.getDislikeList();
+            List<Dislike> dislikeList = new LinkedList<>();
+            dislikeList.addAll(post.getDislikeList());
             dislikeList.add(dislike);
             List<DislikeDto> dislikeDtoList = dislikeMapper.dislikeListToDislikeDtoList(dislikeList);
             return postMapper.postToPostDto(postRepository.save(post), user, likeDtoList, dislikeDtoList);
