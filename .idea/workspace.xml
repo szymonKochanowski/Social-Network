@@ -4,33 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored gitignore file.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a6e6543309093bd18f54e8da6aafb926de0c00f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60d8dbd1eb58513b61ae1ec7ed8d0513996b6fd0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63163d1b5d647465476ef748789f3f4d11d506ac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/763823cb0e839ccf009b3ad3dc79550e923d13e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/80ae06110f79addd7ec2738c0f978cce57a85c6c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5db35984da8ffa0e255c16a2e31ae7b26e7d222" beforeDir="false" />
+    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored and added test methods.">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049ad84cbd6172319b9c3deab1b0f7b887919a1e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/4/544a4587b454cb8cb64c3393fb3b15e0490523e9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/843c49cf19d257d41337fd6a444212b99f3b7af6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b9b6b463dbd6af6a583995eb88b5b918710b9c02" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c198230e38f6e7ba7463f1b433fb6e032a8c76c8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/6/c6895ef3294d9938520f15ecb98381ec4c29a946" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/mappers/CommentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/CommentMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/DislikeMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/LikeMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/PostMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/serwisspolecznosciowy/Application/mappers/UserMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +133,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/JwtToken&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szymon/IdeaProjects/szymonKochanowski.github.io&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -165,81 +168,80 @@
       <command value="mvn clean, compile, package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException">
-    <configuration name="CommentControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.Application" />
       <module name="social_network" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.CommentControllerTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in social_network" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.mappers.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceTest.findAllCommentByUserIdRetrunNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.CommentServiceTest" />
+      <option name="METHOD_NAME" value="findAllCommentByUserIdRetrunNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceTest.findAllPostsByUserIdReturnEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.PostServiceTest" />
+      <option name="METHOD_NAME" value="findAllPostsByUserIdReturnEmptyList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="social_network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.service" />
+      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.service.UserServiceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.CommentControllerTest" />
-      <option name="METHOD_NAME" value="addOneDislikeToCommentByIdWithDuplicateUsernameException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
-      <option name="METHOD_NAME" value="addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="social_network" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.serwisspolecznosciowy.Application.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.serwisspolecznosciowy.Application.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.controller.PostControllerTest" />
-      <option name="METHOD_NAME" value="addOneLikeToPostByPostIdWithDuplicateUsernameException" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -256,19 +258,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CommentControllerTest" />
-      <item itemvalue="JUnit.CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" />
-      <item itemvalue="JUnit.PostControllerTest" />
-      <item itemvalue="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
-      <item itemvalue="JUnit.PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" />
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull" />
+      <item itemvalue="JUnit.PostServiceTest.findAllPostsByUserIdReturnEmptyList" />
+      <item itemvalue="JUnit.All in social_network" />
+      <item itemvalue="JUnit.UserServiceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException" />
-        <item itemvalue="JUnit.PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException" />
-        <item itemvalue="JUnit.PostControllerTest" />
-        <item itemvalue="JUnit.CommentControllerTest" />
-        <item itemvalue="JUnit.CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException" />
+        <item itemvalue="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull" />
+        <item itemvalue="JUnit.All in social_network" />
+        <item itemvalue="JUnit.PostServiceTest.findAllPostsByUserIdReturnEmptyList" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -491,35 +493,51 @@
     <MESSAGE value="Fix." />
     <MESSAGE value="Refactored logic for like and dislike  to post." />
     <MESSAGE value="Refactored logic for like and dislike  for comment." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored logic for like and dislike  for comment." />
+    <MESSAGE value="Refactored and added test methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored and added test methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java</url>
-          <line>95</line>
+          <line>92</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java</url>
-          <line>376</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java</url>
-          <line>195</line>
+          <line>192</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java</url>
-          <line>171</line>
+          <line>168</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java</url>
-          <line>147</line>
+          <line>144</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/controller/UserController.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -529,38 +547,20 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest_logout.ic" NAME="UserControllerTest.logout Coverage Results" MODIFIED="1662036136372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentDtoWithAuthorDtoByCommentIdWithCommentNotFoundExceptionException.ic" NAME="CommentControllerTest.getCommentDtoWithAuthorDtoByCommentIdWithCommentNotFoundExceptionException Coverage Results" MODIFIED="1661931145308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetAllCommentsDto.ic" NAME="CommentControllerTest.shouldGetAllCommentsDto Coverage Results" MODIFIED="1661368749559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithExceptionCommentNotFoundException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithExceptionCommentNotFoundException Coverage Results" MODIFIED="1661933593612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_editComment.ic" NAME="CommentServiceTest.editComment Coverage Results" MODIFIED="1662122665299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$CommentControllerTest.ic" NAME="CommentControllerTest Coverage Results" MODIFIED="1646861014971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updateUserProfilePicture.ic" NAME="UserServiceTest.updateUserProfilePicture Coverage Results" MODIFIED="1662373438211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findAllPostsByUserIdReturnNull.ic" NAME="PostServiceTest.findAllPostsByUserIdReturnNull Coverage Results" MODIFIED="1662383021654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest.ic" NAME="CommentServiceTest Coverage Results" MODIFIED="1662124845110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest.ic" NAME="CommentServiceTest Coverage Results" MODIFIED="1668167631216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addNewCommentWithEmptyBody.ic" NAME="CommentServiceTest.addNewCommentWithEmptyBody Coverage Results" MODIFIED="1662042058649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest.ic" NAME="PostControllerTest Coverage Results" MODIFIED="1667934969182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldThrow401ErrorDuringUpdatePassword.ic" NAME="UserControllerTest.shouldThrow401ErrorDuringUpdatePassword Coverage Results" MODIFIED="1647087293662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
@@ -568,32 +568,23 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest_getUserDtoListByKeywordInUsernameWithUserNotFoundException.ic" NAME="UserControllerTest.getUserDtoListByKeywordInUsernameWithUserNotFoundException Coverage Results" MODIFIED="1662379077559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentsByBodyWithCommentNotFoundException.ic" NAME="CommentServiceTest.getCommentsByBodyWithCommentNotFoundException Coverage Results" MODIFIED="1662109503078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updateUserEnable.ic" NAME="UserServiceTest.updateUserEnable Coverage Results" MODIFIED="1662374075178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserServiceTest_shouldAddNewAdmin.ic" NAME="UserServiceTest.shouldAddNewAdmin Coverage Results" MODIFIED="1647088361673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$PostControllerTest_shouldThrowError401DuringAddNewPost.ic" NAME="PostControllerTest.shouldThrowError401DuringAddNewPost Coverage Results" MODIFIED="1647087562459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getAllCommentsDto.ic" NAME="CommentServiceTest.getAllCommentsDto Coverage Results" MODIFIED="1662056338121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_editPostByPostDtoWithPostEmptyBodyException.ic" NAME="PostControllerTest.editPostByPostDtoWithPostEmptyBodyException Coverage Results" MODIFIED="1661951019590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1662377639254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addNewCommentByPostId.ic" NAME="CommentControllerTest.addNewCommentByPostId Coverage Results" MODIFIED="1661929358721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addOneLikeToCommentByIdWithDuplicateUsernameException.ic" NAME="CommentControllerTest.addOneLikeToCommentByIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667934725177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1669398858894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentsListByKeywordInCommentBodyWithCommentNotFoundException.ic" NAME="CommentControllerTest.getCommentsListByKeywordInCommentBodyWithCommentNotFoundException Coverage Results" MODIFIED="1661938911057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
@@ -607,28 +598,7 @@
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$PostControllerTest.ic" NAME="PostControllerTest Coverage Results" MODIFIED="1647087916548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithPostNotFoundException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithPostNotFoundException Coverage Results" MODIFIED="1661933848330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_checkProvidedPasswordWithPasswordFromDb.ic" NAME="UserServiceTest.checkProvidedPasswordWithPasswordFromDb Coverage Results" MODIFIED="1662372712942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_getLoginUserWithNullAuthentication.ic" NAME="UserServiceTest.getLoginUserWithNullAuthentication Coverage Results" MODIFIED="1662365438348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1647087323981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_deleteUserById.ic" NAME="UserServiceTest.deleteUserById Coverage Results" MODIFIED="1662379373847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostDtoByIdWithPostNotFoundException.ic" NAME="PostServiceTest.findPostDtoByIdWithPostNotFoundException Coverage Results" MODIFIED="1662225637667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetAllComments.ic" NAME="CommentControllerTest.shouldGetAllComments Coverage Results" MODIFIED="1661368584246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest_updateUserEnabledByUserIdWithUserForbiddenAccessException.ic" NAME="UserControllerTest.updateUserEnabledByUserIdWithUserForbiddenAccessException Coverage Results" MODIFIED="1662034555414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addNewPostWithPostEmptyBodyException.ic" NAME="PostControllerTest.addNewPostWithPostEmptyBodyException Coverage Results" MODIFIED="1661945383926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -640,25 +610,13 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_editCommentByCommentIdWithUserNotAuthorizedException.ic" NAME="CommentControllerTest.editCommentByCommentIdWithUserNotAuthorizedException Coverage Results" MODIFIED="1661942345348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1662036451535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentsDtoByBodyWithCommentNotFoundException.ic" NAME="CommentServiceTest.getCommentsDtoByBodyWithCommentNotFoundException Coverage Results" MODIFIED="1662119128015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentDtoByIdWithCommentNotFoundException.ic" NAME="CommentServiceTest.getCommentDtoByIdWithCommentNotFoundException Coverage Results" MODIFIED="1662106348053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentDtoWithAuthorDtoByCommentId.ic" NAME="CommentControllerTest.getCommentDtoWithAuthorDtoByCommentId Coverage Results" MODIFIED="1661931014105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findAllPostsByUserId.ic" NAME="PostServiceTest.findAllPostsByUserId Coverage Results" MODIFIED="1662382988130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_getPostDtoListByBody.ic" NAME="PostServiceTest.getPostDtoListByBody Coverage Results" MODIFIED="1662214650427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneLikeToPostWithPostNotFoundException.ic" NAME="PostServiceTest.addOneLikeToPostWithPostNotFoundException Coverage Results" MODIFIED="1662223566225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$PostControllerTest_shouldThrowError204DuringGetPost.ic" NAME="PostControllerTest.shouldThrowError204DuringGetPost Coverage Results" MODIFIED="1647087723286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -667,29 +625,11 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentsDtoListByPostId.ic" NAME="CommentServiceTest.getCommentsDtoListByPostId Coverage Results" MODIFIED="1662124405882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldThrowError404DuringDeleteUser.ic" NAME="UserControllerTest.shouldThrowError404DuringDeleteUser Coverage Results" MODIFIED="1647086345334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addOneDislikeToCommentByIdWithDuplicateUsernameException.ic" NAME="CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667934865806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_getNumberOfDislikesByPostId.ic" NAME="PostControllerTest.getNumberOfDislikesByPostId Coverage Results" MODIFIED="1667942114174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_deletePostById.ic" NAME="PostServiceTest.deletePostById Coverage Results" MODIFIED="1662211592457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithUserNotAuthorizedException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithUserNotAuthorizedException Coverage Results" MODIFIED="1661934191520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostDtoById.ic" NAME="PostServiceTest.findPostDtoById Coverage Results" MODIFIED="1662225204562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetCommentByIdWithException.ic" NAME="CommentControllerTest.shouldGetCommentByIdWithException Coverage Results" MODIFIED="1661369618646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldAddNewAdmin.ic" NAME="UserControllerTest.shouldAddNewAdmin Coverage Results" MODIFIED="1647086940887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldThrowCommentEmptyBodyExceptionDuringAddNewComment.ic" NAME="CommentControllerTest.shouldThrowCommentEmptyBodyExceptionDuringAddNewComment Coverage Results" MODIFIED="1661929848472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$CommentControllerTest_shouldAddNewComment.ic" NAME="CommentControllerTest.shouldAddNewComment Coverage Results" MODIFIED="1646591862866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
@@ -700,32 +640,23 @@
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1647088379188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_deletePostByIdWithUserNotFoundException.ic" NAME="PostControllerTest.deletePostByIdWithUserNotFoundException Coverage Results" MODIFIED="1661952369770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldThrowPostNotFoundExceptionDuringAddNewComment.ic" NAME="CommentControllerTest.shouldThrowPostNotFoundExceptionDuringAddNewComment Coverage Results" MODIFIED="1661929720528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneDislikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935168890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_getLoginUser.ic" NAME="UserServiceTest.getLoginUser Coverage Results" MODIFIED="1662365308174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneDisLikeToComment.ic" NAME="CommentServiceTest.addOneDisLikeToComment Coverage Results" MODIFIED="1668167355099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_findUserByKeywordInUsernameWithEmptyList.ic" NAME="UserServiceTest.findUserByKeywordInUsernameWithEmptyList Coverage Results" MODIFIED="1662378386177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_getLoginUser.ic" NAME="UserServiceTest.getLoginUser Coverage Results" MODIFIED="1662365308174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_findUserByIdWithUserNotFoundException.ic" NAME="UserServiceTest.findUserByIdWithUserNotFoundException Coverage Results" MODIFIED="1662320368842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneLikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935104973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$com_serwisspolecznosciowy_Application_service_in_social_network.ic" NAME="com.serwisspolecznosciowy.Application.service in social_network Coverage Results" MODIFIED="1667942309652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_getNumberOfLikesByPostId.ic" NAME="PostControllerTest.getNumberOfLikesByPostId Coverage Results" MODIFIED="1667935963843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_addNewUserWithRoleAdmin.ic" NAME="UserServiceTest.addNewUserWithRoleAdmin Coverage Results" MODIFIED="1662377600702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException.ic" NAME="UserServiceTest.checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException Coverage Results" MODIFIED="1662372908745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addNewPostWithPostEmptyBodyException.ic" NAME="PostServiceTest.addNewPostWithPostEmptyBodyException Coverage Results" MODIFIED="1662204900638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
@@ -733,23 +664,8 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updatePasswordWithNewPasswordNotMatchException.ic" NAME="UserServiceTest.updatePasswordWithNewPasswordNotMatchException Coverage Results" MODIFIED="1662306737218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_editPostByPostDtoByUserWithPostNotFoundException.ic" NAME="PostControllerTest.editPostByPostDtoByUserWithPostNotFoundException Coverage Results" MODIFIED="1661950326135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$All_in_SocialNetwork.ic" NAME="All in SocialNetwork Coverage Results" MODIFIED="1662383981945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <EXCLUDED_FILTER>com.serwisspolecznosciowy.Application.mappers.*</EXCLUDED_FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentsListByKeywordInCommentBody.ic" NAME="CommentControllerTest.getCommentsListByKeywordInCommentBody Coverage Results" MODIFIED="1661938769020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentWithAuthorByCommentIdWithException.ic" NAME="CommentControllerTest.getCommentWithAuthorByCommentIdWithException Coverage Results" MODIFIED="1661930420076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest.ic" NAME="PostServiceTest Coverage Results" MODIFIED="1662225661604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneDisLikeToPostWithPostNotFoundException.ic" NAME="PostServiceTest.addOneDisLikeToPostWithPostNotFoundException Coverage Results" MODIFIED="1662223794330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserServiceTest_shouldFindUserById.ic" NAME="UserServiceTest.shouldFindUserById Coverage Results" MODIFIED="1647088681222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
@@ -757,31 +673,185 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneLikeToCommentWithCommentNotFoundException.ic" NAME="CommentServiceTest.addOneLikeToCommentWithCommentNotFoundException Coverage Results" MODIFIED="1662112880647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_deleteCommentById.ic" NAME="CommentServiceTest.deleteCommentById Coverage Results" MODIFIED="1662107105429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest.ic" NAME="PostServiceTest Coverage Results" MODIFIED="1668170358299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentByIdWithCommentNotFoundException.ic" NAME="CommentServiceTest.getCommentByIdWithCommentNotFoundException Coverage Results" MODIFIED="1662105276531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostByIdWithPostNotFoundException.ic" NAME="PostServiceTest.findPostByIdWithPostNotFoundException Coverage Results" MODIFIED="1662224725163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addNewComment.ic" NAME="CommentServiceTest.addNewComment Coverage Results" MODIFIED="1662041322149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updatePassword.ic" NAME="UserServiceTest.updatePassword Coverage Results" MODIFIED="1662305070189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getAllComments.ic" NAME="CommentServiceTest.getAllComments Coverage Results" MODIFIED="1662041300570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_editCommentByCommentId.ic" NAME="CommentControllerTest.editCommentByCommentId Coverage Results" MODIFIED="1661941449177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneDisLikeToCommentWithCommentNotFoundException.ic" NAME="CommentServiceTest.addOneDisLikeToCommentWithCommentNotFoundException Coverage Results" MODIFIED="1662113146968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$All_in_demo.ic" NAME="All in demo Coverage Results" MODIFIED="1667934329477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_getNumberOfDislikesByPostIdReturnPostNotFoundException.ic" NAME="PostControllerTest.getNumberOfDislikesByPostIdReturnPostNotFoundException Coverage Results" MODIFIED="1667942218337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$All_in_demo.ic" NAME="All in demo Coverage Results" MODIFIED="1648409692658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SocialNetwork$All_in_social_network.ic" NAME="All in social_network Coverage Results" MODIFIED="1669399156677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <EXCLUDED_FILTER>com.serwisspolecznosciowy.Application.mappers.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest_logout.ic" NAME="UserControllerTest.logout Coverage Results" MODIFIED="1662036136372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithExceptionCommentNotFoundException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithExceptionCommentNotFoundException Coverage Results" MODIFIED="1661933593612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneLikeToComment.ic" NAME="CommentServiceTest.addOneLikeToComment Coverage Results" MODIFIED="1668165372138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_editComment.ic" NAME="CommentServiceTest.editComment Coverage Results" MODIFIED="1662122665299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$CommentControllerTest.ic" NAME="CommentControllerTest Coverage Results" MODIFIED="1646861014971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updateUserProfilePicture.ic" NAME="UserServiceTest.updateUserProfilePicture Coverage Results" MODIFIED="1662373438211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest.ic" NAME="PostControllerTest Coverage Results" MODIFIED="1667942242512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getCommentsByBodyWithCommentNotFoundException.ic" NAME="CommentServiceTest.getCommentsByBodyWithCommentNotFoundException Coverage Results" MODIFIED="1662109503078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updateUserEnable.ic" NAME="UserServiceTest.updateUserEnable Coverage Results" MODIFIED="1662374075178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_getAllCommentsDto.ic" NAME="CommentServiceTest.getAllCommentsDto Coverage Results" MODIFIED="1662056338121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithPostNotFoundException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithPostNotFoundException Coverage Results" MODIFIED="1661933848330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_checkProvidedPasswordWithPasswordFromDb.ic" NAME="UserServiceTest.checkProvidedPasswordWithPasswordFromDb Coverage Results" MODIFIED="1662372712942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_getLoginUserWithNullAuthentication.ic" NAME="UserServiceTest.getLoginUserWithNullAuthentication Coverage Results" MODIFIED="1662365438348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updateUserProfilePictureReturnUserForbiddenAccessException.ic" NAME="UserServiceTest.updateUserProfilePictureReturnUserForbiddenAccessException Coverage Results" MODIFIED="1668279825815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_deleteUserById.ic" NAME="UserServiceTest.deleteUserById Coverage Results" MODIFIED="1662379373847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostDtoByIdWithPostNotFoundException.ic" NAME="PostServiceTest.findPostDtoByIdWithPostNotFoundException Coverage Results" MODIFIED="1662225637667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneLikeToPostReturnDuplicateUsernameException.ic" NAME="PostServiceTest.addOneLikeToPostReturnDuplicateUsernameException Coverage Results" MODIFIED="1668169779643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetAllComments.ic" NAME="CommentControllerTest.shouldGetAllComments Coverage Results" MODIFIED="1661368584246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$Application.ic" NAME="Application Coverage Results" MODIFIED="1668028812778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest_updateUserEnabledByUserIdWithUserForbiddenAccessException.ic" NAME="UserControllerTest.updateUserEnabledByUserIdWithUserForbiddenAccessException Coverage Results" MODIFIED="1662034555414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1667942278493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneLikeToPost.ic" NAME="PostServiceTest.addOneLikeToPost Coverage Results" MODIFIED="1668169550628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentDtoWithAuthorDtoByCommentId.ic" NAME="CommentControllerTest.getCommentDtoWithAuthorDtoByCommentId Coverage Results" MODIFIED="1661931014105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findAllPostsByUserId.ic" NAME="PostServiceTest.findAllPostsByUserId Coverage Results" MODIFIED="1662382988130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneDisLikeToPostReturnDuplicateUsernameException.ic" NAME="PostServiceTest.addOneDisLikeToPostReturnDuplicateUsernameException Coverage Results" MODIFIED="1668170333179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneLikeToPostWithPostNotFoundException.ic" NAME="PostServiceTest.addOneLikeToPostWithPostNotFoundException Coverage Results" MODIFIED="1662223566225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_getNumberOfDislikesByPostId.ic" NAME="PostServiceTest.getNumberOfDislikesByPostId Coverage Results" MODIFIED="1668278652464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldThrowError404DuringDeleteUser.ic" NAME="UserControllerTest.shouldThrowError404DuringDeleteUser Coverage Results" MODIFIED="1647086345334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_addOneDislikeToCommentByIdWithDuplicateUsernameException.ic" NAME="CommentControllerTest.addOneDislikeToCommentByIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667934865806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_deleteCommentByIdAndPostIdWithUserNotAuthorizedException.ic" NAME="CommentControllerTest.deleteCommentByIdAndPostIdWithUserNotAuthorizedException Coverage Results" MODIFIED="1661934191520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostDtoById.ic" NAME="PostServiceTest.findPostDtoById Coverage Results" MODIFIED="1662225204562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetCommentByIdWithException.ic" NAME="CommentControllerTest.shouldGetCommentByIdWithException Coverage Results" MODIFIED="1661369618646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_getNumberOfLikesByPostId.ic" NAME="PostServiceTest.getNumberOfLikesByPostId Coverage Results" MODIFIED="1668199677617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$UserControllerTest_shouldAddNewAdmin.ic" NAME="UserControllerTest.shouldAddNewAdmin Coverage Results" MODIFIED="1647086940887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldThrowCommentEmptyBodyExceptionDuringAddNewComment.ic" NAME="CommentControllerTest.shouldThrowCommentEmptyBodyExceptionDuringAddNewComment Coverage Results" MODIFIED="1661929848472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_deletePostByIdWithUserNotFoundException.ic" NAME="PostControllerTest.deletePostByIdWithUserNotFoundException Coverage Results" MODIFIED="1661952369770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneDislikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneDislikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935168890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_findUserByKeywordInUsernameWithEmptyList.ic" NAME="UserServiceTest.findUserByKeywordInUsernameWithEmptyList Coverage Results" MODIFIED="1662378386177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_addOneLikeToPostByPostIdWithDuplicateUsernameException.ic" NAME="PostControllerTest.addOneLikeToPostByPostIdWithDuplicateUsernameException Coverage Results" MODIFIED="1667935104973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_addOneDisLikeToCommentReturnDuplicateUsernameException.ic" NAME="CommentServiceTest.addOneDisLikeToCommentReturnDuplicateUsernameException Coverage Results" MODIFIED="1668167593100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_addNewUserWithRoleAdmin.ic" NAME="UserServiceTest.addNewUserWithRoleAdmin Coverage Results" MODIFIED="1662377600702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException.ic" NAME="UserServiceTest.checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException Coverage Results" MODIFIED="1662372908745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_getNumberOfLikesByPostIdWithPostNotFoundException.ic" NAME="PostControllerTest.getNumberOfLikesByPostIdWithPostNotFoundException Coverage Results" MODIFIED="1667936136549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostControllerTest_editPostByPostDtoByUserWithPostNotFoundException.ic" NAME="PostControllerTest.editPostByPostDtoByUserWithPostNotFoundException Coverage Results" MODIFIED="1661950326135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneDisLikeToPost.ic" NAME="PostServiceTest.addOneDisLikeToPost Coverage Results" MODIFIED="1668170142174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentsListByKeywordInCommentBody.ic" NAME="CommentControllerTest.getCommentsListByKeywordInCommentBody Coverage Results" MODIFIED="1661938769020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_getCommentWithAuthorByCommentIdWithException.ic" NAME="CommentControllerTest.getCommentWithAuthorByCommentIdWithException Coverage Results" MODIFIED="1661930420076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_addOneDisLikeToPostWithPostNotFoundException.ic" NAME="PostServiceTest.addOneDisLikeToPostWithPostNotFoundException Coverage Results" MODIFIED="1662223794330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_deleteCommentById.ic" NAME="CommentServiceTest.deleteCommentById Coverage Results" MODIFIED="1662107105429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$PostServiceTest_findPostByIdWithPostNotFoundException.ic" NAME="PostServiceTest.findPostByIdWithPostNotFoundException Coverage Results" MODIFIED="1662224725163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$UserServiceTest_updatePassword.ic" NAME="UserServiceTest.updatePassword Coverage Results" MODIFIED="1662305070189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_editCommentByCommentId.ic" NAME="CommentControllerTest.editCommentByCommentId Coverage Results" MODIFIED="1661941449177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest.ic" NAME="CommentControllerTest Coverage Results" MODIFIED="1667934884623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
@@ -791,7 +861,6 @@
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentControllerTest_shouldGetCommentById.ic" NAME="CommentControllerTest.shouldGetCommentById Coverage Results" MODIFIED="1661369045223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Serwis_spolecznosciowy$All_in_demo.ic" NAME="All in demo Coverage Results" MODIFIED="1648409692658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SocialNetwork$CommentServiceTest_findAllCommentByUserIdRetrunNull.ic" NAME="CommentServiceTest.findAllCommentByUserIdRetrunNull Coverage Results" MODIFIED="1662382551733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.serwisspolecznosciowy.Application.service.*</FILTER>
     </SUITE>

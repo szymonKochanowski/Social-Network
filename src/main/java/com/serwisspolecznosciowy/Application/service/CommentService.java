@@ -20,10 +20,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -131,7 +128,7 @@ public class CommentService {
             List<Comment> commentList = optionalCommentList.get();
             return commentList;
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public List<Comment> getCommentsByBody(String body) throws CommentNotFoundException {
@@ -166,11 +163,13 @@ public class CommentService {
             like.setUsername(user.getUsername());
             likeRepository.save(like);
 
-            List<Like> likeList = comment.getLikeList();
+            List<Like> likeList = new LinkedList<>();
+            likeList.addAll(comment.getLikeList());
             likeList.add(like);
             List<LikeDto> likeDtoList = likeMapper.likeListToLikeDtoList(likeList);
 
-            List<Dislike> dislikeList = comment.getDislikeList();
+            List<Dislike> dislikeList = new LinkedList<>();
+            dislikeList.addAll(comment.getDislikeList());
             List<DislikeDto> dislikeDtoList = dislikeMapper.dislikeListToDislikeDtoList(dislikeList);
 
             return commentMapper.commentToCommentDto(commentRepository.save(comment), user, likeDtoList, dislikeDtoList);
@@ -199,10 +198,12 @@ public class CommentService {
             dislike.setUsername(user.getUsername());
             dislikeRepository.save(dislike);
 
-            List<Like> likeList = comment.getLikeList();
+            List<Like> likeList = new LinkedList<>();
+            likeList.addAll(comment.getLikeList());
             List<LikeDto> likeDtoList = likeMapper.likeListToLikeDtoList(likeList);
 
-            List<Dislike> dislikeList = comment.getDislikeList();
+            List<Dislike> dislikeList = new LinkedList<>();
+            dislikeList.addAll(comment.getDislikeList());
             dislikeList.add(dislike);
             List<DislikeDto> dislikeDtoList = dislikeMapper.dislikeListToDislikeDtoList(dislikeList);
             return commentMapper.commentToCommentDto(commentRepository.save(comment), user, likeDtoList, dislikeDtoList);

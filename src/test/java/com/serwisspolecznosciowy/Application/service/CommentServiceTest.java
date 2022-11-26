@@ -5,10 +5,7 @@ import com.serwisspolecznosciowy.Application.dto.CommentDto;
 import com.serwisspolecznosciowy.Application.dto.DislikeDto;
 import com.serwisspolecznosciowy.Application.dto.LikeDto;
 import com.serwisspolecznosciowy.Application.entity.*;
-import com.serwisspolecznosciowy.Application.exception.CommentEmptyBodyException;
-import com.serwisspolecznosciowy.Application.exception.CommentNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.PostNotFoundException;
-import com.serwisspolecznosciowy.Application.exception.UserForbiddenAccessException;
+import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.mappers.CommentMapper;
 import com.serwisspolecznosciowy.Application.mappers.DislikeMapper;
 import com.serwisspolecznosciowy.Application.mappers.LikeMapper;
@@ -271,7 +268,7 @@ public class CommentServiceTest {
         //When
         List<Comment> actualCommentsList = commentService.findAllCommentByUserId(userId);
         //Then
-        assertNull(actualCommentsList);
+        assertEquals(Collections.emptyList(), actualCommentsList);
     }
 
     @Test
@@ -355,17 +352,15 @@ public class CommentServiceTest {
 
         CommentDto expectedCommentDto = testData.preparedCommentDto();
         expectedCommentDto.setLikeDtoList(likeDtoList);
+        expectedCommentDto.setDislikeDtoList(dislikeDtoList);
 
         when(commentMapper.commentToCommentDto(comment, user, likeDtoList, dislikeDtoList)).thenReturn(expectedCommentDto);
 
         //When
-        CommentDto actualCommentDto = commentService.addOneLikeToComment(commentId);
+        commentService.addOneLikeToComment(commentId);
 
         //Then
-        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
-        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
-        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
-        assertEquals(expectedCommentDto.getUser(), actualCommentDto.getUser());
+        verify(commentRepository, times(1)).save(comment);
     }
 
     @Test
@@ -380,6 +375,25 @@ public class CommentServiceTest {
     }
 
     @Test
+    void addOneLikeToCommentReturmnDuplicateUsernameException() throws CommentNotFoundException {
+        //Given
+        User user = testData.preparedUser();
+        when(userService.getLoginUser()).thenReturn(user);
+
+        Comment comment = testData.preparedComment();
+        Integer commentId = comment.getId();
+        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+
+        List<Like> likeList = testData.preparedLikeList();
+        comment.setLikeList(likeList);
+
+        //When
+        //Then
+        assertThrows(DuplicateUsernameException.class, () -> commentService.addOneLikeToComment(commentId),
+                "User can add only once like to specified comment!");
+    }
+
+    @Test
     void addOneDisLikeToComment() throws CommentNotFoundException {
         //Given
         User user = testData.preparedUser();
@@ -390,6 +404,7 @@ public class CommentServiceTest {
         when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
 
         Dislike dislike = testData.preparedDislike();
+        dislike.setPostDislikeId(null);
         when(dislikeRepository.save(dislike)).thenReturn(dislike);
 
         List<Like> likeList = testData.preparedLikeList();
@@ -402,18 +417,16 @@ public class CommentServiceTest {
         when(commentRepository.save(comment)).thenReturn(comment);
 
         CommentDto expectedCommentDto = testData.preparedCommentDto();
+        expectedCommentDto.setLikeDtoList(likeDtoList);
         expectedCommentDto.setDislikeDtoList(dislikeDtoList);
 
         when(commentMapper.commentToCommentDto(comment, user, likeDtoList, dislikeDtoList)).thenReturn(expectedCommentDto);
 
         //When
-        CommentDto actualCommentDto = commentService.addOneDisLikeToComment(commentId);
+        commentService.addOneDisLikeToComment(commentId);
 
         //Then
-        assertEquals(expectedCommentDto.getDislikeDtoList(), actualCommentDto.getDislikeDtoList());
-        assertEquals(expectedCommentDto.getLikeDtoList(), actualCommentDto.getLikeDtoList());
-        assertEquals(expectedCommentDto.getBody(), actualCommentDto.getBody());
-        assertEquals(expectedCommentDto.getUser(), actualCommentDto.getUser());
+        verify(commentRepository, times(1)).save(comment);
     }
 
     @Test
@@ -425,6 +438,25 @@ public class CommentServiceTest {
         //Then
         assertThrows(CommentNotFoundException.class, () -> commentService.addOneDisLikeToComment(incorrectCommentId),
                 "Unable to add dislike to comment because not found comment with  id: '" + incorrectCommentId  + "' in our database!");
+    }
+
+    @Test
+    void addOneDisLikeToCommentReturnDuplicateUsernameException() throws CommentNotFoundException {
+        //Given
+        User user = testData.preparedUser();
+        when(userService.getLoginUser()).thenReturn(user);
+
+        Comment comment = testData.preparedComment();
+        Integer commentId = comment.getId();
+        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+
+        List<Dislike> dislikeList = testData.preparedDislikeList();
+        comment.setDislikeList(dislikeList);
+
+        //When
+        //Then
+        assertThrows(DuplicateUsernameException.class, () -> commentService.addOneDisLikeToComment(commentId),
+                "User can add only once dislike to specified comment!");
     }
 
     @Test

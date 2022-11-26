@@ -271,6 +271,24 @@ class UserServiceTest {
 //    }
 
     @Test
+    void deleteUserById() throws CommentNotFoundException, UserNotFoundException, PostNotFoundException {
+        //Given
+        User user = testData.preparedUser();
+        userRepository.save(user);
+        int userId = user.getId();
+        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+        when(commentService.findAllCommentByUserId(userId)).thenReturn(Collections.emptyList());
+        when(postService.findAllPostsByUserId(userId)).thenReturn(Collections.emptyList());
+        doNothing().when(userRepository).deleteById(userId);
+
+        //When
+        userService.deleteUserById(userId);
+
+        //Then
+        verify(userRepository, times(1)).deleteById(userId);
+    }
+
+    @Test
     void findUserById() throws UserNotFoundException {
         //given
         User expectedUser = testData.preparedUser();
@@ -299,7 +317,7 @@ class UserServiceTest {
 
     @WithMockUser(username = "test12!A", password = "test12!A")
     @Test
-    public void getLoginUser() {
+    void getLoginUser() {
         //Given
         User expectedUser = testData.preparedUser();
         String username = expectedUser.getUsername();
@@ -311,7 +329,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void getLoginUserWithNullAuthentication() {
+     void getLoginUserWithNullAuthentication() {
         //Given
         //When
         User loginUser = userService.getLoginUser();
@@ -321,7 +339,7 @@ class UserServiceTest {
 
     @WithMockUser(username = "test12!A", password = "test12!A")
     @Test
-    public void getLoginUserWithNullOptionalUser() {
+     void getLoginUserWithNullOptionalUser() {
         //Given
         User expectedUser = testData.preparedUser();
         String username = expectedUser.getUsername();
@@ -333,7 +351,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void findUserByKeywordInUsername() throws UserNotFoundException {
+     void findUserByKeywordInUsername() throws UserNotFoundException {
         //Given
         User user = testData.preparedUser();
         String keyword = "12";
@@ -354,7 +372,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void findUserByKeywordInUsernameWithEmptyList() throws UserNotFoundException {
+     void findUserByKeywordInUsernameWithEmptyList() throws UserNotFoundException {
         //Given
         User user = testData.preparedUser();
         String keyword = "12";
@@ -364,11 +382,11 @@ class UserServiceTest {
         //When
         List<UserDto> actualUserDtoList = userService.findUserByKeywordInUsername(keyword);
         //Then
-        assertTrue(actualUserDtoList.size() == 0);
+        assertEquals(0, actualUserDtoList.size());
     }
 
     @Test
-    public void checkProvidedPasswordWithPasswordFromDb() {
+     void checkProvidedPasswordWithPasswordFromDb() {
         //given
         User user = testData.preparedUser();
         Integer userId = user.getId();
@@ -382,7 +400,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException() {
+     void checkProvidedPasswordWithPasswordFromDbWithWrongPasswordException() {
         //given
         CharSequence wrongPasswordProvidedByUser = "wrong";
         String stringWrongPasswordProvidedByUser = wrongPasswordProvidedByUser.toString();
@@ -397,7 +415,7 @@ class UserServiceTest {
 
     @WithMockUser(username = "test12!A", password = "test12!A")
     @Test
-    public void updateUserProfilePicture() throws UserNotFoundException, UserForbiddenAccessException {
+     void updateUserProfilePicture() throws UserNotFoundException, UserForbiddenAccessException {
         //given
         User user = testData.preparedUser();
         Integer userId = user.getId();
@@ -416,8 +434,29 @@ class UserServiceTest {
         assertEquals(expectedResponse, actualResponse);
     }
 
+    @WithMockUser(username = "test12!A", password = "test12!A")
     @Test
-    public void updateUserEnable() throws UserNotFoundException {
+     void updateUserProfilePictureReturnUserForbiddenAccessException() throws UserNotFoundException, UserForbiddenAccessException {
+        //given
+        User loginUser = testData.preparedUser();
+        User ownerOfAccount = new User();
+        ownerOfAccount.setUsername("badUsername");
+        ownerOfAccount.setPassword("badPassword");
+        ownerOfAccount.setRole("ROLE_USER");
+        Integer userId = ownerOfAccount.getId();
+        String newProfilePictureUrl = "null";
+        ownerOfAccount.setProfilePicture(newProfilePictureUrl);
+        when(userRepository.findById(userId)).thenReturn(Optional.of(ownerOfAccount));
+        when(userRepository.findByUsername(loginUser.getUsername())).thenReturn(Optional.of(loginUser));
+
+        //when
+        //then
+        assertThrows(UserForbiddenAccessException.class, () -> userService.updateUserProfilePicture(userId, newProfilePictureUrl),
+                "User is not authorized to change profile picture!");
+    }
+
+    @Test
+     void updateUserEnable() throws UserNotFoundException {
         //given
         User user = testData.preparedUser();
         Integer userId = user.getId();
@@ -436,7 +475,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void getUserByPostId() throws UserNotFoundException {
+     void getUserByPostId() throws UserNotFoundException {
         //Given
         User user = testData.preparedUser();
         Integer postId = testData.preparedPost().getId();
@@ -454,7 +493,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void getUserByPostIdWithUserNotFoundException() throws UserNotFoundException {
+     void getUserByPostIdWithUserNotFoundException() throws UserNotFoundException {
         //Given
         User user = testData.preparedUser();
         Integer postId = testData.preparedPost().getId();

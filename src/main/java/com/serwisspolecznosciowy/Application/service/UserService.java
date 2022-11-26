@@ -34,15 +34,10 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    private PasswordEncoder passwordEncoder;
+    @Autowired
     private UserRepository userRepository;
 
-    public UserService(CommentService commentService, UserMapper userMapper, UserRepository userRepository) {
-        this.userMapper = userMapper;
-        this.commentService = commentService;
-        this.passwordEncoder = new BCryptPasswordEncoder();
-        this.userRepository = userRepository;
-    }
+    private static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
     public List<User> findAllUsers() {
         return this.userRepository.findAll();
@@ -57,7 +52,7 @@ public class UserService {
         user.setUsername(username);
 
         checkPasswordSyntax(password);
-        String encodePassword = this.passwordEncoder.encode(password);
+        String encodePassword = PASSWORD_ENCODER.encode(password);
         user.setPassword(encodePassword);
 
         user.setCreated(LocalDateTime.now());
@@ -111,22 +106,22 @@ public class UserService {
     public String updatePassword(Integer userId, String newPassword1, String newPassword2, String oldRawPassword) throws UserNotFoundException {
         User user = findUserById(userId).get();
         String encodedUserPassword = user.getPassword();
-            if (this.passwordEncoder.matches(oldRawPassword, encodedUserPassword)) {
-                if (checkPasswordSyntax(newPassword1)) {
-                    if (newPassword1.equals(newPassword2)) {
-                        String encodePassword = this.passwordEncoder.encode(newPassword1);
-                        user.setPassword(encodePassword);
-                        user.setUpdated(LocalDateTime.now());
-                        userRepository.save(user);
-                    } else {
-                        log.error("New passwords are not the same!");
-                        throw new NewPasswordNotMatchException("New passwords are not the same!");
-                    }
-                }
+        if (PASSWORD_ENCODER.matches(oldRawPassword, encodedUserPassword)) {
+            checkPasswordSyntax(newPassword1);
+            if (newPassword1.equals(newPassword2)) {
+                String encodePassword = PASSWORD_ENCODER.encode(newPassword1);
+                user.setPassword(encodePassword);
+                user.setUpdated(LocalDateTime.now());
+                userRepository.save(user);
             } else {
-                log.error("Incorrect old password!");
-                throw new IncorrectOldPasswordException("Incorrect old password!");
+                log.error("New passwords are not the same!");
+                throw new NewPasswordNotMatchException("New passwords are not the same!");
             }
+
+        } else {
+            log.error("Incorrect old password!");
+            throw new IncorrectOldPasswordException("Incorrect old password!");
+        }
         return "Password changed successfully!";
     }
 
@@ -151,14 +146,14 @@ public class UserService {
         Integer userId = userFromDb.get().getId();
 
         List<Comment> commentList = commentService.findAllCommentByUserId(userId);
-        if (commentList != null) {
+        if (commentList != null || !commentList.isEmpty()) {
             for (Comment comment : commentList) {
                 commentService.deleteCommentById(comment.getId());
             }
         }
 
         List<Post> postsList = postService.findAllPostsByUserId(userId);
-        if (postsList != null) {
+        if (postsList != null || !postsList.isEmpty()) {
             for (Post post : postsList) {
                 postService.deletePostById(userFromDb, post.getId());
             }
@@ -188,7 +183,7 @@ public class UserService {
     }
 
     public boolean checkProvidedPasswordWithPasswordFromDb(String passwordProvidedByUser, String passwordFromDb) {
-        if (passwordEncoder.matches(passwordProvidedByUser, passwordFromDb)) {
+        if (PASSWORD_ENCODER.matches(passwordProvidedByUser, passwordFromDb)) {
             return true;
         } else {
             log.error("Error on method checkPassword! Password is incorrect!");
