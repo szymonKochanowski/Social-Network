@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored and added test methods.">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049ad84cbd6172319b9c3deab1b0f7b887919a1e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/4/544a4587b454cb8cb64c3393fb3b15e0490523e9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/843c49cf19d257d41337fd6a444212b99f3b7af6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b9b6b463dbd6af6a583995eb88b5b918710b9c02" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c198230e38f6e7ba7463f1b433fb6e032a8c76c8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/6/c6895ef3294d9938520f15ecb98381ec4c29a946" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/serwisspolecznosciowy/Application/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/controller/PostControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/CommentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/PostServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/service/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/serwisspolecznosciowy/Application/testData/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/serwisspolecznosciowy/Application/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/controller/PostControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/CommentServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/PostServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/service/UserServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/serwisspolecznosciowy/Application/testData/TestData.class" afterDir="false" />
-    </list>
+    <list default="true" id="e665aa2c-c3c7-45c1-8bca-9f3f6a5856ab" name="Changes" comment="Refactored gitignore file." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="test_methods_merge" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -168,7 +138,7 @@
       <command value="mvn clean, compile, package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull">
+  <component name="RunManager" selected="JUnit.All in social_network">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.serwisspolecznosciowy.Application.Application" />
       <module name="social_network" />
@@ -266,10 +236,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull" />
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.All in social_network" />
         <item itemvalue="JUnit.PostServiceTest.findAllPostsByUserIdReturnEmptyList" />
-        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.CommentServiceTest.findAllCommentByUserIdRetrunNull" />
         <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>

@@ -244,32 +244,6 @@ class UserServiceTest {
                 "Incorrect old password!");
     }
 
-    /* error probably due to init instance postService - not able to fix */
-//    @Test
-//    void deleteUserById() throws UserNotFoundException, PostNotFoundException, UserForbiddenAccessException, CommentNotFoundException {
-//        //given
-//        User user = testData.preparedUser();
-//        Integer userId = user.getId();
-//        List<Comment> commentList = testData.preparedCommentList();
-//        List<Post> postList = testData.preparedPostsList();
-//        when(userRepository.findById(anyInt())).thenReturn(Optional.of(user));
-//
-//        when(commentService.findAllCommentByUserId(anyInt())).thenReturn(commentList);
-//        when(commentService.findAllCommentByUserId(userId)).thenReturn(commentList);
-//        doNothing().when(commentService).deleteCommentById(commentList.get(0).getId());
-//
-//        when(postService.findAllPostsByUserId(userId)).thenReturn(null);
-//        when(postRepository.findAllByUserId(userId)).thenReturn(Optional.ofNullable(postList));
-//        doNothing().when(postService).deletePostById(Optional.of(user), postList.get(0).getId());
-//
-//        doNothing().when(userRepository).deleteById(userId);
-//        //when
-//        userService.deleteUserById(userId);
-//
-//        //then
-//        verify(userRepository, times(1)).deleteById(userId);
-//    }
-
     @Test
     void deleteUserById() throws CommentNotFoundException, UserNotFoundException, PostNotFoundException {
         //Given
