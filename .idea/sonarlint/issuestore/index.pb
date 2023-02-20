@@ -53,9 +53,6 @@ A
 Usrc/main/java/com/serwisspolecznosciowy/Application/controller/CommentController.java,8\1\817bf7e88fb8dacf03c4d75c8a38cb2808d47824
 ‰
 Ysrc/test/java/com/serwisspolecznosciowy/Application/controller/CommentControllerTest.java,6\2\62262c21e535a0d4f10292e1f0f5059985147279
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 ‚
 Rsrc/main/java/com/serwisspolecznosciowy/Application/controller/PostController.java,a\c\ac76ad526321fcf6a0a4d63ee4320e5d4e8a4821
 t
