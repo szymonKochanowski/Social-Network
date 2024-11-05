@@ -6,8 +6,8 @@ import com.serwisspolecznosciowy.Application.entity.User;
 import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +19,10 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getUsers() {
