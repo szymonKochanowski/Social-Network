@@ -10,8 +10,8 @@ import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,16 +22,12 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/comment")
+@RequiredArgsConstructor
 public class CommentController {
 
-    @Autowired
-    CommentService commentService;
-
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    PostService postService;
+    private final CommentService commentService;
+    private final UserService userService;
+    private final PostService postService;
 
     @PostMapping("/add/{postId}")
     @Operation(summary = "Add new comment by post id", description = "User needs to provide only comment body in request body and post id in patch. " +
@@ -40,7 +36,6 @@ public class CommentController {
         log.info("Start to add new comment.");
         try {
             return new ResponseEntity(commentService.addNewComment(postId, commentBodyDto), HttpStatus.CREATED);
-
         } catch (PostNotFoundException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (CommentEmptyBodyException exc) {
