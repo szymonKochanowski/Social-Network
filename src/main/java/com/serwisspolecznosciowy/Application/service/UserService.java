@@ -9,7 +9,7 @@ import com.serwisspolecznosciowy.Application.exception.*;
 import com.serwisspolecznosciowy.Application.mappers.UserMapper;
 import com.serwisspolecznosciowy.Application.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,25 +25,24 @@ import java.util.Optional;
 @Slf4j
 public class UserService {
 
-    @Autowired
-    private CommentService commentService;
-
-    @Autowired
-    private PostService postService;
-
-    @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
-    private UserRepository userRepository;
-
+    private final CommentService commentService;
+    private final PostService postService;
+    private final UserMapper userMapper;
+    private final UserRepository userRepository;
     private static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+
+    public UserService(@Lazy CommentService commentService, @Lazy PostService postService, UserMapper userMapper, UserRepository userRepository) {
+        this.commentService = commentService;
+        this.postService = postService;
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
+    }
 
     public List<User> findAllUsers() {
         return this.userRepository.findAll();
     }
 
-    public UserDto addNewUser(NewUserDto newUserDto) throws UserNotFoundException {
+    public UserDto addNewUser(NewUserDto newUserDto) throws DuplicateUsernameException, UserNotFoundException {
         User user = new User();
         String password = newUserDto.getPassword();
         String username = newUserDto.getUsername();
