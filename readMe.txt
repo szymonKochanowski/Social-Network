@@ -1,6 +1,8 @@
 Project created to lear how to code REST API and clean code.
 
-All documentation and possibility to call methods are available in swagger open api: https://app-social-network-java.herokuapp.com/swagger-ui/index.html
+All documentation and possibility to call methods are available in swagger. To do that you need to run application locally and then
+you in browser you can open swagger API using url: http://localhost:8080/swagger-ui/index.html
+
 
 Project name: Social Network.
 
@@ -14,7 +16,6 @@ Used frameworks and libraries:
 - JUnit 5, Mockito,
 - Mapstruck,
 - Lombok,
-- Heroku,
 - Docker.
 
 Generally application allows:
@@ -33,7 +34,7 @@ with contains all security settings.
 
 Project line code test coverage is 97% with excluded mappers package because we can't test the interface.
 
-Applications not contains frontend.
+Applications doesn't contains frontend.
 The main purpose was created a basic version of facebook app. Login users can see posts with body, name of author
 and author profile picture. Post also contains information about numbers of likes, dislikes and comments for specific
 post. After click for button user should be able to see comments and add a new one.
