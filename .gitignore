@@ -31,3 +31,11 @@ replay_pid*
 #sonralint
 .idea/sonarlint/
 .idea/*
+
+#Environment variables with secrets
+/.env
+
+#target
+/target/
+*/target/**/
+/.idea/
