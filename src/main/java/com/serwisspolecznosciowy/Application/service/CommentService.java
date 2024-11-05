@@ -12,8 +12,8 @@ import com.serwisspolecznosciowy.Application.mappers.LikeMapper;
 import com.serwisspolecznosciowy.Application.repository.CommentRepository;
 import com.serwisspolecznosciowy.Application.repository.DislikeRepository;
 import com.serwisspolecznosciowy.Application.repository.LikeRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -24,31 +24,17 @@ import java.util.*;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class CommentService {
 
-    @Autowired
-    private CommentRepository commentRepository;
-
-    @Autowired
-    private CommentMapper commentMapper;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private PostService postService;
-
-    @Autowired
-    private LikeRepository likeRepository;
-
-    @Autowired
-    private LikeMapper likeMapper;
-
-    @Autowired
-    private DislikeRepository dislikeRepository;
-
-    @Autowired
-    private DislikeMapper dislikeMapper;
+    private final CommentRepository commentRepository;
+    private final CommentMapper commentMapper;
+    private final UserService userService;
+    private final PostService postService;
+    private final LikeRepository likeRepository;
+    private final LikeMapper likeMapper;
+    private final DislikeRepository dislikeRepository;
+    private final DislikeMapper dislikeMapper;
 
     public CommentDto addNewComment(Integer postId, CommentBodyDto commentBodyDto) throws PostNotFoundException {
         User loginUser = userService.getLoginUser();
