@@ -16,8 +16,8 @@ import com.serwisspolecznosciowy.Application.repository.CommentRepository;
 import com.serwisspolecznosciowy.Application.repository.DislikeRepository;
 import com.serwisspolecznosciowy.Application.repository.LikeRepository;
 import com.serwisspolecznosciowy.Application.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -28,32 +28,17 @@ import java.util.*;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class PostService {
 
-    @Autowired
-    private PostRepository postRepository;
-
-    @Autowired
-    private CommentRepository commentRepository;
-
-    @Autowired
-    private PostMapper postMapper;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private LikeRepository likeRepository;
-
-    @Autowired
-    private DislikeRepository dislikeRepository;
-
-    @Autowired
-    LikeMapper likeMapper;
-
-    @Autowired
-    DislikeMapper dislikeMapper;
-
+    private final PostRepository postRepository;
+    private final CommentRepository commentRepository;
+    private final PostMapper postMapper;
+    private final UserService userService;
+    private final LikeRepository likeRepository;
+    private final DislikeRepository dislikeRepository;
+    private final LikeMapper likeMapper;
+    private final DislikeMapper dislikeMapper;
 
     public PostDto addNewPost(PostBodyDto postBodyDto) throws PostEmptyBodyException {
         User loginUser = userService.getLoginUser();
