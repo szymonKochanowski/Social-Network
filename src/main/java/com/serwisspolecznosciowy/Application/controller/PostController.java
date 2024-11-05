@@ -9,8 +9,8 @@ import com.serwisspolecznosciowy.Application.service.PostService;
 import com.serwisspolecznosciowy.Application.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +23,11 @@ import java.util.Optional;
 @RestController
 @Slf4j
 @RequestMapping("/post")
+@RequiredArgsConstructor
 public class PostController {
 
-    @Autowired
-    PostService postService;
-
-    @Autowired
-    UserService userService;
+    private final PostService postService;
+    private final UserService userService;
 
     @PostMapping("/add/dto")
     @Operation(summary = "Add new post", description = "User need to provide only body/context for new post.")
