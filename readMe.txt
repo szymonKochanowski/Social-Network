@@ -15,8 +15,7 @@ Used frameworks and libraries:
 - MySQL, Hibernate,
 - JUnit 5, Mockito,
 - Mapstruck,
-- Lombok,
-- Docker.
+- Lombok.
 
 Generally application allows:
 - for not login users: create a new user and login to app;
@@ -34,7 +33,7 @@ with contains all security settings.
 
 Project line code test coverage is 97% with excluded mappers package because we can't test the interface.
 
-Applications doesn't contains frontend.
+Applications doesn't contain frontend.
 The main purpose was created a basic version of facebook app. Login users can see posts with body, name of author
 and author profile picture. Post also contains information about numbers of likes, dislikes and comments for specific
 post. After click for button user should be able to see comments and add a new one.
